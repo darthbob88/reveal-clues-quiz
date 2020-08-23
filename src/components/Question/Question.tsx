@@ -1,5 +1,7 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import { Question } from "../../model/Question";
+import styles from "./Question.module.css";
+
 type QuestionProps = {
   question: Question;
 };
@@ -8,26 +10,34 @@ export const QuestionComponent: React.FunctionComponent<QuestionProps> = ({
 }) => {
   const [revealedClues, setRevealedClues] = useState(0);
   const [currentGuess, setCurrentGuess] = useState("");
-  /* PLAN: 
-        <prompt>
-        <show another clue button => increments numbers of clues shown, decrements number of points.>
-        <clue 1>
-        <either black bar or clue
-    */
-  const submitGuess = () => {
-    if (currentGuess.toLocaleLowerCase() === question.answer) {
-      return <span>Correct!</span>;
+  const [answered, setAnswered] = useState(false);
+
+  const revealOnAnswer = (answered: boolean) => {
+    if (!answered) return null;
+    if (
+      currentGuess.toLocaleLowerCase() === question.answer.toLocaleLowerCase()
+    ) {
+      return (
+        <span>
+          Correct! You get {question.clues.length - revealedClues} points.
+        </span>
+      );
     } else {
-      return <span>Incorrect! The correct answer is {question.answer}. </span>;
+      return (
+        <span>
+          Incorrect! You get 0 points. The correct answer is {question.answer}.{" "}
+        </span>
+      );
     }
   };
+
   return (
-    <div>
+    <div className={styles.question}>
       <span className="prompt">In what state will you find...</span>
       {/* Now where the hell do I get the prompt? */}
       <button
         onClick={() => setRevealedClues(revealedClues + 1)}
-        disabled={revealedClues === question.clues.length - 1}
+        disabled={answered || revealedClues === question.clues.length - 1}
       >
         Reveal Another Clue
       </button>
@@ -40,11 +50,17 @@ export const QuestionComponent: React.FunctionComponent<QuestionProps> = ({
           />
         ))}
       </ul>
-      <input
-        value={currentGuess}
-        onChange={(event) => setCurrentGuess(event?.currentTarget.value)}
-      />
-      <button onClick={() => submitGuess()}>Submit Guess</button>
+      <label>
+        Your Answer: {"  "}
+        <input
+          value={currentGuess}
+          onChange={(event) => setCurrentGuess(event?.currentTarget.value)}
+        />
+      </label>
+      <button onClick={() => setAnswered(true)} disabled={answered}>
+        Submit Guess
+      </button>
+      {revealOnAnswer(answered)}
     </div>
   );
 };
