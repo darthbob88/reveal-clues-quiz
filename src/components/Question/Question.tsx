@@ -4,9 +4,11 @@ import styles from "./Question.module.css";
 
 type QuestionProps = {
   question: Question;
+  awardPoints: Function;
 };
 export const QuestionComponent: React.FunctionComponent<QuestionProps> = ({
   question,
+  awardPoints,
 }) => {
   const [revealedClues, setRevealedClues] = useState(0);
   const [currentGuess, setCurrentGuess] = useState("");
@@ -17,12 +19,14 @@ export const QuestionComponent: React.FunctionComponent<QuestionProps> = ({
     if (
       currentGuess.toLocaleLowerCase() === question.answer.toLocaleLowerCase()
     ) {
+      awardPoints(question.clues.length - revealedClues);
       return (
         <span>
           Correct! You get {question.clues.length - revealedClues} points.
         </span>
       );
     } else {
+      awardPoints(0);
       return (
         <span>
           Incorrect! You get 0 points. The correct answer is {question.answer}.{" "}

@@ -1,13 +1,20 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import {
+  render,
+  fireEvent,
+  getByLabelText,
+  queryByText,
+} from "@testing-library/react";
 import { QuestionComponent } from "./Question";
 import { defaultQuiz } from "../../model/Quiz";
 
 const defaultQuestion = defaultQuiz.questions[0];
-
+const awardPoints = (score: number) => {
+  console.log(score);
+};
 test("renders a question properly", () => {
   const { getByText, getAllByText } = render(
-    <QuestionComponent question={defaultQuestion} />
+    <QuestionComponent question={defaultQuestion} awardPoints={awardPoints} />
   );
   const firstClue = getByText(defaultQuestion.clues[0]);
   expect(firstClue).toBeInTheDocument();
@@ -20,7 +27,7 @@ test("renders a question properly", () => {
 
 test("reveals more clues as necessary", () => {
   const { queryByText, getByText, getAllByText } = render(
-    <QuestionComponent question={defaultQuestion} />
+    <QuestionComponent question={defaultQuestion} awardPoints={awardPoints} />
   );
   const revealClue = getByText("Reveal Another Clue");
   expect(revealClue).toBeEnabled();
@@ -55,15 +62,67 @@ test("reveals more clues as necessary", () => {
   expect(revealClue).toBeDisabled();
 });
 
-test("awards the right number of points", () => {
-  const { getByText, getAllByText } = render(
-    <QuestionComponent question={defaultQuestion} />
+test("awards 4 points for correct answer with 1 clue", () => {
+  const incrementScore = jest.fn();
+  const { getByText, getAllByText, getByLabelText, queryByText } = render(
+    <QuestionComponent
+      question={defaultQuestion}
+      awardPoints={incrementScore}
+    />
   );
-  const firstClue = getByText(defaultQuestion.clues[0]);
-  expect(firstClue).toBeInTheDocument();
-  const unrevealedClues = getAllByText("-----------");
-  expect(unrevealedClues.length).toBe(defaultQuestion.clues.length - 1);
+  const answerSlot = getByLabelText(/Answer/i);
+  fireEvent.change(answerSlot, { target: { value: defaultQuestion.answer } });
+
+  const submitBtn = getByText(/Submit/i);
+  fireEvent.click(submitBtn);
+
+  const result = queryByText(/Correct/i);
+  expect(result).toBeInTheDocument();
+  expect(incrementScore).toHaveBeenCalledTimes(1);
+  expect(incrementScore).toHaveBeenCalledWith(defaultQuestion.clues.length);
+});
+
+test("awards 3 points for correct answer with 2 clues", () => {
+  const incrementScore = jest.fn();
+  const { getByText, getAllByText, getByLabelText, queryByText } = render(
+    <QuestionComponent
+      question={defaultQuestion}
+      awardPoints={incrementScore}
+    />
+  );
 
   const revealClue = getByText("Reveal Another Clue");
   expect(revealClue).toBeEnabled();
+  fireEvent.click(revealClue);
+
+  const answerSlot = getByLabelText(/Answer/i);
+  fireEvent.change(answerSlot, { target: { value: defaultQuestion.answer } });
+
+  const submitBtn = getByText(/Submit/i);
+  fireEvent.click(submitBtn);
+
+  const result = queryByText(/Correct/i);
+  expect(result).toBeInTheDocument();
+  expect(incrementScore).toHaveBeenCalledTimes(1);
+  expect(incrementScore).toHaveBeenCalledWith(defaultQuestion.clues.length - 1);
+});
+
+test("awards 0 points for incorrect answer", () => {
+  const incrementScore = jest.fn();
+  const { getByText, getAllByText, getByLabelText, queryByText } = render(
+    <QuestionComponent
+      question={defaultQuestion}
+      awardPoints={incrementScore}
+    />
+  );
+  const answerSlot = getByLabelText(/Answer/i);
+  fireEvent.change(answerSlot, { target: { value: "butts" } });
+
+  const submitBtn = getByText(/Submit/i);
+  fireEvent.click(submitBtn);
+
+  const result = queryByText(/Correct/i);
+  expect(result).toBeInTheDocument();
+  expect(incrementScore).toHaveBeenCalledTimes(1);
+  expect(incrementScore).toHaveBeenCalledWith(0);
 });
