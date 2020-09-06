@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Question } from "../../model/Question";
+import { Question, QuestionState } from "../../model/Question";
 import styles from "./Question.module.css";
 
 type QuestionProps = {
@@ -12,24 +12,30 @@ export const QuestionComponent: React.FunctionComponent<QuestionProps> = ({
 }) => {
   const [revealedClues, setRevealedClues] = useState(0);
   const [currentGuess, setCurrentGuess] = useState("");
-  const [answered, setAnswered] = useState(false);
+  const [answered, setAnswered] = useState(QuestionState.UNANSWERED);
 
-  const revealOnAnswer = (answered: boolean) => {
-    if (!answered) return null;
+  const submitAnswer = () => {
     if (
       currentGuess.toLocaleLowerCase() === question.answer.toLocaleLowerCase()
     ) {
-      awardPoints(question.clues.length - revealedClues);
-      return (
-        <span>
-          Correct! You get {question.clues.length - revealedClues} points.
-        </span>
-      );
+      setAnswered(QuestionState.CORRECTLY_ANSWERED);
+      const questionValue = question.clues.length - revealedClues;
+      awardPoints(questionValue);
     } else {
+      setAnswered(QuestionState.INCORRECTLY_ANSWERED);
       awardPoints(0);
+    }
+  };
+  const revealOnAnswer = () => {
+    if (QuestionState.UNANSWERED === answered) {
+      return null;
+    } else if (QuestionState.CORRECTLY_ANSWERED === answered) {
+      const questionValue = question.clues.length - revealedClues;
+      return <span>Correct! You get {questionValue} points.</span>;
+    } else {
       return (
         <span>
-          Incorrect! You get 0 points. The correct answer is {question.answer}.{" "}
+          Incorrect! You get 0 points. The correct answer is {question.answer}.
         </span>
       );
     }
@@ -41,7 +47,10 @@ export const QuestionComponent: React.FunctionComponent<QuestionProps> = ({
       {/* Now where the hell do I get the prompt? */}
       <button
         onClick={() => setRevealedClues(revealedClues + 1)}
-        disabled={answered || revealedClues === question.clues.length - 1}
+        disabled={
+          answered !== QuestionState.UNANSWERED ||
+          revealedClues === question.clues.length - 1
+        }
       >
         Reveal Another Clue
       </button>
@@ -55,16 +64,22 @@ export const QuestionComponent: React.FunctionComponent<QuestionProps> = ({
         ))}
       </ul>
       <label>
-        Your Answer: {"  "}
+        Your Answer:
         <input
+          disabled={answered !== QuestionState.UNANSWERED}
           value={currentGuess}
           onChange={(event) => setCurrentGuess(event?.currentTarget.value)}
         />
       </label>
-      <button onClick={() => setAnswered(true)} disabled={answered}>
+      <button
+        onClick={(event) => {
+          submitAnswer();
+        }}
+        disabled={answered !== QuestionState.UNANSWERED}
+      >
         Submit Guess
       </button>
-      {revealOnAnswer(answered)}
+      {revealOnAnswer()}
     </div>
   );
 };

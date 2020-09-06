@@ -3,3 +3,8 @@ export type Question = {
     answer: string;
     revealOnAnswer?: string;
 }
+export enum QuestionState {
+    UNANSWERED,
+    CORRECTLY_ANSWERED,
+    INCORRECTLY_ANSWERED
+}

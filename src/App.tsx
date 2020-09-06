@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { QuestionComponent } from "./components/Question/Question";
 import { defaultQuiz } from "./model/Quiz";
@@ -21,6 +20,7 @@ function App() {
         answer wrong, you get 0 points. So it's better to ask for another clue
         and get 3 points than get a question wrong and get 0.
       </article>
+      <p>Current score: {score}</p>
       <QuestionComponent
         question={defaultQuiz.questions[0]}
         awardPoints={awardPoints}
