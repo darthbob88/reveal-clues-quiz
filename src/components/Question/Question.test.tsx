@@ -121,7 +121,7 @@ test("awards 0 points for incorrect answer", () => {
   const submitBtn = getByText(/Submit/i);
   fireEvent.click(submitBtn);
 
-  const result = queryByText(/Correct/i);
+  const result = queryByText(/incorrect/i);
   expect(result).toBeInTheDocument();
   expect(incrementScore).toHaveBeenCalledTimes(1);
   expect(incrementScore).toHaveBeenCalledWith(0);
