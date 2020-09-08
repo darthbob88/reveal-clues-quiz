@@ -25,13 +25,17 @@ export const QuizComponent: React.FunctionComponent<QuizProps> = ({
     const next = (currentQuestion + 1) % quiz.questions.length;
     setCurrentQuestion(next);
   };
+  const scoreQuestion = (points: number) => {
+    awardPoints(points);
+    nextQuestion();
+  };
   return (
     <div className={styles.quiz}>
       <button onClick={() => prevQuestion()}>&lt; Previous Question</button>
       <button onClick={() => nextQuestion()}>Next Question &gt;</button>
       <QuestionComponent
         question={quiz.questions[currentQuestion]}
-        awardPoints={awardPoints}
+        awardPoints={scoreQuestion}
       />
     </div>
   );
