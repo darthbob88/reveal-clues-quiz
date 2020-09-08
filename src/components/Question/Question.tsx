@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Question, QuestionState } from "../../model/Question";
 import styles from "./Question.module.css";
 
@@ -13,6 +13,14 @@ export const QuestionComponent: React.FunctionComponent<QuestionProps> = ({
   const [revealedClues, setRevealedClues] = useState(0);
   const [currentGuess, setCurrentGuess] = useState("");
   const [answered, setAnswered] = useState(QuestionState.UNANSWERED);
+
+  useEffect(() => {
+    return () => {
+      setRevealedClues(0);
+      setCurrentGuess("");
+      setAnswered(QuestionState.UNANSWERED);
+    };
+  }, [question]);
 
   const submitAnswer = () => {
     if (
