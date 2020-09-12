@@ -1,4 +1,3 @@
-import { Question, QuestionState } from "../../model/Question";
 import React, { useState } from "react";
 import { Quiz } from "../../model/Quiz";
 import styles from "./Quiz.module.css";
@@ -13,8 +12,6 @@ export const QuizComponent: React.FunctionComponent<QuizProps> = ({
   awardPoints,
 }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [currentGuess, setCurrentGuess] = useState("");
-  const [answered, setAnswered] = useState(QuestionState.UNANSWERED);
 
   const prevQuestion = () => {
     const prev =
