@@ -1,44 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Raymond's Quiz App
 
-## Available Scripts
+<!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
+![GitHub repo size](https://img.shields.io/github/languages/code-size/darthbob88/reveal-clues-quiz)
+![Node.js CI](https://github.com/darthbob88/reveal-clues-quiz/workflows/Node.js%20CI/badge.svg)
 
-In the project directory, you can run:
+There's this format for trivia that I really like, but which doesn't work well in a socially-distant or online scenario. I give you a series of 4ish clues relating to a certain thing, and when you think you know the answer, you run down and tell me,  I mark it correct or incorrect, and award you some points depending on how many clues you needed. If you only need 1 clue to know that, eg, the USPS Remote Encoding Center is in the state of Utah, you get 4 points. If you need all 4 clues, you only get 1 point. The catch is, you only get one chance to answer each question, and if you get an answer wrong, you get 0 points for that question. So it's often better to wait for another clue than risk getting 0.
 
-### `yarn start`
+Example of play
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Trivia Host: For 4 points, in which state will you find Ernest Hemingway's Grave?
+Audience members 1, 2, 3: No idea.
+TH: For 3 points, in which state will you find Ernest Hemingway's grave, and the Smurf Turf, a college with blue Astroturf?
+AM 1: *Runs up to the host* That's Boise State in Idaho.
+TH: Correct, 3 points.
+TH: Question is now worth 2 points, in which state will you find Ernest Hemingway's grave, the Smurf Turf, and the Yellowstone Zone of Death?
+AM 2: *Runs up to the host* Is that Wyoming?
+TH: Incorrect, 0 points.
+TH: For 1 point, this state also has the State-Name-Here Potato Museum.
+AM 3: *Runs up to the host* That's Idaho.
+TH: Yep, here's 1 point.
+TH: Next question...
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Plans:
 
-### `yarn test`
+* v1.0 : I'm going to set it up with a couple hard-coded quizzes, just to make sure that functionality works.
+* v1.1 : Add ability for user-generated quizzes
+* v1.2 : Add ability to save user scores and generate leaderboard for quizzes
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Currently hosted at https://darthbob88.github.io/reveal-clues-quiz/
 
-### `yarn build`
+## Contributing to This Project
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To contribute to this project, follow these steps:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1. Fork this repository.
+2. Create a branch: `git checkout -b <branch_name>`.
+3. Make your changes and commit them: `git commit -m '<commit_message>'`
+4. Push to the original branch: `git push origin <project_name>/<location>`
+5. Create the pull request.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
-### `yarn eject`
+## Contact
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you want to contact me you can reach me at <darthbob88@gmail.com>.
