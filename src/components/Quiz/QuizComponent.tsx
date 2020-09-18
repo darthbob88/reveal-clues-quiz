@@ -24,7 +24,9 @@ export const QuizComponent: React.FunctionComponent<QuizProps> = ({
   };
   const scoreQuestion = (points: number) => {
     awardPoints(points);
-    nextQuestion();
+    setTimeout(() => {
+      nextQuestion();
+    }, 800);
   };
   return (
     <div className={styles.quiz}>

@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, waitForElement } from "@testing-library/react";
 import { QuizComponent } from "./QuizComponent";
 import { defaultQuiz } from "../../model/Quiz";
 
@@ -20,7 +20,7 @@ test("renders a quiz properly", () => {
   expect(revealClue).toBeEnabled();
 });
 
-xtest("shows next unanswered question when one is answered", () => {
+test("shows next unanswered question when one is answered", async () => {
   const { getByText, getAllByText, getByLabelText, queryByText } = render(
     <QuizComponent quiz={defaultQuiz} awardPoints={awardPoints} />
   );
@@ -37,7 +37,9 @@ xtest("shows next unanswered question when one is answered", () => {
   expect(result).toBeInTheDocument();
 
   const secondQuestion = defaultQuiz.questions[1];
-  const secondClue = getByText(secondQuestion.clues[0]);
+  const secondClue = await waitForElement(() =>
+    getByText(secondQuestion.clues[0])
+  );
   expect(secondClue).toBeInTheDocument();
 });
 
