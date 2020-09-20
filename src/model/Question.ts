@@ -11,4 +11,5 @@ export enum QuestionEnum {
 export type QuestionState = {
     state: QuestionEnum;
     score: number;
+    revealedClues: number;
 }
