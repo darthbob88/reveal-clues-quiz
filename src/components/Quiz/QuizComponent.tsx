@@ -19,8 +19,13 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
   };
   const nextQuestion = () => {
     //TODO: Fix this to use the quiz state.
+    //TODO: Fix this to get the next *unanswered* question
     const next = (currentQuestion + 1) % questions.length;
-    setCurrentQuestion(next);
+    //Due to a poor decision on my part, this is actually the number of indexes past `next` to skip.
+    const unansweredQs = quiz.quizState
+      .slice(next)
+      .findIndex((question) => question.state === QuestionEnum.UNANSWERED);
+    setCurrentQuestion(next + unansweredQs);
   };
   const scoreQuestion = (points: QuestionState) => {
     quiz.scoreQuestion(currentQuestion, points);
