@@ -1,4 +1,5 @@
-import { Question } from "./Question";
+import { computed, observable } from "mobx";
+import { Question, QuestionEnum, QuestionState } from "./Question";
 /**
  * Overarching type for a quiz.
  * @field prompt: string A prompt for each question, used if there is no overruling one in the individual question
@@ -67,3 +68,29 @@ export const defaultQuiz: Quiz = {
         answer: "Washington"
     }]
 }
+
+export class QuizState {
+    @observable currentQuiz: Quiz;
+    // TODO: It'd be neat if I could make this part of the quiz itself
+    @observable quizState: any[] = [];
+
+    constructor(chosenQuiz: Quiz) {
+        this.currentQuiz = chosenQuiz;
+        this.quizState = chosenQuiz.questions.map(question => ({ state: QuestionEnum.UNANSWERED, score: 0 }))
+    }
+
+    scoreQuestion(questionIndex: number, questionState: QuestionState) {
+        if (this.quizState[questionIndex].state === QuestionEnum.UNANSWERED) {
+            this.quizState[questionIndex] = questionState;
+        }
+    }
+
+    @computed get scorePoints() {
+        return this.quizState.reduce((acc, cur) => acc + cur.score, 0);
+    }
+
+    @computed get scorePercent() {
+        const numCorrect = this.quizState.filter(question => question.state === QuestionEnum.CORRECTLY_ANSWERED);
+        return numCorrect.length;
+    }
+} 

@@ -3,8 +3,12 @@ export type Question = {
     answer: string;
     revealOnAnswer?: string;
 }
-export enum QuestionState {
+export enum QuestionEnum {
     UNANSWERED,
     CORRECTLY_ANSWERED,
     INCORRECTLY_ANSWERED
+}
+export type QuestionState = {
+    state: QuestionEnum;
+    score: number;
 }

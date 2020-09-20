@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
-import { defaultQuiz } from "./model/Quiz";
+import { defaultQuiz, QuizState } from "./model/Quiz";
 import { QuizComponent } from "./components/Quiz/QuizComponent";
 
 function App() {
-  const [score, setScore] = useState(0);
-  const awardPoints = (questionScore: number) => {
-    setScore(score + questionScore);
-  };
+  const quizState = new QuizState(defaultQuiz);
   return (
     <div className="App">
       <header>Raymond's Quiz App</header>
@@ -20,8 +17,7 @@ function App() {
         answer wrong, you get 0 points. So it's better to ask for another clue
         and get 3 points than get a question wrong and get 0.
       </article>
-      <p>Current score: {score}</p>
-      <QuizComponent quiz={defaultQuiz} awardPoints={awardPoints} />
+      <QuizComponent quiz={quizState} />
     </div>
   );
 }
