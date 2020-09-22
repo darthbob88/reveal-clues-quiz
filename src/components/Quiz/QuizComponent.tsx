@@ -39,6 +39,23 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
         Current score: {quiz.scorePoints} pts {quiz.scorePercent} question(s)
         correct
       </p>
+      <ul className={styles.questions}>
+        {quiz.quizState.map((question, index) => (
+          <li
+            key={index}
+            className={`${index === currentQuestion ? styles.current : ""}
+              ${
+                question.state === QuestionEnum.UNANSWERED
+                  ? styles.unanswered
+                  : question.state === QuestionEnum.CORRECTLY_ANSWERED
+                  ? styles.correct
+                  : styles.incorrect
+              }`}
+          >
+            {index}
+          </li>
+        ))}
+      </ul>
       <button onClick={() => prevQuestion()}>&lt; Previous Question</button>
       <button onClick={() => nextQuestion()}>Next Question &gt;</button>
       <QuestionComponent
