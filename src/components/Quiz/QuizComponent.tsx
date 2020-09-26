@@ -10,7 +10,6 @@ type QuizProps = {
 };
 export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
   const questions = quiz.currentQuiz.questions;
 
   const prevQuestion = () => {
