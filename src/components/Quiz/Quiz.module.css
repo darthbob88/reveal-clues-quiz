@@ -19,10 +19,10 @@ button {
   background-color: white;
 }
 .correct {
-  background-color: lawngreen;
+  background-color: #7cfc007a;
 }
 .incorrect {
-  background-color: red;
+  background-color: #ff0000a6;
   color: white;
 }
 

@@ -7,3 +7,6 @@ button {
   display: block;
   margin: 0.5rem auto;
 }
+input {
+  margin-left: 0.5rem;
+}
