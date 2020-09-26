@@ -1,15 +1,14 @@
 import React from "react";
 import { render, fireEvent, waitForElement } from "@testing-library/react";
 import { QuizComponent } from "./QuizComponent";
-import { defaultQuiz } from "../../model/Quiz";
+import { defaultQuiz, QuizState } from "../../model/Quiz";
 
 const firstQuestion = defaultQuiz.questions[0];
-const awardPoints = (score: number) => {
-  console.log(score);
-};
+
+const defaultQuizState = new QuizState(defaultQuiz);
 test("renders a quiz properly", () => {
   const { getByText, getAllByText } = render(
-    <QuizComponent quiz={defaultQuiz} awardPoints={awardPoints} />
+    <QuizComponent quiz={defaultQuizState} />
   );
   const firstClue = getByText(firstQuestion.clues[0]);
   expect(firstClue).toBeInTheDocument();
@@ -21,8 +20,8 @@ test("renders a quiz properly", () => {
 });
 
 test("shows next unanswered question when one is answered", async () => {
-  const { getByText, getAllByText, getByLabelText, queryByText } = render(
-    <QuizComponent quiz={defaultQuiz} awardPoints={awardPoints} />
+  const { getByText, getByLabelText, queryByText } = render(
+    <QuizComponent quiz={defaultQuizState} />
   );
   const firstClue = getByText(firstQuestion.clues[0]);
   expect(firstClue).toBeInTheDocument();
@@ -44,10 +43,7 @@ test("shows next unanswered question when one is answered", async () => {
 });
 
 test("cycles to next question", () => {
-  const incrementScore = jest.fn();
-  const { getByText } = render(
-    <QuizComponent quiz={defaultQuiz} awardPoints={incrementScore} />
-  );
+  const { getByText } = render(<QuizComponent quiz={defaultQuizState} />);
 
   const firstClue = getByText(firstQuestion.clues[0]);
   expect(firstClue).toBeInTheDocument();
@@ -67,10 +63,7 @@ test("cycles to next question", () => {
 });
 
 test("cycles to prev question", () => {
-  const incrementScore = jest.fn();
-  const { getByText } = render(
-    <QuizComponent quiz={defaultQuiz} awardPoints={incrementScore} />
-  );
+  const { getByText } = render(<QuizComponent quiz={defaultQuizState} />);
 
   const firstClue = getByText(firstQuestion.clues[0]);
   expect(firstClue).toBeInTheDocument();

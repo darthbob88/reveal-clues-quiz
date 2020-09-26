@@ -1,44 +1,48 @@
+import { observer } from "mobx-react";
 import React, { useState, useEffect } from "react";
-import { Question, QuestionState } from "../../model/Question";
+import { Question, QuestionEnum, QuestionState } from "../../model/Question";
 import styles from "./Question.module.css";
 
 type QuestionProps = {
   question: Question;
+  state: QuestionState;
   awardPoints: Function;
 };
-export const QuestionComponent: React.FunctionComponent<QuestionProps> = ({
+export const QuestionComp: React.FunctionComponent<QuestionProps> = ({
   question,
+  state,
   awardPoints,
 }) => {
-  const [revealedClues, setRevealedClues] = useState(0);
   const [currentGuess, setCurrentGuess] = useState("");
-  const [answered, setAnswered] = useState(QuestionState.UNANSWERED);
 
   useEffect(() => {
     return () => {
-      setRevealedClues(0);
       setCurrentGuess("");
-      setAnswered(QuestionState.UNANSWERED);
     };
   }, [question]);
 
   const submitAnswer = () => {
+    const qState: Partial<QuestionState> = {
+      revealedClues: state.revealedClues,
+    };
+
     if (
       currentGuess.toLocaleLowerCase() === question.answer.toLocaleLowerCase()
     ) {
-      setAnswered(QuestionState.CORRECTLY_ANSWERED);
-      const questionValue = question.clues.length - revealedClues;
-      awardPoints(questionValue);
+      const questionValue = question.clues.length - state.revealedClues;
+      qState.score = questionValue;
+      qState.state = QuestionEnum.CORRECTLY_ANSWERED;
     } else {
-      setAnswered(QuestionState.INCORRECTLY_ANSWERED);
-      awardPoints(0);
+      qState.state = QuestionEnum.INCORRECTLY_ANSWERED;
+      qState.score = 0;
     }
+    awardPoints(qState);
   };
   const revealOnAnswer = () => {
-    if (QuestionState.UNANSWERED === answered) {
+    if (QuestionEnum.UNANSWERED === state.state) {
       return null;
-    } else if (QuestionState.CORRECTLY_ANSWERED === answered) {
-      const questionValue = question.clues.length - revealedClues;
+    } else if (QuestionEnum.CORRECTLY_ANSWERED === state.state) {
+      const questionValue = question.clues.length - state.revealedClues;
       return <span>Correct! You get {questionValue} points.</span>;
     } else {
       return (
@@ -48,33 +52,37 @@ export const QuestionComponent: React.FunctionComponent<QuestionProps> = ({
       );
     }
   };
+  const revealAnotherClue = () => {
+    state.revealedClues = state.revealedClues + 1;
+  };
 
   return (
     <div className={styles.question}>
       <span className="prompt">In what state will you find...</span>
       {/* Now where the hell do I get the prompt? */}
       <button
-        onClick={() => setRevealedClues(revealedClues + 1)}
+        onClick={() => revealAnotherClue()}
         disabled={
-          answered !== QuestionState.UNANSWERED ||
-          revealedClues === question.clues.length - 1
+          state.state !== QuestionEnum.UNANSWERED ||
+          state.revealedClues === question.clues.length - 1
         }
       >
         Reveal Another Clue
       </button>
+      <span>{1 + state.revealedClues} clues revealed</span>
       <ul className="clues">
         {question.clues.map((clue, index) => (
           <ClueComponent
             key={index}
             clue={clue}
-            revealed={index <= revealedClues}
+            revealed={index <= state.revealedClues}
           />
         ))}
       </ul>
       <label>
         Your Answer:
         <input
-          disabled={answered !== QuestionState.UNANSWERED}
+          disabled={state.state !== QuestionEnum.UNANSWERED}
           value={currentGuess}
           onChange={(event) => setCurrentGuess(event?.currentTarget.value)}
         />
@@ -83,7 +91,7 @@ export const QuestionComponent: React.FunctionComponent<QuestionProps> = ({
         onClick={(event) => {
           submitAnswer();
         }}
-        disabled={answered !== QuestionState.UNANSWERED}
+        disabled={state.state !== QuestionEnum.UNANSWERED}
       >
         Submit Guess
       </button>
@@ -91,6 +99,8 @@ export const QuestionComponent: React.FunctionComponent<QuestionProps> = ({
     </div>
   );
 };
+
+export const QuestionComponent = observer(QuestionComp);
 
 type ClueProps = { clue: string; revealed: boolean };
 const ClueComponent: React.FunctionComponent<ClueProps> = ({
