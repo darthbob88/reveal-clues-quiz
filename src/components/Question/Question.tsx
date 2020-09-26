@@ -70,7 +70,7 @@ export const QuestionComp: React.FunctionComponent<QuestionProps> = ({
         Reveal Another Clue
       </button>
       <span>{1 + state.revealedClues} clues revealed</span>
-      <ul className="clues">
+      <ul className={styles.clues}>
         {question.clues.map((clue, index) => (
           <ClueComponent
             key={index}
