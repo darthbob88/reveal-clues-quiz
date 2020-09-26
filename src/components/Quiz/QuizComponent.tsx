@@ -43,6 +43,7 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
         {quiz.quizState.map((question, index) => (
           <li
             key={index}
+            onClick={() => setCurrentQuestion(index)}
             className={`${index === currentQuestion ? styles.current : ""}
               ${
                 question.state === QuestionEnum.UNANSWERED
@@ -52,7 +53,7 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
                   : styles.incorrect
               }`}
           >
-            {index}
+            {index + 1}
           </li>
         ))}
       </ul>
