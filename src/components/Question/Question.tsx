@@ -84,6 +84,7 @@ export const QuestionComp: React.FunctionComponent<QuestionProps> = ({
         <input
           disabled={state.state !== QuestionEnum.UNANSWERED}
           value={currentGuess}
+          onKeyPress={(event) => (event.key === "Enter" ? submitAnswer() : "")}
           onChange={(event) => setCurrentGuess(event?.currentTarget.value)}
         />
       </label>

@@ -1,12 +1,8 @@
 import React from "react";
-import {
-  render,
-  fireEvent,
-  getByLabelText,
-  queryByText,
-} from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import { QuestionComponent } from "./Question";
-import { defaultQuiz } from "../../model/Quiz";
+import { defaultQuiz, defaultQuizState } from "../../model/Quiz";
+import { QuestionEnum, QuestionState } from "../../model/Question";
 
 const defaultQuestion = defaultQuiz.questions[0];
 const awardPoints = (score: number) => {
@@ -14,7 +10,11 @@ const awardPoints = (score: number) => {
 };
 test("renders a question properly", () => {
   const { getByText, getAllByText } = render(
-    <QuestionComponent question={defaultQuestion} awardPoints={awardPoints} />
+    <QuestionComponent
+      state={defaultQuizState}
+      question={defaultQuestion}
+      awardPoints={awardPoints}
+    />
   );
   const firstClue = getByText(defaultQuestion.clues[0]);
   expect(firstClue).toBeInTheDocument();
@@ -27,7 +27,11 @@ test("renders a question properly", () => {
 
 test("reveals more clues as necessary", () => {
   const { queryByText, getByText, getAllByText } = render(
-    <QuestionComponent question={defaultQuestion} awardPoints={awardPoints} />
+    <QuestionComponent
+      state={defaultQuizState}
+      question={defaultQuestion}
+      awardPoints={awardPoints}
+    />
   );
   const revealClue = getByText("Reveal Another Clue");
   expect(revealClue).toBeEnabled();
@@ -64,8 +68,9 @@ test("reveals more clues as necessary", () => {
 
 test("awards 4 points for correct answer with 1 clue", () => {
   const incrementScore = jest.fn();
-  const { getByText, getAllByText, getByLabelText, queryByText } = render(
+  const { getByText, getByLabelText, queryByText } = render(
     <QuestionComponent
+      state={defaultQuizState}
       question={defaultQuestion}
       awardPoints={incrementScore}
     />
@@ -84,8 +89,9 @@ test("awards 4 points for correct answer with 1 clue", () => {
 
 test("awards 3 points for correct answer with 2 clues", () => {
   const incrementScore = jest.fn();
-  const { getByText, getAllByText, getByLabelText, queryByText } = render(
+  const { getByText, getByLabelText, queryByText } = render(
     <QuestionComponent
+      state={defaultQuizState}
       question={defaultQuestion}
       awardPoints={incrementScore}
     />
@@ -109,8 +115,10 @@ test("awards 3 points for correct answer with 2 clues", () => {
 
 test("awards 0 points for incorrect answer", () => {
   const incrementScore = jest.fn();
-  const { getByText, getAllByText, getByLabelText, queryByText } = render(
+  console.log(JSON.stringify(defaultQuizState));
+  const { getByText, getByLabelText } = render(
     <QuestionComponent
+      state={defaultQuizState}
       question={defaultQuestion}
       awardPoints={incrementScore}
     />
@@ -121,8 +129,12 @@ test("awards 0 points for incorrect answer", () => {
   const submitBtn = getByText(/Submit/i);
   fireEvent.click(submitBtn);
 
-  const result = queryByText(/incorrect/i);
-  expect(result).toBeInTheDocument();
+  // expect(result).toBeInTheDocument();
+  const expectedState: QuestionState = {
+    state: QuestionEnum.INCORRECTLY_ANSWERED,
+    score: 0,
+    revealedClues: 1,
+  };
   expect(incrementScore).toHaveBeenCalledTimes(1);
-  expect(incrementScore).toHaveBeenCalledWith(0);
+  expect(incrementScore).toHaveBeenCalledWith(expectedState);
 });

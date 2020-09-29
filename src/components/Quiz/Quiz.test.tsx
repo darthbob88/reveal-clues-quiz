@@ -32,7 +32,7 @@ test("shows next unanswered question when one is answered", async () => {
   const submitBtn = getByText(/Submit/i);
   fireEvent.click(submitBtn);
 
-  const result = queryByText(/Correct/i);
+  const result = queryByText(/Correct!/i);
   expect(result).toBeInTheDocument();
 
   const secondQuestion = defaultQuiz.questions[1];

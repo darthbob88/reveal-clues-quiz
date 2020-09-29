@@ -68,7 +68,7 @@ export const defaultQuiz: Quiz = {
         answer: "Washington"
     }]
 }
-
+export const defaultQuizState = { state: QuestionEnum.UNANSWERED, score: 0, revealedClues: 0 };
 export class QuizState {
     @observable currentQuiz: Quiz;
     // TODO: It'd be neat if I could make this part of the quiz itself
@@ -76,7 +76,7 @@ export class QuizState {
 
     constructor(chosenQuiz: Quiz) {
         this.currentQuiz = chosenQuiz;
-        this.quizState = chosenQuiz.questions.map(question => ({ state: QuestionEnum.UNANSWERED, score: 0, revealedClues: 0 }))
+        this.quizState = chosenQuiz.questions.map(question => ({ ...defaultQuizState }))
     }
 
     scoreQuestion(questionIndex: number, questionState: QuestionState) {
