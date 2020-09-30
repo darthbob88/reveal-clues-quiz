@@ -68,7 +68,7 @@ xtest("reveals more clues as necessary", () => {
 
 test("awards 4 points for correct answer with 1 clue", () => {
   const incrementScore = jest.fn();
-  const { getByText, getByLabelText, queryByText } = render(
+  const { getByText, getByLabelText } = render(
     <QuestionComponent
       state={defaultQuizState}
       question={defaultQuestion}
