@@ -77,3 +77,26 @@ test("cycles to prev question", () => {
   const secondClue = getByText(secondQuestion.clues[0]);
   expect(secondClue).toBeInTheDocument();
 });
+
+xtest("cycles to next unanswered question", async () => {
+  const { getByText, getByLabelText, queryByText } = render(
+    <QuizComponent quiz={defaultQuizState} />
+  );
+  const firstClue = getByText(firstQuestion.clues[0]);
+  expect(firstClue).toBeInTheDocument();
+
+  const answerSlot = getByLabelText(/Answer/i);
+  fireEvent.change(answerSlot, { target: { value: firstQuestion.answer } });
+
+  const submitBtn = getByText(/Submit/i);
+  fireEvent.click(submitBtn);
+
+  const result = queryByText(/Correct!/i);
+  expect(result).toBeInTheDocument();
+
+  const secondQuestion = defaultQuiz.questions[1];
+  const secondClue = await waitForElement(() =>
+    getByText(secondQuestion.clues[0])
+  );
+  expect(secondClue).toBeInTheDocument();
+});
