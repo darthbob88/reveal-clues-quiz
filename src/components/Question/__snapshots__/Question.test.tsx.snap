@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a question properly 1`] = `
+<div>
+  <div
+    class="question"
+  >
+    <span
+      class="prompt"
+    >
+      In what state will you find...
+    </span>
+    <button>
+      Reveal Another Clue
+    </button>
+    <span>
+      1
+       clues revealed
+    </span>
+    <ul
+      class="clues"
+    >
+      <li>
+        Ernest Hemingway’s Grave
+      </li>
+      <li>
+        -----------
+      </li>
+      <li>
+        -----------
+      </li>
+      <li>
+        -----------
+      </li>
+    </ul>
+    <label>
+      Your Answer:
+      <input
+        value=""
+      />
+    </label>
+    <button>
+      Submit Guess
+    </button>
+  </div>
+</div>
+`;

@@ -9,7 +9,7 @@ const awardPoints = (score: number) => {
   console.log(score);
 };
 test("renders a question properly", () => {
-  const { getByText, getAllByText } = render(
+  const { container, getByText, getAllByText } = render(
     <QuestionComponent
       state={defaultQuizState}
       question={defaultQuestion}
@@ -23,6 +23,8 @@ test("renders a question properly", () => {
 
   const revealClue = getByText("Reveal Another Clue");
   expect(revealClue).toBeEnabled();
+
+  expect(container).toMatchSnapshot();
 });
 // Can't easily test this after moving `revealedClues` to MobX :(
 xtest("reveals more clues as necessary", () => {

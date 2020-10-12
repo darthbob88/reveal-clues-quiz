@@ -7,7 +7,7 @@ const firstQuestion = defaultQuiz.questions[0];
 
 const defaultQuizState = new QuizState(defaultQuiz);
 test("renders a quiz properly", () => {
-  const { getByText, getAllByText } = render(
+  const { getByText, getAllByText, container } = render(
     <QuizComponent quiz={defaultQuizState} />
   );
   const firstClue = getByText(firstQuestion.clues[0]);
@@ -17,6 +17,8 @@ test("renders a quiz properly", () => {
 
   const revealClue = getByText("Reveal Another Clue");
   expect(revealClue).toBeEnabled();
+
+  expect(container).toMatchSnapshot();
 });
 
 test("shows next unanswered question when one is answered", async () => {

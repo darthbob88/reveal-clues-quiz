@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the app properly 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <header>
+      Raymond's Quiz App
+    </header>
+    <details
+      class="description"
+    >
+      Each question in this quiz will involve a series of clues of hopefully-increasing obviousness. If you get the question right after the first clue, you get the maximum number of points, each additional clue you need reduces the value by 1 point, down to 1 point if you need all the clues. HOWEVER, you only get one chance to answer, and if you answer wrong, you get 0 points. So it's better to ask for another clue and get 3 points than get a question wrong and get 0.
+      <summary>
+        How to Play
+      </summary>
+    </details>
+    <div
+      class="quiz"
+    >
+      <p>
+        Current score: 
+        0
+         pts 
+        0
+         question(s) correct
+      </p>
+      <ul
+        class="questions"
+      >
+        <li
+          class="current
+              unanswered"
+        >
+          1
+        </li>
+        <li
+          class="
+              unanswered"
+        >
+          2
+        </li>
+        <li
+          class="
+              unanswered"
+        >
+          3
+        </li>
+        <li
+          class="
+              unanswered"
+        >
+          4
+        </li>
+        <li
+          class="
+              unanswered"
+        >
+          5
+        </li>
+        <li
+          class="
+              unanswered"
+        >
+          6
+        </li>
+      </ul>
+      <button>
+        &lt; Previous Question
+      </button>
+      <button>
+        Next Question &gt;
+      </button>
+      <div
+        class="question"
+      >
+        <span
+          class="prompt"
+        >
+          In what state will you find...
+        </span>
+        <button>
+          Reveal Another Clue
+        </button>
+        <span>
+          1
+           clues revealed
+        </span>
+        <ul
+          class="clues"
+        >
+          <li>
+            Ernest Hemingway’s Grave
+          </li>
+          <li>
+            -----------
+          </li>
+          <li>
+            -----------
+          </li>
+          <li>
+            -----------
+          </li>
+        </ul>
+        <label>
+          Your Answer:
+          <input
+            value=""
+          />
+        </label>
+        <button>
+          Submit Guess
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
