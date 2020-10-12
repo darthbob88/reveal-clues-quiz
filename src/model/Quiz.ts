@@ -82,6 +82,15 @@ export const defaultQuiz: Quiz = {
     },
     {
         clues: [
+            "Vacuum Cleaner Museum",
+            "Vista House at Crown Point",
+            "Evergreen Aviation Museum, home of the Spruce Goose",
+            "International Rose Test Garden, in the City of Roses"
+        ],
+        answer: "Oregon"
+    },
+    {
+        clues: [
             "Rhea County Courthouse, site of the Scopes monkey trial",
             "Concrete Parthenon, built for the 1897 Centennial Exposition",
             "National Civil Rights Museum, established in the hotel where Dr Martin Luther King Jr was assassinated",
