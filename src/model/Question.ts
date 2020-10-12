@@ -13,3 +13,5 @@ export type QuestionState = {
     score: number;
     revealedClues: number;
 }
+
+export const defaultQuestionState = { state: QuestionEnum.UNANSWERED, score: 0, revealedClues: 0 };

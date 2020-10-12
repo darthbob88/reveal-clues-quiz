@@ -1,8 +1,12 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { QuestionComponent } from "./Question";
-import { defaultQuiz, defaultQuizState } from "../../model/Quiz";
-import { QuestionEnum, QuestionState } from "../../model/Question";
+import { defaultQuiz } from "../../model/Quiz";
+import {
+  QuestionEnum,
+  defaultQuestionState,
+  QuestionState,
+} from "../../model/Question";
 
 const defaultQuestion = defaultQuiz.questions[0];
 const awardPoints = (score: number) => {
@@ -11,7 +15,7 @@ const awardPoints = (score: number) => {
 test("renders a question properly", () => {
   const { container, getByText, getAllByText } = render(
     <QuestionComponent
-      state={defaultQuizState}
+      state={defaultQuestionState}
       question={defaultQuestion}
       awardPoints={awardPoints}
     />
@@ -30,7 +34,7 @@ test("renders a question properly", () => {
 xtest("reveals more clues as necessary", () => {
   const { queryByText, getByText, getAllByText } = render(
     <QuestionComponent
-      state={defaultQuizState}
+      state={defaultQuestionState}
       question={defaultQuestion}
       awardPoints={awardPoints}
     />
@@ -72,7 +76,7 @@ test("awards 4 points for correct answer with 1 clue", () => {
   const incrementScore = jest.fn();
   const { getByText, getByLabelText } = render(
     <QuestionComponent
-      state={defaultQuizState}
+      state={defaultQuestionState}
       question={defaultQuestion}
       awardPoints={incrementScore}
     />
@@ -96,7 +100,7 @@ test("awards 3 points for correct answer with 2 clues", () => {
   const incrementScore = jest.fn();
   const { getByText, getByLabelText } = render(
     <QuestionComponent
-      state={defaultQuizState}
+      state={defaultQuestionState}
       question={defaultQuestion}
       awardPoints={incrementScore}
     />
@@ -125,7 +129,7 @@ test("awards 0 points for incorrect answer", () => {
   const incrementScore = jest.fn();
   const { getByText, getByLabelText } = render(
     <QuestionComponent
-      state={defaultQuizState}
+      state={defaultQuestionState}
       question={defaultQuestion}
       awardPoints={incrementScore}
     />
