@@ -35,8 +35,8 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
   return (
     <div className={styles.quiz}>
       <p>
-        Current score: {quiz.scorePoints} pts {quiz.scorePercent} question(s)
-        correct
+        Current score: {quiz.scorePoints} pts {quiz.scorePercent}/
+        {quiz.quizState.length} question(s) correct
       </p>
       <ul className={styles.questions}>
         {quiz.quizState.map((question, index) => (
