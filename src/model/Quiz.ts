@@ -17,7 +17,8 @@ export const defaultQuiz: Quiz = {
     prompt: "In what state will you find...",
 
     questions: [{
-        clues: ["Ernest Hemingway’s Grave",
+        clues: [
+            "Ernest Hemingway’s Grave",
             "The Smurf Turf",
             "The Yellowstone Zone of Death",
             "The <State> Potato Museum"
@@ -25,7 +26,8 @@ export const defaultQuiz: Quiz = {
         answer: "Idaho"
     },
     {
-        clues: ["Weeki Wachee, the city of mermaids",
+        clues: [
+            "Weeki Wachee, the city of mermaids",
             "The Ernest Hemingway Home and Museum",
             "NASA Vehicle Assembly Building, a building so large it has its own weather",
             "The Southernmost Point in the Continental US"
@@ -51,7 +53,8 @@ export const defaultQuiz: Quiz = {
         answer: "Pennsylvania"
     },
     {
-        clues: ["Slocum Mechanical Puzzle Collection",
+        clues: [
+            "Slocum Mechanical Puzzle Collection",
             'Mentone Egg, A giant concrete egg marks this town as the "Egg Basket of the Midwest."',
             "Kokomantis",
             "Hoosier Hill"
@@ -61,7 +64,42 @@ export const defaultQuiz: Quiz = {
     },
     {
         clues: [
-
+            "USPS Remote Encoding Facility",
+            "Pando, the trembling giant",
+            "The Spiral Jetty, a sculpture built onto a lake which is only visible during droughts",
+            "Bonneville Salt Flats/Speedway"
+        ],
+        answer: "Utah"
+    },
+    {
+        clues: [
+            "The Very Large Array radiotelescope, outside of Socorro.",
+            "Smokey Bear’s Grave",
+            "Carlsbad Caverns",
+            "The International UFO Museum and Research Center"
+        ],
+        answer: "New Mexico"
+    },
+    {
+        clues: [
+            "Rhea County Courthouse, site of the Scopes monkey trial",
+            "Concrete Parthenon, built for the 1897 Centennial Exposition",
+            "National Civil Rights Museum, established in the hotel where Dr Martin Luther King Jr was assassinated",
+            "Jack Daniels Distillery"
+        ],
+        answer: "Tennessee"
+    },
+    {
+        clues: [
+            "Dr. Seuss House aka The Goose Creek Tower, a 185 foot tall log cabin",
+            "The giant metal chicken statue, outside the town of Chicken",
+            "St Michael’s Cathedral, first Russian Orthodox Church in North America",
+            "Santa Claus House, in the town of North Pole"
+        ],
+        answer: "Alaska"
+    },
+    {
+        clues: [
             "Ape Cave, longest continuous lava tube in the continental US",
             "Maryhill Museum and Stonehenge",
             "Brown and Haley factory store, manufacturers of Almond Roca",
