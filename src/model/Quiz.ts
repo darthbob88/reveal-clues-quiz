@@ -2,7 +2,9 @@ import { computed, observable } from "mobx";
 import { defaultQuestionState, Question, QuestionEnum, QuestionState } from "./Question";
 /**
  * Overarching type for a quiz.
- * @field prompt: string A prompt for each question, used if there is no overruling one in the individual question
+ * @field prompt: string A prompt for each question, to be used if there is no overruling one in the individual question
+ * @field questions: Question[] A set of questions for each quiz.
+ * @field title: An overarching title for the quiz. 
  */
 export type Quiz = {
     questions: Question[];
