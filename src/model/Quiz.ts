@@ -127,6 +127,7 @@ export class QuizState {
         this.quizState = chosenQuiz.questions.map(question => ({ ...defaultQuestionState }))
     }
 
+    //TODO: Three methods, all called score*, is a little confusing.
     scoreQuestion(questionIndex: number, questionState: QuestionState) {
         if (this.quizState[questionIndex].state === QuestionEnum.UNANSWERED) {
             this.quizState[questionIndex] = questionState;
