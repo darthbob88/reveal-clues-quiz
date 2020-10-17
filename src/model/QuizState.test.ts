@@ -1,6 +1,7 @@
 import { QuestionEnum } from "./Question";
 import { defaultQuiz, QuizState } from "./Quiz"
 
+// This test kinda taken from https://semaphoreci.com/community/tutorials/how-to-test-react-and-mobx-with-jest
 describe("Quiz State", () => {
     test("Scores questions properly", () => {
         const testStore = new QuizState(defaultQuiz);
@@ -21,5 +22,6 @@ describe("Quiz State", () => {
     })
     test("Properly handles timing out", () => {
         //todo: ??? First we need to add a damn timer here. :(
+        //TODO: Use https://medium.com/the-web-tub/its-all-about-time-building-a-performant-stopwatch-with-mobx-and-react-fast-914e376845c5 as a guide
     })
 })
