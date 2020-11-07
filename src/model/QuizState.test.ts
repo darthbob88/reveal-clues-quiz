@@ -18,7 +18,14 @@ describe("Quiz State", () => {
         expect(testStore.scorePercent).toBe(2);
     })
     test("Properly handles incorrectly answered questions", () => {
-        // todo: ??? Probably should do something with actual percentage, like 4/6 or whatever.
+        const testStore = new QuizState(defaultQuiz);
+        expect(testStore.scorePoints).toBe(0);
+        expect(testStore.scorePercent).toBe(0);
+
+        // TODO: This should be a percentage or smth
+        testStore.scoreQuestion(0, { score: 0, revealedClues: 0, state: QuestionEnum.INCORRECTLY_ANSWERED });
+        expect(testStore.scorePoints).toBe(0);
+        expect(testStore.scorePercent).toBe(0);
     })
     test("Properly handles timing out", () => {
         //todo: ??? First we need to add a damn timer here. :(
