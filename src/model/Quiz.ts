@@ -1,4 +1,4 @@
-import { computed, observable } from "mobx";
+import { action, autorun, computed, observable } from "mobx";
 import { defaultQuestionState, Question, QuestionEnum, QuestionState } from "./Question";
 /**
  * Overarching type for a quiz.
@@ -121,10 +121,16 @@ export class QuizState {
     @observable currentQuiz: Quiz;
     // TODO: It'd be neat if I could make this part of the quiz itself
     @observable quizState: QuestionState[] = [];
+    @observable timeRemaining: number = 0;
+    @observable startedQuiz = false;
+
 
     constructor(chosenQuiz: Quiz) {
         this.currentQuiz = chosenQuiz;
-        this.quizState = chosenQuiz.questions.map(question => ({ ...defaultQuestionState }))
+        this.quizState = chosenQuiz.questions.map(question => ({ ...defaultQuestionState }));
+        this.timeRemaining = 8 * 60 * 1000;
+        this.startedQuiz = true;
+        autorun(() => this.measure());
     }
 
     //TODO: Three methods, all called score*, is a little confusing.
@@ -134,12 +140,40 @@ export class QuizState {
         }
     }
 
+    @computed get isComplete() {
+        const allQsAnswered = this.quizState.every(question => question.state !== QuestionEnum.UNANSWERED);
+        const outOfTime = this.timeRemaining <= 0;
+        return allQsAnswered || outOfTime;
+    }
+
     @computed get scorePoints() {
         return this.quizState.reduce((acc, cur) => acc + cur.score, 0);
     }
 
+    //TODO: fix this to return a string or smth, "right / total"
     @computed get scorePercent() {
         const numCorrect = this.quizState.filter(question => question.state === QuestionEnum.CORRECTLY_ANSWERED);
         return numCorrect.length;
+    }
+
+    @action measure() {
+        if (!this.startedQuiz) return;
+
+        this.timeRemaining -= 50;
+
+        if (this.isComplete) {
+            alert("Time's up");
+            return;
+        }
+        setTimeout(() => this.measure(), 50);
+    }
+
+    @computed get display() {
+        const tenMilliSeconds = parseInt((this.timeRemaining / 10).toString(), 10);
+
+        const seconds = parseInt((tenMilliSeconds / 100).toString(), 10);
+        const minutes = parseInt((seconds / 60).toString(), 10);
+        // TODO: Get some good method for formatting this for display.
+        return `${minutes} : ${seconds % 60} :  ${tenMilliSeconds % 100}`;
     }
 } 

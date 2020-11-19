@@ -36,6 +36,7 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
   return (
     <div className={styles.quiz}>
       <p>
+        Time remaining: {quiz.display}
         Current score: {quiz.scorePoints} pts {quiz.scorePercent}/
         {quiz.quizState.length} question(s) correct
       </p>

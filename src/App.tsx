@@ -18,6 +18,7 @@ function App() {
         and get 3 points than get a question wrong and get 0.
         <summary>How to Play</summary>
       </details>
+      <button>Start "State by Oddities" Quiz</button>
       <QuizComponent quiz={quizState} />
     </div>
   );
