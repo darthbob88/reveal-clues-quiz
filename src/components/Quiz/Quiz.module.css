@@ -3,6 +3,12 @@
   margin-top: 1rem;
   padding: 0.5rem;
 }
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  background: #bcbcbc;
+  color: #222;
+}
 button {
   display: block;
   margin: 0.5rem auto;

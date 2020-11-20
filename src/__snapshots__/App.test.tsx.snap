@@ -19,7 +19,14 @@ exports[`renders the app properly 1`] = `
     <div
       class="quiz"
     >
+      <button>
+        Start "State by Oddities" Quiz
+      </button>
       <p>
+        Time remaining: 
+        8 : 0 :  0
+         
+        <br />
         Current score: 
         0
          pts 
@@ -28,122 +35,126 @@ exports[`renders the app properly 1`] = `
         11
          question(s) correct
       </p>
-      <ul
-        class="questions"
-      >
-        <li
-          class="current
-              unanswered"
-        >
-          1
-        </li>
-        <li
-          class="
-              unanswered"
-        >
-          2
-        </li>
-        <li
-          class="
-              unanswered"
-        >
-          3
-        </li>
-        <li
-          class="
-              unanswered"
-        >
-          4
-        </li>
-        <li
-          class="
-              unanswered"
-        >
-          5
-        </li>
-        <li
-          class="
-              unanswered"
-        >
-          6
-        </li>
-        <li
-          class="
-              unanswered"
-        >
-          7
-        </li>
-        <li
-          class="
-              unanswered"
-        >
-          8
-        </li>
-        <li
-          class="
-              unanswered"
-        >
-          9
-        </li>
-        <li
-          class="
-              unanswered"
-        >
-          10
-        </li>
-        <li
-          class="
-              unanswered"
-        >
-          11
-        </li>
-      </ul>
-      <button>
-        &lt; Previous Question
-      </button>
-      <button>
-        Next Question &gt;
-      </button>
       <div
-        class="question"
+        class="disabled"
       >
-        <span
-          class="prompt"
-        >
-          In what state will you find...
-        </span>
-        <button>
-          Reveal Another Clue
-        </button>
-        <span>
-          1
-           clues revealed
-        </span>
         <ul
-          class="clues"
+          class="questions"
         >
-          <li>
-            Ernest Hemingway’s Grave
+          <li
+            class="current
+              unanswered"
+          >
+            1
           </li>
-          <li>
-            -----------
+          <li
+            class="
+              unanswered"
+          >
+            2
           </li>
-          <li>
-            -----------
+          <li
+            class="
+              unanswered"
+          >
+            3
           </li>
-          <li>
-            -----------
+          <li
+            class="
+              unanswered"
+          >
+            4
+          </li>
+          <li
+            class="
+              unanswered"
+          >
+            5
+          </li>
+          <li
+            class="
+              unanswered"
+          >
+            6
+          </li>
+          <li
+            class="
+              unanswered"
+          >
+            7
+          </li>
+          <li
+            class="
+              unanswered"
+          >
+            8
+          </li>
+          <li
+            class="
+              unanswered"
+          >
+            9
+          </li>
+          <li
+            class="
+              unanswered"
+          >
+            10
+          </li>
+          <li
+            class="
+              unanswered"
+          >
+            11
           </li>
         </ul>
-        <label>
-          Your Answer:
-          <input
-            value=""
-          />
-        </label>
         <button>
-          Submit Guess
+          &lt; Previous Question
         </button>
+        <button>
+          Next Question &gt;
+        </button>
+        <div
+          class="question"
+        >
+          <span
+            class="prompt"
+          >
+            In what state will you find...
+          </span>
+          <button>
+            Reveal Another Clue
+          </button>
+          <span>
+            1
+             clues revealed
+          </span>
+          <ul
+            class="clues"
+          >
+            <li>
+              Ernest Hemingway’s Grave
+            </li>
+            <li>
+              -----------
+            </li>
+            <li>
+              -----------
+            </li>
+            <li>
+              -----------
+            </li>
+          </ul>
+          <label>
+            Your Answer:
+            <input
+              value=""
+            />
+          </label>
+          <button>
+            Submit Guess
+          </button>
+        </div>
       </div>
     </div>
   </div>

@@ -35,11 +35,13 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
 
   return (
     <div className={styles.quiz}>
+      <button onClick={quiz.startQuiz}>Start "State by Oddities" Quiz</button>
       <p>
-        Time remaining: {quiz.display}
+        Time remaining: {quiz.display} <br/>
         Current score: {quiz.scorePoints} pts {quiz.scorePercent}/
         {quiz.quizState.length} question(s) correct
       </p>
+      <div className={`${!quiz.startedQuiz ? styles.disabled : ""}`}>
       <ul className={styles.questions}>
         {quiz.quizState.map((question, index) => (
           <li
@@ -47,10 +49,10 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
             onClick={() => setCurrentQuestion(index)}
             className={`${index === currentQuestion ? styles.current : ""}
               ${
-                //TODO: This is ugly, but I can't find a good way to make this a mapping.
-                question.state === QuestionEnum.UNANSWERED
-                  ? styles.unanswered
-                  : question.state === QuestionEnum.CORRECTLY_ANSWERED
+              //TODO: This is ugly, but I can't find a good way to make this a mapping.
+              question.state === QuestionEnum.UNANSWERED
+                ? styles.unanswered
+                : question.state === QuestionEnum.CORRECTLY_ANSWERED
                   ? styles.correct
                   : styles.incorrect
               }`}
@@ -66,7 +68,7 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
         state={quiz.quizState[currentQuestion]}
         awardPoints={scoreQuestion}
       />
-    </div>
+    </div></div>
   );
 };
 
