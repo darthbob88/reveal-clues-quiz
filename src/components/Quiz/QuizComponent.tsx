@@ -23,7 +23,7 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
     const unansweredQs = quiz.quizState
       .slice(next)
       .findIndex((question) => question.state === QuestionEnum.UNANSWERED);
-    setCurrentQuestion(next + unansweredQs);
+    setCurrentQuestion((unansweredQs + currentQuestion + 1) % questions.length);
   };
 
   const scoreQuestion = (points: QuestionState) => {
@@ -37,38 +37,39 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
     <div className={styles.quiz}>
       <button onClick={quiz.startQuiz}>Start "State by Oddities" Quiz</button>
       <p>
-        Time remaining: {quiz.display} <br/>
+        Time remaining: {quiz.display} <br />
         Current score: {quiz.scorePoints} pts {quiz.scorePercent}/
         {quiz.quizState.length} question(s) correct
       </p>
       <div className={`${!quiz.startedQuiz ? styles.disabled : ""}`}>
-      <ul className={styles.questions}>
-        {quiz.quizState.map((question, index) => (
-          <li
-            key={index}
-            onClick={() => setCurrentQuestion(index)}
-            className={`${index === currentQuestion ? styles.current : ""}
+        <ul className={styles.questions}>
+          {quiz.quizState.map((question, index) => (
+            <li
+              key={index}
+              onClick={() => setCurrentQuestion(index)}
+              className={`${index === currentQuestion ? styles.current : ""}
               ${
-              //TODO: This is ugly, but I can't find a good way to make this a mapping.
-              question.state === QuestionEnum.UNANSWERED
-                ? styles.unanswered
-                : question.state === QuestionEnum.CORRECTLY_ANSWERED
+                //TODO: This is ugly, but I can't find a good way to make this a mapping.
+                question.state === QuestionEnum.UNANSWERED
+                  ? styles.unanswered
+                  : question.state === QuestionEnum.CORRECTLY_ANSWERED
                   ? styles.correct
                   : styles.incorrect
               }`}
-          >
-            {index + 1}
-          </li>
-        ))}
-      </ul>
-      <button onClick={() => prevQuestion()}>&lt; Previous Question</button>
-      <button onClick={() => nextQuestion()}>Next Question &gt;</button>
-      <QuestionComponent
-        question={questions[currentQuestion]}
-        state={quiz.quizState[currentQuestion]}
-        awardPoints={scoreQuestion}
-      />
-    </div></div>
+            >
+              {index + 1}
+            </li>
+          ))}
+        </ul>
+        <button onClick={() => prevQuestion()}>&lt; Previous Question</button>
+        <button onClick={() => nextQuestion()}>Next Question &gt;</button>
+        <QuestionComponent
+          question={questions[currentQuestion]}
+          state={quiz.quizState[currentQuestion]}
+          awardPoints={scoreQuestion}
+        />
+      </div>
+    </div>
   );
 };
 
