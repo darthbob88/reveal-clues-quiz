@@ -1,4 +1,4 @@
-import { action,  computed, observable } from "mobx";
+import { action, computed, observable } from "mobx";
 import { defaultQuestionState, Question, QuestionEnum, QuestionState } from "./Question";
 /**
  * Overarching type for a quiz.
@@ -129,7 +129,7 @@ export class QuizState {
         this.currentQuiz = chosenQuiz;
         this.quizState = chosenQuiz.questions.map(question => ({ ...defaultQuestionState }));
         this.timeRemaining = 8 * 60 * 1000;
-            }
+    }
 
     //TODO: Three methods, all called score*, is a little confusing.
     scoreQuestion(questionIndex: number, questionState: QuestionState) {
@@ -158,14 +158,14 @@ export class QuizState {
         this.startedQuiz = true;
         this.measure();
     }
-    
+
     @action measure() {
         if (!this.startedQuiz) return;
 
         this.timeRemaining -= 50;
 
         if (this.isComplete) {
-            alert("Time's up");
+            alert(`Time's up. Final score is ${this.scorePoints}`);
             return;
         }
         setTimeout(() => this.measure(), 50);
