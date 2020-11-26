@@ -74,7 +74,7 @@ export const defaultQuiz: Quiz = {
     {
         clues: [
             "The Very Large Array radiotelescope, outside of Socorro.",
-            "Smokey Bear’s Grave",
+            "Smokey Bear's Grave",
             "Carlsbad Caverns",
             "The International UFO Museum and Research Center"
         ],
