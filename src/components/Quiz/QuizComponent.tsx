@@ -13,8 +13,14 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
   const questions = quiz.currentQuiz.questions;
 
   const prevQuestion = () => {
-    const prev = (questions.length + currentQuestion - 1) % questions.length;
-    setCurrentQuestion(prev);
+    // This is stupid, but I can't think of a much better method
+    let prev = questions.length + currentQuestion - 1;
+    while (
+      quiz.quizState[prev % questions.length].state !== QuestionEnum.UNANSWERED
+    ) {
+      prev--;
+    }
+    setCurrentQuestion(prev % questions.length);
   };
 
   const nextQuestion = () => {

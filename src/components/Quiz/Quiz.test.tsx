@@ -2,6 +2,7 @@ import React from "react";
 import { render, fireEvent, waitForElement } from "@testing-library/react";
 import { QuizComponent } from "./QuizComponent";
 import { defaultQuiz, QuizState } from "../../model/Quiz";
+import { QuestionEnum } from "../../model/Question";
 
 const firstQuestion = defaultQuiz.questions[0];
 
@@ -80,25 +81,24 @@ test("cycles to prev question", () => {
   expect(secondClue).toBeInTheDocument();
 });
 
-xtest("cycles to next unanswered question", async () => {
-  const { getByText, getByLabelText, queryByText } = render(
-    <QuizComponent quiz={defaultQuizState} />
-  );
+test("cycles to prev unanswered question", async () => {
+  const modifiedState = defaultQuizState;
+  modifiedState.quizState[defaultQuiz.questions.length - 1] = {
+    state: QuestionEnum.CORRECTLY_ANSWERED,
+    score: 0,
+    revealedClues: 0,
+  };
+  const { getByText } = render(<QuizComponent quiz={modifiedState} />);
+
   const firstClue = getByText(firstQuestion.clues[0]);
   expect(firstClue).toBeInTheDocument();
 
-  const answerSlot = getByLabelText(/Answer/i);
-  fireEvent.change(answerSlot, { target: { value: firstQuestion.answer } });
+  const prevQuestion = getByText(/Prev/i);
+  expect(prevQuestion).toBeEnabled();
+  fireEvent.click(prevQuestion);
 
-  const submitBtn = getByText(/Submit/i);
-  fireEvent.click(submitBtn);
-
-  const result = queryByText(/Correct!/i);
-  expect(result).toBeInTheDocument();
-
-  const secondQuestion = defaultQuiz.questions[1];
-  const secondClue = await waitForElement(() =>
-    getByText(secondQuestion.clues[0])
-  );
+  const secondQuestion =
+    defaultQuiz.questions[defaultQuiz.questions.length - 2];
+  const secondClue = getByText(secondQuestion.clues[0]);
   expect(secondClue).toBeInTheDocument();
 });
