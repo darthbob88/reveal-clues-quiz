@@ -24,12 +24,13 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
   };
 
   const nextQuestion = () => {
-    const next = (currentQuestion + 1) % questions.length;
-    //Due to a poor decision on my part, this is actually the number of indexes past `next` to skip.
-    const unansweredQs = quiz.quizState
-      .slice(next)
-      .findIndex((question) => question.state === QuestionEnum.UNANSWERED);
-    setCurrentQuestion((unansweredQs + currentQuestion + 1) % questions.length);
+    let next = currentQuestion + 1;
+    while (
+      quiz.quizState[next % questions.length].state !== QuestionEnum.UNANSWERED
+    ) {
+      next++;
+    }
+    setCurrentQuestion(next % questions.length);
   };
 
   const scoreQuestion = (points: QuestionState) => {
