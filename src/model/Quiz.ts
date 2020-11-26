@@ -18,7 +18,7 @@ export const defaultQuiz: Quiz = {
 
     questions: [{
         clues: [
-            "Ernest Hemingway’s Grave",
+            "Ernest Hemingway's Grave",
             "The Smurf Turf",
             "The Yellowstone Zone of Death",
             "The <State> Potato Museum"
@@ -47,7 +47,7 @@ export const defaultQuiz: Quiz = {
         clues: [
             "Mutter Museum of medical oddities",
             "Fallingwater, designed by Frank Lloyd Wright",
-            "Gobbler’s Knob, home of Punxsutawney Phil",
+            "Gobbler's Knob, home of Punxsutawney Phil",
             "The grave of Fred McFeely Rogers"
         ],
         answer: "Pennsylvania"
@@ -102,7 +102,7 @@ export const defaultQuiz: Quiz = {
         clues: [
             "Dr. Seuss House aka The Goose Creek Tower, a 185 foot tall log cabin",
             "The giant metal chicken statue, outside the town of Chicken",
-            "St Michael’s Cathedral, first Russian Orthodox Church in North America",
+            "St Michael's Cathedral, first Russian Orthodox Church in North America",
             "Santa Claus House, in the town of North Pole"
         ],
         answer: "Alaska"
