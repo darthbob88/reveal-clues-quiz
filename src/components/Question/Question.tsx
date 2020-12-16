@@ -1,5 +1,5 @@
 import { observer } from "mobx-react";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Question, QuestionEnum, QuestionState } from "../../model/Question";
 import styles from "./Question.module.css";
 
@@ -14,9 +14,11 @@ export const QuestionComp: React.FunctionComponent<QuestionProps> = ({
   awardPoints,
 }) => {
   const [currentGuess, setCurrentGuess] = useState("");
-
+  const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
-    return () => {
+    if (null != inputRef.current) {
+      inputRef.current.focus();
+    } return () => {
       setCurrentGuess("");
     };
   }, [question]);
@@ -81,7 +83,7 @@ export const QuestionComp: React.FunctionComponent<QuestionProps> = ({
       </ul>
       <label>
         Your Answer:
-        <input
+        <input ref={inputRef}
           disabled={state.state !== QuestionEnum.UNANSWERED}
           value={currentGuess}
           onKeyPress={(event) => (event.key === "Enter" ? submitAnswer() : "")}
