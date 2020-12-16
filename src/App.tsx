@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { defaultQuiz, QuizState } from "./model/Quiz";
 import { QuizComponent } from "./components/Quiz/QuizComponent";
-
+// TODO: Fix this to use a router and load the quiz on pageload.
 function App() {
   const quizState = new QuizState(defaultQuiz);
   return (
