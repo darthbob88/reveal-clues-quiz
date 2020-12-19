@@ -9,9 +9,9 @@
   background: #bcbcbc;
   color: #222;
 }
-button {
-  display: block;
-  margin: 0.5rem auto;
+.startQuiz {
+  display:inline-block;
+  margin: 0 0.5rem;
 }
 
 .questions li {

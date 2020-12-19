@@ -46,8 +46,8 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
         Time remaining: {quiz.display} <br />
         Current score: {quiz.scorePoints} pts {quiz.scorePercent}/
         {quiz.quizState.length} question(s) correct
+        {quiz.startedQuiz ? "" : <button className={styles.startQuiz} onClick={quiz.startQuiz}>Start Quiz</button>}
       </p>
-      {quiz.startedQuiz ? "" : <button onClick={quiz.startQuiz}>Start Quiz</button>}
       <div className={`${!quiz.startedQuiz ? styles.disabled : ""}`}>
         <ul className={styles.questions}>
           {quiz.quizState.map((question, index) => (

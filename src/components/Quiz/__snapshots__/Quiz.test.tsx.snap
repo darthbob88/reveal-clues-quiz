@@ -17,10 +17,12 @@ exports[`renders a quiz properly 1`] = `
       /
       11
        question(s) correct
+      <button
+        class="startQuiz"
+      >
+        Start Quiz
+      </button>
     </p>
-    <button>
-      Start Quiz
-    </button>
     <div
       class="disabled"
     >
