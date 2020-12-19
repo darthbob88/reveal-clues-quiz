@@ -12,7 +12,7 @@ export type Quiz = {
     prompt: string;
 }
 
-export const defaultQuiz: Quiz = {
+export const testQuizzes: Quiz[] = [{
     title: "States by Attraction",
     prompt: "In what state will you find...",
 
@@ -116,7 +116,96 @@ export const defaultQuiz: Quiz = {
         ],
         answer: "Washington"
     }]
-}
+},
+{
+    title: "Band by Members",
+    prompt: "What band did ... play for?",
+    questions: [{
+        clues: [
+            "John Deacon",
+            "Roger Taylor",
+            "Brian May",
+            "Freddie Mercury"
+        ],
+        answer: "Queen"
+    },
+    {
+        clues: [
+            "Mike Dirnt",
+            "Tre Cool",
+            "Billie Joe Armstrong"
+        ],
+        answer: "Green Day"
+    },
+    {
+        clues: [
+            "Bill Ward",
+            "Geezer Butler",
+            "Tony Iommi",
+            "Ozzy Osbourne"
+        ],
+        answer: "Black Sabbath"
+    },
+    {
+        clues: ["Pick Withers",
+            "John Ilsley",
+            "David Knopfler",
+            "Mark Knopfler"],
+        answer: "Dire Straits"
+    },
+    {
+        clues: [
+            "Doug Clifford",
+            "Stu Cook",
+            "Tom Fogerty",
+            "John Fogerty"
+        ],
+        answer: "Creedence Clearwater Revival"
+    },
+    {
+        clues:
+            ["Alex Lifeson",
+                "Geddy Lee",
+                "Neil Peart"
+            ],
+        answer: "Rush"
+    },
+    {
+        clues: [
+            "Adam Clayton",
+            "Larry Mullen Jr",
+            "The Edge",
+            "Bono"
+        ],
+        answer: "U2"
+    },
+    {
+        clues:
+            ["Paul Cook",
+                "Steve Jones",
+                "Johnny Rotten",
+                "Sid Vicious"],
+        answer: "The Sex Pistols"
+    },
+    {
+        clues:
+            ["Steven Adler",
+                "Izzy Stradlin",
+                "Duff McKagan",
+                "Axl Rose and Slash"
+            ],
+        answer: "Guns ‘n Roses"
+    },
+    {
+        clues:
+            ["Krist Novoselic",
+                "Dave Grohl",
+                "Kurt Cobain"],
+        answer: "Nirvana"
+    }]
+}]
+export const defaultQuiz: Quiz = testQuizzes[0];
+
 export class QuizState {
     @observable currentQuiz: Quiz;
     // TODO: It'd be neat if I could make this part of the quiz itself
