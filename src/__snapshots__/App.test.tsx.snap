@@ -19,9 +19,6 @@ exports[`renders the app properly 1`] = `
     <div
       class="quiz"
     >
-      <button>
-        Start "State by Oddities" Quiz
-      </button>
       <p>
         Time remaining: 
         8 : 0 :  0
@@ -35,6 +32,9 @@ exports[`renders the app properly 1`] = `
         11
          question(s) correct
       </p>
+      <button>
+        Start Quiz
+      </button>
       <div
         class="disabled"
       >
