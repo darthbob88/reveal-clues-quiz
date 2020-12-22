@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { QuizState } from "../../model/Quiz";
+import { QuizEnum, QuizState } from "../../model/Quiz";
 import styles from "./Quiz.module.css";
 import { QuestionComponent } from "../Question/Question";
 import { QuestionEnum, QuestionState } from "../../model/Question";
@@ -46,9 +46,9 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
         Time remaining: {quiz.display} <br />
         Current score: {quiz.scorePoints} pts {quiz.scorePercent}/
         {quiz.quizState.length} question(s) correct
-        {quiz.startedQuiz ? "" : <button className={styles.startQuiz} onClick={quiz.startQuiz}>Start Quiz</button>}
+        {quiz.quizStatus === QuizEnum.UNSTARTED ? <button className={styles.startQuiz} onClick={quiz.startQuiz}>Start Quiz</button> : ""}
       </p>
-      <div className={`${!quiz.startedQuiz ? styles.disabled : ""}`}>
+      <div className={`${quiz.quizStatus === QuizEnum.UNSTARTED ? styles.disabled : ""}`}>
         <ul className={styles.questions}>
           {quiz.quizState.map((question, index) => (
             <li

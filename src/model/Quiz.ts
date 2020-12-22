@@ -206,12 +206,19 @@ export const testQuizzes: Quiz[] = [{
 }]
 export const defaultQuiz: Quiz = testQuizzes[0];
 
+export enum QuizEnum {
+    UNSTARTED,
+    IN_PROGRESS,
+    COMPLETED
+}
+
 export class QuizState {
     @observable currentQuiz: Quiz;
     // TODO: It'd be neat if I could make this part of the quiz itself
     @observable quizState: QuestionState[] = [];
     @observable timeRemaining: number = 0;
-    @observable startedQuiz = false;
+    // TODO: quizState and quizStatus, and isComplete. Because I don't have enough confusing names. :(
+    @observable quizStatus: QuizEnum = QuizEnum.UNSTARTED;
 
 
     constructor(chosenQuiz: Quiz) {
@@ -244,17 +251,18 @@ export class QuizState {
     }
 
     startQuiz = () => {
-        this.startedQuiz = true;
+        this.quizStatus = QuizEnum.IN_PROGRESS;
         this.measure();
     }
 
     @action measure() {
-        if (!this.startedQuiz) return;
+        if (this.quizStatus !== QuizEnum.IN_PROGRESS) return;
 
         this.timeRemaining -= 50;
 
         if (this.isComplete) {
             alert(`Time's up. Final score is ${this.scorePoints}`);
+            this.quizStatus = QuizEnum.COMPLETED;
             return;
         }
         setTimeout(() => this.measure(), 50);
