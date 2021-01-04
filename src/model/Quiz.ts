@@ -60,12 +60,12 @@ export const testQuizzes: Quiz[] = [{
             "Hoosier Hill"
         ],
         answer: "Indiana",
-        revealOnAnswer: "https://www.atlasobscura.com/places/slocum-mechanical-puzzle-collection  https://www.atlasobscura.com/places/mentone-egg  https://www.atlasobscura.com/places/kokomantis-scrap-art-sculpture https://www.atlasobscura.com/places/hoosier-hill"
+        revealOnAnswer: "Sources: https://www.atlasobscura.com/places/slocum-mechanical-puzzle-collection  https://www.atlasobscura.com/places/mentone-egg  https://www.atlasobscura.com/places/kokomantis-scrap-art-sculpture https://www.atlasobscura.com/places/hoosier-hill"
     },
     {
         clues: [
             "USPS Remote Encoding Facility",
-            "Pando, the trembling giant",
+            "Pando, 'The Trembling Giant', a massive grove of quaking aspen",
             "The Spiral Jetty, a sculpture built onto a lake which is only visible during droughts",
             "Bonneville Salt Flats/Speedway"
         ],
