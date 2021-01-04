@@ -45,7 +45,7 @@ export const QuestionComp: React.FunctionComponent<QuestionProps> = ({
       return null;
     } else if (QuestionEnum.CORRECTLY_ANSWERED === state.state) {
       const questionValue = question.clues.length - state.revealedClues;
-      return <span>Correct! You get {questionValue} points.</span>;
+      return <span>Correct! You get {questionValue} points. {question.revealOnAnswer}</span>;
     } else {
       return (
         <span>
