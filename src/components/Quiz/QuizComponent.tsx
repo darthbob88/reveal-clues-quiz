@@ -74,6 +74,7 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
           question={questions[currentQuestion]}
           state={quiz.quizState[currentQuestion]}
           awardPoints={scoreQuestion}
+          prompt={quiz.currentQuiz.prompt}
         />
       </div>
     </div>

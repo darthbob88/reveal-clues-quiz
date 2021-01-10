@@ -4,6 +4,7 @@ import { Question, QuestionEnum, QuestionState } from "../../model/Question";
 import styles from "./Question.module.css";
 
 type QuestionProps = {
+  prompt?: string;
   question: Question;
   state: QuestionState;
   awardPoints: Function;
@@ -12,6 +13,7 @@ export const QuestionComp: React.FunctionComponent<QuestionProps> = ({
   question,
   state,
   awardPoints,
+  prompt
 }) => {
   const [currentGuess, setCurrentGuess] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -60,7 +62,7 @@ export const QuestionComp: React.FunctionComponent<QuestionProps> = ({
 
   return (
     <div className={styles.question}>
-      <span className="prompt">In what state will you find...</span>
+      <span className="prompt">{prompt}</span>
       {/* Now where the hell do I get the prompt? */}
       <button
         onClick={() => revealAnotherClue()}

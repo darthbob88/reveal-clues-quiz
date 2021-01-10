@@ -18,6 +18,7 @@ test("renders a question properly", () => {
       state={defaultQuestionState}
       question={defaultQuestion}
       awardPoints={awardPoints}
+      prompt={defaultQuiz.prompt}
     />
   );
   const firstClue = getByText(defaultQuestion.clues[0]);
@@ -79,6 +80,7 @@ test("awards 4 points for correct answer with 1 clue", () => {
       state={defaultQuestionState}
       question={defaultQuestion}
       awardPoints={incrementScore}
+      prompt={defaultQuiz.prompt}
     />
   );
   const answerSlot = getByLabelText(/Answer/i);
@@ -103,6 +105,7 @@ test("awards 3 points for correct answer with 2 clues", () => {
       state={defaultQuestionState}
       question={defaultQuestion}
       awardPoints={incrementScore}
+      prompt={defaultQuiz.prompt}
     />
   );
 
@@ -132,6 +135,7 @@ test("awards 0 points for incorrect answer", () => {
       state={defaultQuestionState}
       question={defaultQuestion}
       awardPoints={incrementScore}
+      prompt={defaultQuiz.prompt}
     />
   );
   const answerSlot = getByLabelText(/Answer/i);
