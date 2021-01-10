@@ -18,9 +18,11 @@ function App() {
         you only get one chance to answer, and if you answer wrong, you get 0
         points. So it's better to ask for another clue and get 3 points than
         get a question wrong and get 0 points.
-<br />
-        Additionally- Due to programmer laziness, we are not particular about casing, but we are particular about spelling.
-        "the sex pistols" is correct, "Sex Pistols" is not.
+        <br />
+        Additionally- Due to programmer laziness, we are not particular about
+        casing, but we are particular about spelling. "the sex pistols" is
+        correct, "Sex Pistols" is not. This is issue #3 to fix, after adding
+        the ability to generate new quizzes.
       </details>
       <QuizComponent quiz={quizState} />
     </div>
