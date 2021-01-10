@@ -49,7 +49,7 @@ export const QuestionComp: React.FunctionComponent<QuestionProps> = ({
     } else {
       return (
         <span>
-          Incorrect! You get 0 points. The correct answer is {question.answer}.
+          Incorrect! You get 0 points. The correct answer is {question.answer}. {question.revealOnAnswer}
         </span>
       );
     }
