@@ -1,0 +1,17 @@
+.question {
+  border: 1px solid #bbb;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+ul.clues {
+  max-width: 60%;
+  margin: 0 auto;
+  list-style-position: inside;
+}
+button {
+  display: block;
+  margin: 0.5rem auto;
+}
+input {
+  margin-left: 0.5rem;
+}

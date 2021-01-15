@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home page loads quizzes properly 1`] = `
+<div>
+  <div
+    class="question"
+  >
+    <h2>
+      List of Quizzes
+    </h2>
+    <ul
+      class="clues"
+    >
+      <p>
+        Loading...
+      </p>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`Home page renders the home page properly 1`] = `
+<div>
+  <div
+    class="question"
+  >
+    <h2>
+      List of Quizzes
+    </h2>
+    <ul
+      class="clues"
+    >
+      <p>
+        Loading...
+      </p>
+    </ul>
+  </div>
+</div>
+`;

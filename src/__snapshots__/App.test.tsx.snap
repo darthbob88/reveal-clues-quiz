@@ -19,147 +19,18 @@ exports[`renders the app properly 1`] = `
       Additionally- Due to programmer laziness, we are not particular about casing, but we are particular about spelling. "the sex pistols" is correct, "Sex Pistols" is not. This is issue #3 to fix, after adding the ability to generate new quizzes.
     </details>
     <div
-      class="quiz"
+      class="question"
     >
-      <p>
-        Time remaining: 
-        8 : 0 :  0
-         
-        <br />
-        Current score: 
-        0
-         pts 
-        0
-        /
-        11
-         question(s) correct
-        <button
-          class="startQuiz"
-        >
-          Start Quiz
-        </button>
-      </p>
-      <div
-        class="disabled"
+      <h2>
+        List of Quizzes
+      </h2>
+      <ul
+        class="clues"
       >
-        <ul
-          class="questions"
-        >
-          <li
-            class="current
-              unanswered"
-          >
-            1
-          </li>
-          <li
-            class="
-              unanswered"
-          >
-            2
-          </li>
-          <li
-            class="
-              unanswered"
-          >
-            3
-          </li>
-          <li
-            class="
-              unanswered"
-          >
-            4
-          </li>
-          <li
-            class="
-              unanswered"
-          >
-            5
-          </li>
-          <li
-            class="
-              unanswered"
-          >
-            6
-          </li>
-          <li
-            class="
-              unanswered"
-          >
-            7
-          </li>
-          <li
-            class="
-              unanswered"
-          >
-            8
-          </li>
-          <li
-            class="
-              unanswered"
-          >
-            9
-          </li>
-          <li
-            class="
-              unanswered"
-          >
-            10
-          </li>
-          <li
-            class="
-              unanswered"
-          >
-            11
-          </li>
-        </ul>
-        <button>
-          &lt; Previous Question
-        </button>
-        <button>
-          Next Question &gt;
-        </button>
-        <div
-          class="question"
-        >
-          <span
-            class="prompt"
-          >
-            In what state will you find...
-          </span>
-          <button>
-            Reveal Another Clue
-          </button>
-          <span>
-            1
-             clues revealed
-          </span>
-          <ul
-            class="clues"
-          >
-            <li>
-              Ernest Hemingway's Grave
-            </li>
-            <li>
-              -----------
-            </li>
-            <li>
-              -----------
-            </li>
-            <li>
-              -----------
-            </li>
-          </ul>
-          <label>
-            Your Answer:
-            <input
-              value=""
-            />
-          </label>
-          <button>
-            Submit Guess
-          </button>
-        </div>
-      </div>
+        <p>
+          Loading...
+        </p>
+      </ul>
     </div>
   </div>
 </div>

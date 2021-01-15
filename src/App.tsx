@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
-import { defaultQuiz, QuizState } from "./model/Quiz";
-import { QuizComponent } from "./components/Quiz/QuizComponent";
-// TODO: Fix this to use a router and load the quiz on pageload.
+import { Route, Switch } from "react-router-dom";
+import { ROUTES } from "./routes";
+import { HomePage } from "./components/HomePage/HomePage";
+import { QuizPage } from "./components/Quiz/QuizPage";
 function App() {
-  const quizState = new QuizState(defaultQuiz);
   return (
     <div className="App">
       <header>Raymond's Quiz App</header>
@@ -24,7 +24,11 @@ function App() {
         correct, "Sex Pistols" is not. This is issue #3 to fix, after adding
         the ability to generate new quizzes.
       </details>
-      <QuizComponent quiz={quizState} />
+      <Switch>
+        <Route path={ROUTES.HOME} component={HomePage} />
+        <Route path={ROUTES.LANDING} exact component={HomePage} />
+        <Route path={ROUTES.QUIZ} component={QuizPage} />
+      </Switch>
     </div>
   );
 }
