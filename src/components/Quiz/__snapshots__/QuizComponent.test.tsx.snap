@@ -143,6 +143,7 @@ exports[`renders a quiz properly 1`] = `
           Submit Guess
         </button>
       </div>
+      
     </div>
   </div>
 </div>

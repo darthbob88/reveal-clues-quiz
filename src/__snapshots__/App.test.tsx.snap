@@ -6,7 +6,14 @@ exports[`renders the app properly 1`] = `
     class="App"
   >
     <header>
-      Raymond's Quiz App
+      <h1>
+        Raymond's Quiz App
+      </h1>
+      <a
+        href="/reveal-clues-quiz"
+      >
+        Home
+      </a>
     </header>
     <details
       class="description"
@@ -32,6 +39,28 @@ exports[`renders the app properly 1`] = `
         </p>
       </ul>
     </div>
+    <footer
+      class="NavFooter"
+    >
+      © 
+      2021
+       Copyright: Raymond Price
+      <a
+        href="/https://github.com/darthbob88/"
+      >
+        Github
+      </a>
+      <a
+        href="/https://twitter.com/darthbob88"
+      >
+        Twitter
+      </a>
+      <a
+        href="/https://www.linkedin.com/in/raymond-price-10a3746b/"
+      >
+        Linkedin
+      </a>
+    </footer>
   </div>
 </div>
 `;
