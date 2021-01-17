@@ -25,7 +25,7 @@ function App() {
         the ability to generate new quizzes.
       </details>
       <Switch>
-        <Route path={ROUTES.HOME} component={HomePage} />
+        <Route path={ROUTES.HOME} exact component={HomePage} />
         <Route path={ROUTES.LANDING} exact component={HomePage} />
         <Route path={ROUTES.QUIZ} component={QuizPage} />
       </Switch>
