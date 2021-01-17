@@ -4,6 +4,10 @@ import { Quiz, QuizState } from "../../model/Quiz";
 import { loadQuiz } from "../../model/QuizService";
 import { QuizComponent } from "./QuizComponent";
 
+/**
+ *  Just a wrapper around the actual QuizComponent, now that I've added routing
+ * and have to handle actually loading the quiz.
+ */
 export const QuizPage: React.FunctionComponent = () => {
     const { id } = useParams<{ id: string }>();
     const [quiz, setQuiz] = useState<Quiz>();
