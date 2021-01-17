@@ -5,7 +5,7 @@ import { loadQuiz } from "../../model/QuizService";
 import { QuizComponent } from "./QuizComponent";
 
 export const QuizPage: React.FunctionComponent = () => {
-    const { id } = useParams();
+    const { id } = useParams<{ id: string }>();
     const [quiz, setQuiz] = useState<Quiz>();
     useEffect(() => {
         const fetchData = async (id: string) => {
