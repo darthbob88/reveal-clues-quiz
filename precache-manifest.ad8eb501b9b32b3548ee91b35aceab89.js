@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "aae7d12f5745ae9dec0e8d4f652d46e3",
+    "revision": "8240489e82e7dc9885349597cbcc22e4",
     "url": "/reveal-clues-quiz/index.html"
   },
   {
-    "revision": "4942b787d0d8eab1d90c",
+    "revision": "bc2142b9ac444337d389",
     "url": "/reveal-clues-quiz/static/css/main.6e5eba72.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/reveal-clues-quiz/static/js/2.0dcbd7a6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4942b787d0d8eab1d90c",
-    "url": "/reveal-clues-quiz/static/js/main.52fa7efa.chunk.js"
+    "revision": "bc2142b9ac444337d389",
+    "url": "/reveal-clues-quiz/static/js/main.6017642e.chunk.js"
   },
   {
     "revision": "247e856163a215ef4d72",
