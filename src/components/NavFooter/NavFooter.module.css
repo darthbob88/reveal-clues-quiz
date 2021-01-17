@@ -1,0 +1,5 @@
+footer.NavFooter{display: flex;
+justify-content: space-around;
+max-width: 60%;
+margin: 0 auto;
+margin-top: 1rem;}

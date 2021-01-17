@@ -4,10 +4,12 @@ import { Route, Switch } from "react-router-dom";
 import { ROUTES } from "./routes";
 import { HomePage } from "./components/HomePage/HomePage";
 import { QuizPage } from "./components/Quiz/QuizPage";
+import { NavHeader } from "./components/NavHeader/NavHeader";
+import { NavFooter } from "./components/NavFooter/NavFooter";
 function App() {
   return (
     <div className="App">
-      <header>Raymond's Quiz App</header>
+      <NavHeader />
       <details className="description">
         <summary>How to Play</summary>
         Each question in this quiz will involve a series of increasingly-obvious
@@ -29,6 +31,7 @@ function App() {
         <Route path={ROUTES.LANDING} exact component={HomePage} />
         <Route path={ROUTES.QUIZ} component={QuizPage} />
       </Switch>
+      <NavFooter />
     </div>
   );
 }
