@@ -265,7 +265,6 @@ export class QuizState {
         this.timeRemaining -= 50;
 
         if (this.isComplete) {
-            alert(`Time's up. Final score is ${this.scorePoints}`);
             this.quizStatus = QuizEnum.COMPLETED;
             return;
         }

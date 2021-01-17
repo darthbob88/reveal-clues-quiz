@@ -76,6 +76,9 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
           awardPoints={scoreQuestion}
           prompt={quiz.currentQuiz.prompt}
         />
+        {quiz.quizStatus === QuizEnum.COMPLETED
+          ? <span>Congratulations! Your final score is {quiz.scorePoints}</span>
+          : ""}
       </div>
     </div>
   );
