@@ -8,10 +8,10 @@ ul.clues {
   margin: 0 auto;
   list-style-position: inside;
 }
-button {
+.question button {
   display: block;
   margin: 0.5rem auto;
 }
-input {
+.question input {
   margin-left: 0.5rem;
 }
