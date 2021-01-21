@@ -1,15 +1,31 @@
 import React from "react";
 import { render, fireEvent, waitForElement } from "@testing-library/react";
 import { QuizComponent } from "./QuizComponent";
-import { defaultQuiz, QuizState } from "../../model/Quiz";
+import { defaultQuiz, QuizEnum, QuizState } from "../../model/Quiz";
 import { QuestionEnum } from "../../model/Question";
 
 const firstQuestion = defaultQuiz.questions[0];
 
 const defaultQuizState = new QuizState(defaultQuiz);
+
+const startedQuizState = new QuizState(defaultQuiz);
+startedQuizState.quizStatus = QuizEnum.IN_PROGRESS;
+
 test("renders a quiz properly", () => {
-  const { getByText, getAllByText, container } = render(
+  const { getByText, container } = render(
     <QuizComponent quiz={defaultQuizState} />
+  );
+
+  console.log(defaultQuizState.quizStatus);
+  const startQuizBtn = getByText("Start Quiz");
+  expect(startQuizBtn).toBeEnabled();
+
+  expect(container).toMatchSnapshot();
+});
+
+test("renders a started quiz properly", () => {
+  const { getByText, getAllByText, container } = render(
+    <QuizComponent quiz={startedQuizState} />
   );
   const firstClue = getByText(firstQuestion.clues[0]);
   expect(firstClue).toBeInTheDocument();
@@ -24,7 +40,7 @@ test("renders a quiz properly", () => {
 
 test("shows next unanswered question when one is answered", async () => {
   const { getByText, getByLabelText, queryByText } = render(
-    <QuizComponent quiz={defaultQuizState} />
+    <QuizComponent quiz={startedQuizState} />
   );
   const firstClue = getByText(firstQuestion.clues[0]);
   expect(firstClue).toBeInTheDocument();
@@ -46,7 +62,7 @@ test("shows next unanswered question when one is answered", async () => {
 });
 
 test("cycles to next question", () => {
-  const { getByText } = render(<QuizComponent quiz={defaultQuizState} />);
+  const { getByText } = render(<QuizComponent quiz={startedQuizState} />);
 
   const firstClue = getByText(firstQuestion.clues[0]);
   expect(firstClue).toBeInTheDocument();
@@ -66,7 +82,7 @@ test("cycles to next question", () => {
 });
 
 test("cycles to prev question", () => {
-  const { getByText } = render(<QuizComponent quiz={defaultQuizState} />);
+  const { getByText } = render(<QuizComponent quiz={startedQuizState} />);
 
   const firstClue = getByText(firstQuestion.clues[0]);
   expect(firstClue).toBeInTheDocument();
@@ -82,7 +98,7 @@ test("cycles to prev question", () => {
 });
 
 test("cycles to prev unanswered question", async () => {
-  const modifiedState = defaultQuizState;
+  const modifiedState = startedQuizState;
   modifiedState.quizState[defaultQuiz.questions.length - 1] = {
     state: QuestionEnum.CORRECTLY_ANSWERED,
     score: 0,

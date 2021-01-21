@@ -17,14 +17,117 @@ exports[`renders a quiz properly 1`] = `
       /
       11
        question(s) correct
+    </p>
+    <div
+      class="disabled"
+    >
+      <ul
+        class="questions"
+      >
+        <li
+          class="current
+              unanswered"
+        >
+          1
+        </li>
+        <li
+          class="
+              unanswered"
+        >
+          2
+        </li>
+        <li
+          class="
+              unanswered"
+        >
+          3
+        </li>
+        <li
+          class="
+              unanswered"
+        >
+          4
+        </li>
+        <li
+          class="
+              unanswered"
+        >
+          5
+        </li>
+        <li
+          class="
+              unanswered"
+        >
+          6
+        </li>
+        <li
+          class="
+              unanswered"
+        >
+          7
+        </li>
+        <li
+          class="
+              unanswered"
+        >
+          8
+        </li>
+        <li
+          class="
+              unanswered"
+        >
+          9
+        </li>
+        <li
+          class="
+              unanswered"
+        >
+          10
+        </li>
+        <li
+          class="
+              unanswered"
+        >
+          11
+        </li>
+      </ul>
+      <button>
+        &lt; Previous Question
+      </button>
+      <button>
+        Next Question &gt;
+      </button>
       <button
         class="startQuiz"
       >
         Start Quiz
       </button>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders a started quiz properly 1`] = `
+<div>
+  <div
+    class="quiz"
+  >
+    <p>
+      Time remaining: 
+      8 : 0 :  0
+       
+      <br />
+      Current score: 
+      0
+       pts 
+      0
+      /
+      11
+       question(s) correct
     </p>
     <div
-      class="disabled"
+      class=""
     >
       <ul
         class="questions"

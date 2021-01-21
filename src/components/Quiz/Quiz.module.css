@@ -4,14 +4,14 @@
   padding: 0.5rem;
 }
 .disabled {
-  opacity: 0.6;
-  pointer-events: none;
+  opacity: .8;
   background: #bcbcbc;
   color: #222;
 }
 .startQuiz {
+  opacity: 100%;
   display:inline-block;
-  margin: 0 0.5rem;
+  margin: 1rem 0.5rem 4rem;
 }
 
 .questions li {

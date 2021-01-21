@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { QuizEnum, QuizState } from "../../model/Quiz";
 import styles from "./Quiz.module.css";
 import { QuestionComponent } from "../Question/Question";
@@ -40,13 +40,27 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
     }, 1000);
   };
 
+  const quizContent = () => {
+    if (quiz.quizStatus === QuizEnum.UNSTARTED) {
+      return <button className={styles.startQuiz} onClick={quiz.startQuiz}>Start Quiz</button>
+    } else {
+      return <Fragment>
+        <QuestionComponent
+          question={questions[currentQuestion]}
+          state={quiz.quizState[currentQuestion]}
+          awardPoints={scoreQuestion}
+          prompt={quiz.currentQuiz.prompt}
+        />
+      </Fragment>
+    }
+  }
+
   return (
     <div className={styles.quiz}>
       <p>
         Time remaining: {quiz.display} <br />
         Current score: {quiz.scorePoints} pts {quiz.scorePercent}/
         {quiz.quizState.length} question(s) correct
-        {quiz.quizStatus === QuizEnum.UNSTARTED ? <button className={styles.startQuiz} onClick={quiz.startQuiz}>Start Quiz</button> : ""}
       </p>
       <div className={`${quiz.quizStatus === QuizEnum.UNSTARTED ? styles.disabled : ""}`}>
         <ul className={styles.questions}>
@@ -70,12 +84,7 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
         </ul>
         <button onClick={() => prevQuestion()}>&lt; Previous Question</button>
         <button onClick={() => nextQuestion()}>Next Question &gt;</button>
-        <QuestionComponent
-          question={questions[currentQuestion]}
-          state={quiz.quizState[currentQuestion]}
-          awardPoints={scoreQuestion}
-          prompt={quiz.currentQuiz.prompt}
-        />
+        {quizContent()}
         {quiz.quizStatus === QuizEnum.COMPLETED
           ? <span>Congratulations! Your final score is {quiz.scorePoints}</span>
           : ""}
