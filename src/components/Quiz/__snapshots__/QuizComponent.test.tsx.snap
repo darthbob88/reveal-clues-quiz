@@ -27,66 +27,77 @@ exports[`renders a quiz properly 1`] = `
         <li
           class="current
               unanswered"
+          tabindex="0"
         >
           1
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           2
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           3
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           4
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           5
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           6
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           7
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           8
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           9
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           10
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           11
         </li>
@@ -135,66 +146,77 @@ exports[`renders a started quiz properly 1`] = `
         <li
           class="current
               unanswered"
+          tabindex="0"
         >
           1
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           2
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           3
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           4
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           5
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           6
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           7
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           8
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           9
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           10
         </li>
         <li
           class="
               unanswered"
+          tabindex="0"
         >
           11
         </li>

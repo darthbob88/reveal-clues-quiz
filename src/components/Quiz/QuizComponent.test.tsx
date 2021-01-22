@@ -16,7 +16,6 @@ test("renders a quiz properly", () => {
     <QuizComponent quiz={defaultQuizState} />
   );
 
-  console.log(defaultQuizState.quizStatus);
   const startQuizBtn = getByText("Start Quiz");
   expect(startQuizBtn).toBeEnabled();
 

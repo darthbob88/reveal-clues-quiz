@@ -65,8 +65,9 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
       <div className={`${quiz.quizStatus === QuizEnum.UNSTARTED ? styles.disabled : ""}`}>
         <ul className={styles.questions}>
           {quiz.quizState.map((question, index) => (
-            <li
+            <li tabIndex={0}
               key={index}
+              onKeyPress={(event) => (event.key === "Enter" ? setCurrentQuestion(index) : "")}
               onClick={() => setCurrentQuestion(index)}
               className={`${index === currentQuestion ? styles.current : ""}
               ${
