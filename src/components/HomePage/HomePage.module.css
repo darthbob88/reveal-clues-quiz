@@ -5,8 +5,13 @@
 }
 ul.clues {
   max-width: 60%;
-  margin: 0 auto;
+  margin: 0 auto 1rem;
   list-style-position: inside;
+  
+}
+ul.clues li{
+  font-size: 1.1rem;
+  margin-bottom: .4rem;
 }
 button {
   display: block;

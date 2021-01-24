@@ -18,6 +18,15 @@ export const NavHeader = () => {
         you only get one chance to answer, and if you answer wrong, you get 0
         points. So it's better to ask for another clue and get 3 points than
         get a question wrong and get 0 points.
+<br />
+        <br />
+        EG: If you know which US state is home to <a href="https://www.atlasobscura.com/places/widow-jane-mine">the Widow Jane Mine</a>,
+        you get 4 points. If you need another clue, that this state is also home to the <a href="https://www.atlasobscura.com/places/jello-gallery-museum">JELL-O Gallery Museum</a> you will get only 3 points for a correct answer. If you need to hear that this state also has the <a href="https://www.atlasobscura.com/places/amityville-horror-house">Amityville Horror house</a>,
+you only get 2 points. If you can't get the answer until you hear that this state also has the <a href="https://www.nps.gov/stli/index.htm">Statue of Liberty Enlightening the World</a>, you only get 1 point.
+<br />
+On the other hand, if you answered wrongly based on any of those clues, you'd only get 0 points.
+<br></br>
+(The state is New York, FYI)
       </details>
       <details className="description">
         <summary>Known Issues</summary>
