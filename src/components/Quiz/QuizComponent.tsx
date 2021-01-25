@@ -56,13 +56,13 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
   }
 
   return (
-    <div className={styles.quiz}>
+    <div className={`${quiz.quizStatus === QuizEnum.UNSTARTED ? styles.disabled : styles.quiz}`}>
       <p>
         Time remaining: {quiz.display} <br />
         Current score: {quiz.scorePoints} pts {quiz.scorePercent}/
         {quiz.quizState.length} question(s) correct
       </p>
-      <div className={`${quiz.quizStatus === QuizEnum.UNSTARTED ? styles.disabled : ""}`}>
+      <div>
         <ul className={styles.questions}>
           {quiz.quizState.map((question, index) => (
             <li tabIndex={0}
@@ -83,8 +83,10 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
             </li>
           ))}
         </ul>
-        <button onClick={() => prevQuestion()}>&lt; Previous Question</button>
-        <button onClick={() => nextQuestion()}>Next Question &gt;</button>
+        <div className={styles.nextPrevQs}>
+          <button onClick={() => prevQuestion()} disabled={quiz.quizStatus !== QuizEnum.IN_PROGRESS}>&lt; Previous Question</button>
+          <button onClick={() => nextQuestion()} disabled={quiz.quizStatus !== QuizEnum.IN_PROGRESS}>Next Question &gt;</button>
+        </div>
         {quizContent()}
         {quiz.quizStatus === QuizEnum.COMPLETED
           ? <span>Congratulations! Your final score is {quiz.scorePoints}</span>

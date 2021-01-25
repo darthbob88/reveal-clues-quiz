@@ -7,16 +7,8 @@ ul.clues {
   max-width: 60%;
   margin: 0 auto 1rem;
   list-style-position: inside;
-  
 }
-ul.clues li{
+ul.clues li {
   font-size: 1.1rem;
-  margin-bottom: .4rem;
-}
-button {
-  display: block;
-  margin: 0.5rem auto;
-}
-input {
-  margin-left: 0.5rem;
+  margin-bottom: 0.4rem;
 }

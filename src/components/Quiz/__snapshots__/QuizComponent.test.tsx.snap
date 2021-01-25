@@ -3,7 +3,7 @@
 exports[`renders a quiz properly 1`] = `
 <div>
   <div
-    class="quiz"
+    class="disabled"
   >
     <p>
       Time remaining: 
@@ -18,9 +18,7 @@ exports[`renders a quiz properly 1`] = `
       11
        question(s) correct
     </p>
-    <div
-      class="disabled"
-    >
+    <div>
       <ul
         class="questions"
       >
@@ -102,12 +100,20 @@ exports[`renders a quiz properly 1`] = `
           11
         </li>
       </ul>
-      <button>
-        &lt; Previous Question
-      </button>
-      <button>
-        Next Question &gt;
-      </button>
+      <div
+        class="nextPrevQs"
+      >
+        <button
+          disabled=""
+        >
+          &lt; Previous Question
+        </button>
+        <button
+          disabled=""
+        >
+          Next Question &gt;
+        </button>
+      </div>
       <button
         class="startQuiz"
       >
@@ -137,9 +143,7 @@ exports[`renders a started quiz properly 1`] = `
       11
        question(s) correct
     </p>
-    <div
-      class=""
-    >
+    <div>
       <ul
         class="questions"
       >
@@ -221,12 +225,16 @@ exports[`renders a started quiz properly 1`] = `
           11
         </li>
       </ul>
-      <button>
-        &lt; Previous Question
-      </button>
-      <button>
-        Next Question &gt;
-      </button>
+      <div
+        class="nextPrevQs"
+      >
+        <button>
+          &lt; Previous Question
+        </button>
+        <button>
+          Next Question &gt;
+        </button>
+      </div>
       <div
         class="question"
       >
