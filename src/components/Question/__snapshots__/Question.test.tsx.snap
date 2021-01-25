@@ -8,15 +8,14 @@ exports[`renders a question properly 1`] = `
     <span
       class="prompt"
     >
-      In what state will you find...
+      For 
+      4
+       point(s), 
+      in what state will you find...
     </span>
     <button>
       Reveal Another Clue
     </button>
-    <span>
-      1
-       clues revealed
-    </span>
     <ul
       class="clues"
     >

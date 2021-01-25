@@ -62,7 +62,7 @@ export const QuestionComp: React.FunctionComponent<QuestionProps> = ({
 
   return (
     <div className={styles.question}>
-      <span className="prompt">{prompt}</span>
+      <span className={styles.prompt}>For {question.clues.length - state.revealedClues} point(s), {prompt}</span>
       {/* Now where the hell do I get the prompt? */}
       <button
         onClick={() => revealAnotherClue()}
@@ -73,7 +73,6 @@ export const QuestionComp: React.FunctionComponent<QuestionProps> = ({
       >
         Reveal Another Clue
       </button>
-      <span>{1 + state.revealedClues} clues revealed</span>
       <ul className={styles.clues}>
         {question.clues.map((clue, index) => (
           <ClueComponent

@@ -14,3 +14,7 @@ ul.clues {
 .question input {
   margin-left: 0.5rem;
 }
+span.prompt {
+  font-size: 1.1em;
+  font-weight: bolder;
+}
