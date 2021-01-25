@@ -193,12 +193,12 @@ export const testQuizzes: Quiz[] = [
         },
         {
             clues:
-                ["Steven Adler",
-                    "Izzy Stradlin",
-                    "Duff McKagan",
-                    "Axl Rose and Slash"
+                [
+                    "Andy Summers",
+                    "Stewart Copeland",
+                    "Sting"
                 ],
-            answer: "Guns ‘n Roses"
+            answer: "Police"
         },
         {
             clues:
