@@ -17,7 +17,7 @@ export const testQuizzes: Quiz[] = [
     {
         slug: "states-by-attraction",
         title: "States by Attraction",
-        prompt: "In what state will you find...",
+        prompt: "in what state will you find...",
 
         questions: [{
             clues: [
@@ -123,7 +123,7 @@ export const testQuizzes: Quiz[] = [
     {
         slug: "band-by-members",
         title: "Band by Members",
-        prompt: "What band did ... play for?",
+        prompt: "what band did ... play for?",
         questions: [{
             clues: [
                 "John Deacon",
@@ -223,12 +223,13 @@ export class QuizState {
     @observable timeRemaining: number = 0;
     // TODO: quizState and quizStatus, and isComplete. Because I don't have enough confusing names. :(
     @observable quizStatus: QuizEnum = QuizEnum.UNSTARTED;
-
+    @observable maxScore: number;
 
     constructor(chosenQuiz: Quiz) {
         this.currentQuiz = chosenQuiz;
         this.quizState = chosenQuiz.questions.map(question => ({ ...defaultQuestionState }));
         this.timeRemaining = 8 * 60 * 1000;
+        this.maxScore = chosenQuiz.questions.reduce((acc, cur) => acc + cur.clues.length, 0)
     }
 
     //TODO: Three methods, all called score*, is a little confusing.

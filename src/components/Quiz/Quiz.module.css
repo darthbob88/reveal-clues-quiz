@@ -9,6 +9,7 @@
 }
 .quiz {
   border: 1px solid lightgray;
+  padding-bottom: 1em;
 }
 .startQuiz {
   opacity: 100%;

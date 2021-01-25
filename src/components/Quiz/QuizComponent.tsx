@@ -89,7 +89,7 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
         </div>
         {quizContent()}
         {quiz.quizStatus === QuizEnum.COMPLETED
-          ? <span>Congratulations! Your final score is {quiz.scorePoints}</span>
+          ? <span>Congratulations! Your final score is {quiz.scorePoints} / {quiz.maxScore} </span>
           : ""}
       </div>
     </div>
