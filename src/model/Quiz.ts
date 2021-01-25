@@ -168,7 +168,8 @@ export const testQuizzes: Quiz[] = [
         },
         {
             clues:
-                ["Alex Lifeson",
+                [
+                    "Alex Lifeson",
                     "Geddy Lee",
                     "Neil Peart"
                 ],
@@ -185,10 +186,12 @@ export const testQuizzes: Quiz[] = [
         },
         {
             clues:
-                ["Paul Cook",
+                [
+                    "Paul Cook",
                     "Steve Jones",
                     "Johnny Rotten",
-                    "Sid Vicious"],
+                    "Sid Vicious"
+                ],
             answer: "The Sex Pistols"
         },
         {
@@ -202,9 +205,11 @@ export const testQuizzes: Quiz[] = [
         },
         {
             clues:
-                ["Krist Novoselic",
+                [
+                    "Krist Novoselic",
                     "Dave Grohl",
-                    "Kurt Cobain"],
+                    "Kurt Cobain"
+                ],
             answer: "Nirvana"
         }]
     }]
