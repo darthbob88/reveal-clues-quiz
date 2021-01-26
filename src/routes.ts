@@ -1,6 +1,6 @@
 const LANDING = '/';
 const HOME = '/reveal-clues-quiz';
-const QUIZ = HOME + "/quiz/:id";
+const QUIZ = "/quiz/:id";
 
 //Dunno if/when I'll get around to this, but it'll be nice to have them.
 const ACCOUNT = '/account';
