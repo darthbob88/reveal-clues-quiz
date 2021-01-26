@@ -37,7 +37,7 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
     quiz.scoreQuestion(currentQuestion, points);
     setTimeout(() => {
       nextQuestion();
-    }, 1000);
+    }, 1500);
   };
 
   const quizContent = () => {
