@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/reveal-clues-quiz/static/css/main.7b365a65.chunk.css",
-    "main.js": "/reveal-clues-quiz/static/js/main.636899bc.chunk.js",
-    "main.js.map": "/reveal-clues-quiz/static/js/main.636899bc.chunk.js.map",
+    "main.js": "/reveal-clues-quiz/static/js/main.9927b289.chunk.js",
+    "main.js.map": "/reveal-clues-quiz/static/js/main.9927b289.chunk.js.map",
     "runtime-main.js": "/reveal-clues-quiz/static/js/runtime-main.c9cb7898.js",
     "runtime-main.js.map": "/reveal-clues-quiz/static/js/runtime-main.c9cb7898.js.map",
     "static/js/2.523c1d8a.chunk.js": "/reveal-clues-quiz/static/js/2.523c1d8a.chunk.js",
     "static/js/2.523c1d8a.chunk.js.map": "/reveal-clues-quiz/static/js/2.523c1d8a.chunk.js.map",
     "index.html": "/reveal-clues-quiz/index.html",
-    "precache-manifest.61602d0021d559b568d78322e08cdbb8.js": "/reveal-clues-quiz/precache-manifest.61602d0021d559b568d78322e08cdbb8.js",
+    "precache-manifest.176f0994215e46ddad7ebdcb69f656e6.js": "/reveal-clues-quiz/precache-manifest.176f0994215e46ddad7ebdcb69f656e6.js",
     "service-worker.js": "/reveal-clues-quiz/service-worker.js",
     "static/css/main.7b365a65.chunk.css.map": "/reveal-clues-quiz/static/css/main.7b365a65.chunk.css.map",
     "static/js/2.523c1d8a.chunk.js.LICENSE.txt": "/reveal-clues-quiz/static/js/2.523c1d8a.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.c9cb7898.js",
     "static/js/2.523c1d8a.chunk.js",
     "static/css/main.7b365a65.chunk.css",
-    "static/js/main.636899bc.chunk.js"
+    "static/js/main.9927b289.chunk.js"
   ]
 }
