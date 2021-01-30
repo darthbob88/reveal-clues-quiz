@@ -1,6 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a question properly 1`] = `
+exports[`Question component renders a correctly answered question properly 1`] = `
+<div>
+  <div
+    class="question"
+  >
+    <span
+      class="prompt"
+    >
+      For 
+      4
+       point(s), 
+      in what state will you find...
+    </span>
+    <button
+      disabled=""
+    >
+      Reveal Another Clue
+    </button>
+    <ul
+      class="clues"
+    >
+      <li>
+        Ernest Hemingway's Grave
+      </li>
+      <li>
+        -----------
+      </li>
+      <li>
+        -----------
+      </li>
+      <li>
+        -----------
+      </li>
+    </ul>
+    <label>
+      Your Answer:
+      <input
+        disabled=""
+        value=""
+      />
+    </label>
+    <button
+      disabled=""
+    >
+      Submit Guess
+    </button>
+    <span>
+      Correct! You get 4 points.
+       
+       
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Question component renders a question properly 1`] = `
 <div>
   <div
     class="question"
@@ -41,6 +96,61 @@ exports[`renders a question properly 1`] = `
     <button>
       Submit Guess
     </button>
+  </div>
+</div>
+`;
+
+exports[`Question component renders an incorrectly answered question properly 1`] = `
+<div>
+  <div
+    class="question"
+  >
+    <span
+      class="prompt"
+    >
+      For 
+      4
+       point(s), 
+      in what state will you find...
+    </span>
+    <button
+      disabled=""
+    >
+      Reveal Another Clue
+    </button>
+    <ul
+      class="clues"
+    >
+      <li>
+        Ernest Hemingway's Grave
+      </li>
+      <li>
+        -----------
+      </li>
+      <li>
+        -----------
+      </li>
+      <li>
+        -----------
+      </li>
+    </ul>
+    <label>
+      Your Answer:
+      <input
+        disabled=""
+        value=""
+      />
+    </label>
+    <button
+      disabled=""
+    >
+      Submit Guess
+    </button>
+    <span>
+      Incorrect! You get 0 points. The correct answer is Idaho.
+       
+       
+    </span>
   </div>
 </div>
 `;
