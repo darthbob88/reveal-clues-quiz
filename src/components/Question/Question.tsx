@@ -1,5 +1,6 @@
 import { observer } from "mobx-react";
 import React, { useState, useEffect, useRef } from "react";
+import ReactMarkdown from "react-markdown";
 import { Question, QuestionEnum, QuestionState } from "../../model/Question";
 import styles from "./Question.module.css";
 
@@ -45,15 +46,15 @@ export const QuestionComp: React.FunctionComponent<QuestionProps> = ({
   const revealOnAnswer = () => {
     if (QuestionEnum.UNANSWERED === state.state) {
       return null;
-    } else if (QuestionEnum.CORRECTLY_ANSWERED === state.state) {
-      const questionValue = question.clues.length - state.revealedClues;
-      return <span>Correct! You get {questionValue} points. {question.revealOnAnswer}</span>;
     } else {
-      return (
-        <span>
-          Incorrect! You get 0 points. The correct answer is {question.answer}. {question.revealOnAnswer}
-        </span>
-      );
+      let result = "";
+      if (QuestionEnum.CORRECTLY_ANSWERED === state.state) {
+        const questionValue = question.clues.length - state.revealedClues;
+        result = `Correct! You get ${questionValue} points.`;
+      } else {
+        result = `Incorrect! You get 0 points. The correct answer is ${question.answer}.`;
+      }
+      return <span>{result} {question.revealOnAnswer != null && <ReactMarkdown source={question.revealOnAnswer} />} </span>;
     }
   };
   const revealAnotherClue = () => {

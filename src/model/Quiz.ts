@@ -63,7 +63,7 @@ export const testQuizzes: Quiz[] = [
                 "Hoosier Hill"
             ],
             answer: "Indiana",
-            revealOnAnswer: "Sources: https://www.atlasobscura.com/places/slocum-mechanical-puzzle-collection  https://www.atlasobscura.com/places/mentone-egg  https://www.atlasobscura.com/places/kokomantis-scrap-art-sculpture https://www.atlasobscura.com/places/hoosier-hill"
+            revealOnAnswer: "Sources: [Slocum Mechanical Puzze Collection](https://www.atlasobscura.com/places/slocum-mechanical-puzzle-collection) [Mentone Egg](https://www.atlasobscura.com/places/mentone-egg)  [Kokomantis](https://www.atlasobscura.com/places/kokomantis-scrap-art-sculpture) [Hoosier Hill](https://www.atlasobscura.com/places/hoosier-hill)"
         },
         {
             clues: [
