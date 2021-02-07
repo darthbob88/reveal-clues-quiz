@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "868e0fcc941ac47b228161f3472c1eed",
+    "revision": "169bcfb5ccf67f769ea26d7226064fd1",
     "url": "/reveal-clues-quiz/index.html"
   },
   {
-    "revision": "22d22b99c17626902b70",
+    "revision": "39cbd747cd0e4c0c9db0",
     "url": "/reveal-clues-quiz/static/css/main.7b365a65.chunk.css"
   },
   {
-    "revision": "527575baaef48c4f049b",
-    "url": "/reveal-clues-quiz/static/js/2.e172c82c.chunk.js"
+    "revision": "5ce721637cfa4d6b13ba",
+    "url": "/reveal-clues-quiz/static/js/2.8dc16c2f.chunk.js"
   },
   {
     "revision": "562e5ecc843fae86fbabdddc0afa1067",
-    "url": "/reveal-clues-quiz/static/js/2.e172c82c.chunk.js.LICENSE.txt"
+    "url": "/reveal-clues-quiz/static/js/2.8dc16c2f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "22d22b99c17626902b70",
-    "url": "/reveal-clues-quiz/static/js/main.5735de56.chunk.js"
+    "revision": "39cbd747cd0e4c0c9db0",
+    "url": "/reveal-clues-quiz/static/js/main.d49f51e7.chunk.js"
   },
   {
     "revision": "247e856163a215ef4d72",
