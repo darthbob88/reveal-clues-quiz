@@ -102,6 +102,11 @@ exports[`renders the app properly 1`] = `
         Github
       </a>
       <a
+        href="/https://github.com/darthbob88/reveal-clues-quiz"
+      >
+        Github Repo for this Project
+      </a>
+      <a
         href="/https://twitter.com/darthbob88"
       >
         Twitter
