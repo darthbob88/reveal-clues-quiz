@@ -84,8 +84,12 @@ export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
           ))}
         </ul>
         <div className={styles.nextPrevQs}>
-          <button onClick={() => prevQuestion()} disabled={quiz.quizStatus !== QuizEnum.IN_PROGRESS}>&lt; Previous Question</button>
-          <button onClick={() => nextQuestion()} disabled={quiz.quizStatus !== QuizEnum.IN_PROGRESS}>Next Question &gt;</button>
+          <button onClick={() => prevQuestion()}
+            onKeyPress={(event) => (event.key === "Enter" ? prevQuestion() : "")}
+            disabled={quiz.quizStatus !== QuizEnum.IN_PROGRESS}>&lt; Previous Question</button>
+          <button onClick={() => nextQuestion()}
+            onKeyPress={(event) => (event.key === "Enter" ? nextQuestion() : "")}
+            disabled={quiz.quizStatus !== QuizEnum.IN_PROGRESS}>Next Question &gt;</button>
         </div>
         {quizContent()}
         {quiz.quizStatus === QuizEnum.COMPLETED
