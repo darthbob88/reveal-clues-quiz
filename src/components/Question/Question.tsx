@@ -24,7 +24,7 @@ export const QuestionComp: React.FunctionComponent<QuestionProps> = ({
     } return () => {
       setCurrentGuess("");
     };
-  }, [question]);
+  }, [question, state.revealedClues]);
 
   const submitAnswer = () => {
     const qState: Partial<QuestionState> = {
