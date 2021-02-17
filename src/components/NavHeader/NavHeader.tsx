@@ -18,7 +18,7 @@ export const NavHeader = () => {
         you only get one chance to answer, and if you answer wrong, you get 0
         points. So it's better to ask for another clue and get 3 points than
         get a question wrong and get 0 points.
-<br />
+        <br />
         <br />
         EG: If you know which US state is home to <a href="https://www.atlasobscura.com/places/widow-jane-mine">the Widow Jane Mine</a>,
         you get 4 points. If you need another clue, that this state is also home to the <a href="https://www.atlasobscura.com/places/jello-gallery-museum">JELL-O Gallery Museum</a> you will get only 3 points for a correct answer. If you need to hear that this state also has the <a href="https://www.atlasobscura.com/places/amityville-horror-house">Amityville Horror house</a>,
@@ -39,8 +39,7 @@ On the other hand, if you answered wrongly based on any of those clues, you'd on
           </li>
           <li>Due to programmer laziness, we are not particular about
           casing, but we only accept one spelling and phrasing. "the sex pistols" is
-          correct, "Sex Pistols" is not. This is issue #3 to fix, after adding
-        the ability to generate new quizzes.</li>
+          correct, "Sex Pistols" is not.</li>
         </ul>
       </details>
 
