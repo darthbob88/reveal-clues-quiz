@@ -221,6 +221,8 @@ export enum QuizEnum {
     COMPLETED
 }
 
+// TODO: Add the quiz-fetching logic to an action here.
+// TODO: Refactor this and App.tsx to store QuizState in React Context
 export class QuizState {
     @observable currentQuiz: Quiz;
     // TODO: It'd be neat if I could make this part of the quiz itself
