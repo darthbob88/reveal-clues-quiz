@@ -69,6 +69,9 @@ exports[`renders the app properly 1`] = `
           <li>
             Due to programmer laziness, we are not particular about casing, but we only accept one spelling and phrasing. "the sex pistols" is correct, "Sex Pistols" is not.
           </li>
+          <li>
+            I am deeply unsatisfied with the layout and UI, but don't know enough to fix it properly. Feedback welcome, although I am not budging on the brutalism.
+          </li>
         </ul>
       </details>
     </header>

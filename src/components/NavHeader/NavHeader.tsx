@@ -40,6 +40,8 @@ On the other hand, if you answered wrongly based on any of those clues, you'd on
           <li>Due to programmer laziness, we are not particular about
           casing, but we only accept one spelling and phrasing. "the sex pistols" is
           correct, "Sex Pistols" is not.</li>
+          <li>I am deeply unsatisfied with the layout and UI, but don't know enough to
+            fix it properly. Feedback welcome, although I am not budging on the brutalism.</li>
         </ul>
       </details>
 
