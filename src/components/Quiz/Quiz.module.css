@@ -1,0 +1,46 @@
+.question {
+  border: 1px solid #bbb;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+.disabled {
+  background: #bcbcbc;
+  color: #222;
+}
+.quiz {
+  border: 1px solid lightgray;
+  padding-bottom: 1em;
+}
+.startQuiz {
+  display: inline-block;
+  margin: 2rem 0.5rem 4rem;
+}
+
+div.nextPrevQs {
+  display: flex;
+  justify-content: center;
+}
+div.nextPrevQs button {
+  margin: 0 1rem;
+}
+.questions li {
+  display: inline-block;
+  padding: 0.3rem;
+  margin: 0.2rem;
+  cursor: pointer;
+}
+
+.unanswered {
+  background-color: #e6e6fa4f;
+}
+.correct {
+  background-color: #7cfc007a;
+}
+.incorrect {
+  background-color: #ff0000a6;
+  color: white;
+}
+
+.current {
+  border: 1px solid black;
+}

@@ -1,0 +1,7 @@
+footer.NavFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 60vw;
+  margin: 1rem auto;
+}
