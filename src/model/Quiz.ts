@@ -271,11 +271,14 @@ export class QuizState {
 
     @computed get display() {
         const tenMilliSeconds = parseInt((this.timeRemaining / 10).toString(), 10);
+        const millisecondsString = (tenMilliSeconds % 100).toLocaleString(undefined, { minimumIntegerDigits: 2 });
 
         const seconds = parseInt((tenMilliSeconds / 100).toString(), 10);
+        const secondsString = (seconds % 60).toLocaleString(undefined, { minimumIntegerDigits: 2 });
+
         const minutes = parseInt((seconds / 60).toString(), 10);
         // TODO: Get some good method for formatting this for display.
-        return `${minutes} : ${seconds % 60} :  ${tenMilliSeconds % 100}`;
+        return `${minutes} : ${secondsString} :  ${millisecondsString}`;
     }
 }
 
