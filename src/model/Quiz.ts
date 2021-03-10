@@ -202,7 +202,6 @@ export enum QuizEnum {
 
 
 // TODO: Add the quiz-fetching logic to an action here.
-// TODO: Refactor this and App.tsx to store QuizState in React Context
 // TODO: Refactor this to start with an empty quiz and later load the quiz.
 export class QuizState {
     @observable currentQuiz: Quiz;
@@ -277,7 +276,6 @@ export class QuizState {
         const secondsString = (seconds % 60).toLocaleString(undefined, { minimumIntegerDigits: 2 });
 
         const minutes = parseInt((seconds / 60).toString(), 10);
-        // TODO: Get some good method for formatting this for display.
         return `${minutes} : ${secondsString} :  ${millisecondsString}`;
     }
 }
