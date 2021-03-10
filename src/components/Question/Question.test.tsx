@@ -56,9 +56,9 @@ describe("Question component", () => {
     const revealClue = getByText("Reveal Another Clue");
     expect(revealClue).toBeDisabled();
 
-    // TODO: How can I check that it's awarding the correct number of points?
     const correctAnswer = getByText(/Correct/i);
     expect(correctAnswer).toBeInTheDocument();
+    expect(correctAnswer).toHaveTextContent("Correct! You get 4 points.");
 
     expect(container).toMatchSnapshot();
   });
