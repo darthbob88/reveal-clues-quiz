@@ -1,14 +1,12 @@
-import React, { Fragment, useState } from "react";
-import { QuizEnum, QuizState } from "../../model/Quiz";
+import React, { Fragment, useContext, useState } from "react";
+import { QuizEnum, QuizStateContext } from "../../model/Quiz";
 import styles from "./Quiz.module.css";
 import { QuestionComponent } from "../Question/Question";
 import { QuestionEnum, QuestionState } from "../../model/Question";
 import { observer } from "mobx-react";
 
-type QuizProps = {
-  quiz: QuizState;
-};
-export const QuizComp: React.FunctionComponent<QuizProps> = ({ quiz }) => {
+export const QuizComp: React.FunctionComponent = () => {
+  const quiz = useContext(QuizStateContext);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const questions = quiz.currentQuiz.questions;
 

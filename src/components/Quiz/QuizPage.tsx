@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Quiz, QuizState } from "../../model/Quiz";
+import { Quiz, QuizStateContext } from "../../model/Quiz";
 import { loadQuiz } from "../../model/QuizService";
 import { QuizComponent } from "./QuizComponent";
 
@@ -11,6 +11,9 @@ import { QuizComponent } from "./QuizComponent";
 export const QuizPage: React.FunctionComponent = () => {
     const { id } = useParams<{ id: string }>();
     const [quiz, setQuiz] = useState<Quiz>();
+
+    const QuizContext = useContext(QuizStateContext);
+
     useEffect(() => {
         const fetchData = async (id: string) => {
             const result = await loadQuiz(id);
@@ -22,9 +25,10 @@ export const QuizPage: React.FunctionComponent = () => {
             result.questions = questions;
 
             setQuiz(result);
+            QuizContext.loadQuiz(result);
         };
         id != null && fetchData(id);
-    }, [id]);
+    }, [id, QuizContext]);
 
     function shuffle<T>(array: T[]): T[] {
         var currentIndex = array.length, temporaryValue, randomIndex;
@@ -46,6 +50,6 @@ export const QuizPage: React.FunctionComponent = () => {
     }
 
     return (
-        quiz === undefined ? <h2>Still Loading</h2> : <QuizComponent quiz={new QuizState(quiz)} />
+        quiz === undefined ? <h2>Still Loading</h2> : <QuizComponent />
     );
 }

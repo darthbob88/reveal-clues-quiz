@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { HashRouter } from 'react-router-dom';
+import { QuizState, QuizStateContext } from './model/Quiz';
 
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
-      <App />
+      <QuizStateContext.Provider value={new QuizState()}>
+        <App />
+      </QuizStateContext.Provider>
     </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')

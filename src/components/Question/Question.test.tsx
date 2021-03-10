@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { QuestionComponent } from "./Question";
-import { defaultQuiz } from "../../model/Quiz";
+import { defaultQuiz, QuizEnum, QuizState, QuizStateContext } from "../../model/Quiz";
 import {
   QuestionEnum,
   defaultQuestionState,
@@ -12,6 +12,11 @@ const defaultQuestion = defaultQuiz.questions[0];
 const awardPoints = (score: number) => {
   console.log(score);
 };
+let startedQuizState = new QuizState(defaultQuiz);
+beforeEach(() => {
+  startedQuizState = new QuizState(defaultQuiz);
+  startedQuizState.quizStatus = QuizEnum.IN_PROGRESS;
+})
 describe("Question component", () => {
   test("renders a question properly", () => {
     const { container, getByText, getAllByText } = render(
@@ -83,13 +88,18 @@ describe("Question component", () => {
   });
 
   // Can't easily test this after moving `revealedClues` to MobX :(
-  xtest("reveals more clues as necessary", () => {
+  test("reveals more clues as necessary", () => {
+    const defaultQuestion = startedQuizState.currentQuiz.questions[0];
+    const defaultQuestionState = startedQuizState.quizState[0];
+
     const { queryByText, getByText, getAllByText } = render(
-      <QuestionComponent
-        state={defaultQuestionState}
-        question={defaultQuestion}
-        awardPoints={awardPoints}
-      />
+      <QuizStateContext.Provider value={startedQuizState}>
+        <QuestionComponent
+          state={defaultQuestionState}
+          question={defaultQuestion}
+          awardPoints={awardPoints}
+        />
+      </QuizStateContext.Provider>
     );
     const revealClue = getByText("Reveal Another Clue");
     expect(revealClue).toBeEnabled();
@@ -149,15 +159,18 @@ describe("Question component", () => {
     expect(incrementScore).toHaveBeenCalledWith(expectedState);
   });
 
-  xtest("awards 3 points for correct answer with 2 clues", () => {
+  test("awards 3 points for correct answer with 2 clues", () => {
+    const defaultQuestionState = startedQuizState.quizState[0];
     const incrementScore = jest.fn();
     const { getByText, getByLabelText } = render(
-      <QuestionComponent
-        state={defaultQuestionState}
-        question={defaultQuestion}
-        awardPoints={incrementScore}
-        prompt={defaultQuiz.prompt}
-      />
+      <QuizStateContext.Provider value={startedQuizState}>
+        <QuestionComponent
+          state={defaultQuestionState}
+          question={defaultQuestion}
+          awardPoints={incrementScore}
+          prompt={defaultQuiz.prompt}
+        />
+      </QuizStateContext.Provider>
     );
 
     const revealClue = getByText("Reveal Another Clue");
@@ -181,6 +194,7 @@ describe("Question component", () => {
 
   test("awards 0 points for incorrect answer", () => {
     const incrementScore = jest.fn();
+    const defaultQuestionState = startedQuizState.quizState[0];
     const { getByText, getByLabelText } = render(
       <QuestionComponent
         state={defaultQuestionState}
@@ -189,6 +203,7 @@ describe("Question component", () => {
         prompt={defaultQuiz.prompt}
       />
     );
+
     const answerSlot = getByLabelText(/Answer/i);
     fireEvent.change(answerSlot, { target: { value: "butts" } });
 

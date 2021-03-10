@@ -1,4 +1,5 @@
 import { action, computed, observable } from "mobx";
+import { createContext } from "react";
 import { defaultQuestionState, Question, QuestionEnum, QuestionState } from "./Question";
 /**
  * Overarching type for a quiz.
@@ -199,6 +200,7 @@ export enum QuizEnum {
     COMPLETED
 }
 
+
 // TODO: Add the quiz-fetching logic to an action here.
 // TODO: Refactor this and App.tsx to store QuizState in React Context
 // TODO: Refactor this to start with an empty quiz and later load the quiz.
@@ -211,11 +213,18 @@ export class QuizState {
     @observable quizStatus: QuizEnum = QuizEnum.UNSTARTED;
     @observable maxScore: number;
 
-    constructor(chosenQuiz: Quiz) {
+    constructor(chosenQuiz: Quiz = emptyQuiz) {
         this.currentQuiz = chosenQuiz;
         this.quizState = chosenQuiz.questions.map(question => ({ ...defaultQuestionState }));
         this.timeRemaining = chosenQuiz.time * 1000;
-        this.maxScore = chosenQuiz.questions.reduce((acc, cur) => acc + cur.clues.length, 0)
+        this.maxScore = chosenQuiz.questions.reduce((acc, cur) => acc + cur.clues.length, 0);
+    }
+
+    @action loadQuiz(chosenQuiz: Quiz) {
+        this.currentQuiz = chosenQuiz;
+        this.quizState = chosenQuiz.questions.map(question => ({ ...defaultQuestionState }));
+        this.timeRemaining = chosenQuiz.time * 1000;
+        this.maxScore = chosenQuiz.questions.reduce((acc, cur) => acc + cur.clues.length, 0);
     }
 
     //TODO: Three methods, all called score*, is a little confusing.
@@ -268,4 +277,7 @@ export class QuizState {
         // TODO: Get some good method for formatting this for display.
         return `${minutes} : ${seconds % 60} :  ${tenMilliSeconds % 100}`;
     }
-} 
+}
+
+
+export const QuizStateContext = createContext<QuizState>(new QuizState());
