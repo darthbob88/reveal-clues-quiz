@@ -17,6 +17,7 @@ describe("Quiz State", () => {
         expect(testStore.scorePoints).toBe(7);
         expect(testStore.scorePercent).toBe(2);
     })
+
     test("Properly handles incorrectly answered questions", () => {
         const testStore = new QuizState(defaultQuiz);
         expect(testStore.scorePoints).toBe(0);
@@ -26,9 +27,5 @@ describe("Quiz State", () => {
         testStore.scoreQuestion(0, { score: 0, revealedClues: 0, state: QuestionEnum.INCORRECTLY_ANSWERED });
         expect(testStore.scorePoints).toBe(0);
         expect(testStore.scorePercent).toBe(0);
-    })
-    test("Properly handles timing out", () => {
-        //todo: ??? First we need to add a damn timer here. :(
-        //TODO: Use https://medium.com/the-web-tub/its-all-about-time-building-a-performant-stopwatch-with-mobx-and-react-fast-914e376845c5 as a guide
     })
 })

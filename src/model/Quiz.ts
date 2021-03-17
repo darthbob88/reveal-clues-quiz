@@ -1,16 +1,20 @@
 import { action, computed, observable } from "mobx";
+import { createContext } from "react";
 import { defaultQuestionState, Question, QuestionEnum, QuestionState } from "./Question";
 /**
  * Overarching type for a quiz.
- * @field prompt: string A prompt for each question, to be used if there is no overruling one in the individual question
- * @field questions: Question[] A set of questions for each quiz.
+ * @field prompt: A prompt for each question.
+ * @field questions: An array of questions for each quiz.
  * @field title: An overarching title for the quiz. 
+ * @field slug: A URL slug.
+ * @field time: How long a user has to do the quiz, in seconds.
  */
 export type Quiz = {
     questions: Question[];
     title: string;
     prompt: string;
     slug: string;
+    time: number;
 }
 
 export const testQuizzes: Quiz[] = [
@@ -18,7 +22,7 @@ export const testQuizzes: Quiz[] = [
         slug: "states-by-attraction",
         title: "States by Attraction",
         prompt: "in what state will you find...",
-
+        time: 8 * 60,
         questions: [
             {
                 clues: [
@@ -127,6 +131,7 @@ export const testQuizzes: Quiz[] = [
         slug: "band-by-members",
         title: "Band by Members",
         prompt: "what band did ... play for?",
+        time: 8 * 60,
         questions: [
             {
                 clues: ["John Deacon", "Roger Taylor", "Brian May", "Freddie Mercury"],
@@ -176,7 +181,18 @@ export const testQuizzes: Quiz[] = [
         ],
     },
 ];
+
+// Used for testing
 export const defaultQuiz: Quiz = testQuizzes[0];
+
+// Actual empty default. 
+export const emptyQuiz: Quiz = {
+    slug: "",
+    title: "",
+    prompt: "",
+    time: 0,
+    questions: []
+};
 
 export enum QuizEnum {
     UNSTARTED,
@@ -184,8 +200,7 @@ export enum QuizEnum {
     COMPLETED
 }
 
-// TODO: Add the quiz-fetching logic to an action here.
-// TODO: Refactor this and App.tsx to store QuizState in React Context
+
 export class QuizState {
     @observable currentQuiz: Quiz;
     // TODO: It'd be neat if I could make this part of the quiz itself
@@ -195,11 +210,11 @@ export class QuizState {
     @observable quizStatus: QuizEnum = QuizEnum.UNSTARTED;
     @observable maxScore: number;
 
-    constructor(chosenQuiz: Quiz) {
+    constructor(chosenQuiz: Quiz = emptyQuiz) {
         this.currentQuiz = chosenQuiz;
         this.quizState = chosenQuiz.questions.map(question => ({ ...defaultQuestionState }));
-        this.timeRemaining = 8 * 60 * 1000;
-        this.maxScore = chosenQuiz.questions.reduce((acc, cur) => acc + cur.clues.length, 0)
+        this.timeRemaining = chosenQuiz.time * 1000;
+        this.maxScore = chosenQuiz.questions.reduce((acc, cur) => acc + cur.clues.length, 0);
     }
 
     //TODO: Three methods, all called score*, is a little confusing.
@@ -233,21 +248,28 @@ export class QuizState {
     @action measure() {
         if (this.quizStatus !== QuizEnum.IN_PROGRESS) return;
 
+        // TODO: fix this to use a start time, rather than assume setTimeout always works right.
         this.timeRemaining -= 50;
 
         if (this.isComplete) {
             this.quizStatus = QuizEnum.COMPLETED;
             return;
         }
+
         setTimeout(() => this.measure(), 50);
     }
 
     @computed get display() {
         const tenMilliSeconds = parseInt((this.timeRemaining / 10).toString(), 10);
+        const millisecondsString = (tenMilliSeconds % 100).toLocaleString(undefined, { minimumIntegerDigits: 2 });
 
         const seconds = parseInt((tenMilliSeconds / 100).toString(), 10);
+        const secondsString = (seconds % 60).toLocaleString(undefined, { minimumIntegerDigits: 2 });
+
         const minutes = parseInt((seconds / 60).toString(), 10);
-        // TODO: Get some good method for formatting this for display.
-        return `${minutes} : ${seconds % 60} :  ${tenMilliSeconds % 100}`;
+        return `${minutes} : ${secondsString} :  ${millisecondsString}`;
     }
-} 
+}
+
+
+export const QuizStateContext = createContext<QuizState>(new QuizState());

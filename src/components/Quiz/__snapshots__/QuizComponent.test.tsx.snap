@@ -7,7 +7,7 @@ exports[`renders a quiz properly 1`] = `
   >
     <p>
       Time remaining: 
-      8 : 0 :  0
+      8 : 00 :  00
        
       <br />
       Current score: 
@@ -132,7 +132,7 @@ exports[`renders a started quiz properly 1`] = `
   >
     <p>
       Time remaining: 
-      8 : 0 :  0
+      8 : 00 :  00
        
       <br />
       Current score: 
