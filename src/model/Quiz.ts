@@ -201,8 +201,6 @@ export enum QuizEnum {
 }
 
 
-// TODO: Add the quiz-fetching logic to an action here.
-// TODO: Refactor this to start with an empty quiz and later load the quiz.
 export class QuizState {
     @observable currentQuiz: Quiz;
     // TODO: It'd be neat if I could make this part of the quiz itself
@@ -213,13 +211,6 @@ export class QuizState {
     @observable maxScore: number;
 
     constructor(chosenQuiz: Quiz = emptyQuiz) {
-        this.currentQuiz = chosenQuiz;
-        this.quizState = chosenQuiz.questions.map(question => ({ ...defaultQuestionState }));
-        this.timeRemaining = chosenQuiz.time * 1000;
-        this.maxScore = chosenQuiz.questions.reduce((acc, cur) => acc + cur.clues.length, 0);
-    }
-
-    @action loadQuiz(chosenQuiz: Quiz) {
         this.currentQuiz = chosenQuiz;
         this.quizState = chosenQuiz.questions.map(question => ({ ...defaultQuestionState }));
         this.timeRemaining = chosenQuiz.time * 1000;
