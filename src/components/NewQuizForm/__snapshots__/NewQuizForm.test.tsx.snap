@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`New Quiz component renders the new quiz form properly 1`] = `
+<div>
+  <form
+    class="question"
+  >
+    <label>
+      Quiz Title 
+      <input
+        type="text"
+        value=""
+      />
+       
+    </label>
+    <label>
+      Quiz Prompt 
+      <input
+        type="text"
+        value=""
+      />
+       
+    </label>
+    <button>
+      Submit Guess
+    </button>
+  </form>
+</div>
+`;
