@@ -1,0 +1,607 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`New Quiz component renders the new quiz form properly 1`] = `
+<div>
+  <form
+    class="question"
+  >
+    <p>
+            
+      <label>
+        Quiz Title 
+        <input
+          type="text"
+          value="States by Attraction"
+        />
+         
+      </label>
+    </p>
+    <p>
+            
+      <label>
+        Quiz Prompt 
+        <input
+          type="text"
+          value="in what state will you find..."
+        />
+         
+      </label>
+    </p>
+    <div>
+      <h3>
+        Question 
+        1
+      </h3>
+      <ul>
+        <li>
+            
+          <textarea
+            data-index="0"
+            rows="3"
+          >
+            Ernest Hemingway's Grave
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="1"
+            rows="3"
+          >
+            The Smurf Turf
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="2"
+            rows="3"
+          >
+            The Yellowstone Zone of Death
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="3"
+            rows="3"
+          >
+            The &lt;State&gt; Potato Museum
+          </textarea>
+        </li>
+      </ul>
+      <label>
+        Answer 
+        <input
+          type="text"
+          value="Idaho"
+        />
+         
+      </label>
+    </div>
+    <div>
+      <h3>
+        Question 
+        2
+      </h3>
+      <ul>
+        <li>
+            
+          <textarea
+            data-index="0"
+            rows="3"
+          >
+            Weeki Wachee, the city of mermaids
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="1"
+            rows="3"
+          >
+            The Ernest Hemingway Home and Museum
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="2"
+            rows="3"
+          >
+            NASA Vehicle Assembly Building, a building so large it has its own weather
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="3"
+            rows="3"
+          >
+            The Southernmost Point in the Continental US
+          </textarea>
+        </li>
+      </ul>
+      <label>
+        Answer 
+        <input
+          type="text"
+          value="Florida"
+        />
+         
+      </label>
+    </div>
+    <div>
+      <h3>
+        Question 
+        3
+      </h3>
+      <ul>
+        <li>
+            
+          <textarea
+            data-index="0"
+            rows="3"
+          >
+            World's Largest Collection of Smallest Versions of Largest Things
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="1"
+            rows="3"
+          >
+            Monument Rocks
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="2"
+            rows="3"
+          >
+            The Equality House, across the street from Westboro
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="3"
+            rows="3"
+          >
+            Geographic Center of the Contiguous United States
+          </textarea>
+        </li>
+      </ul>
+      <label>
+        Answer 
+        <input
+          type="text"
+          value="Kansas"
+        />
+         
+      </label>
+    </div>
+    <div>
+      <h3>
+        Question 
+        4
+      </h3>
+      <ul>
+        <li>
+            
+          <textarea
+            data-index="0"
+            rows="3"
+          >
+            Mutter Museum of medical oddities
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="1"
+            rows="3"
+          >
+            Fallingwater, designed by Frank Lloyd Wright
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="2"
+            rows="3"
+          >
+            Gobbler's Knob, home of Punxsutawney Phil
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="3"
+            rows="3"
+          >
+            The grave of Fred McFeely Rogers
+          </textarea>
+        </li>
+      </ul>
+      <label>
+        Answer 
+        <input
+          type="text"
+          value="Pennsylvania"
+        />
+         
+      </label>
+    </div>
+    <div>
+      <h3>
+        Question 
+        5
+      </h3>
+      <ul>
+        <li>
+            
+          <textarea
+            data-index="0"
+            rows="3"
+          >
+            Slocum Mechanical Puzzle Collection
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="1"
+            rows="3"
+          >
+            Mentone Egg, A giant concrete egg marks this town as the "Egg Basket of the Midwest."
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="2"
+            rows="3"
+          >
+            Kokomantis
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="3"
+            rows="3"
+          >
+            Hoosier Hill
+          </textarea>
+        </li>
+      </ul>
+      <label>
+        Answer 
+        <input
+          type="text"
+          value="Indiana"
+        />
+         
+      </label>
+    </div>
+    <div>
+      <h3>
+        Question 
+        6
+      </h3>
+      <ul>
+        <li>
+            
+          <textarea
+            data-index="0"
+            rows="3"
+          >
+            USPS Remote Encoding Facility
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="1"
+            rows="3"
+          >
+            Pando, 'The Trembling Giant', a massive grove of quaking aspen
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="2"
+            rows="3"
+          >
+            The Spiral Jetty, a sculpture built onto a lake which is only visible during droughts
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="3"
+            rows="3"
+          >
+            Bonneville Salt Flats/Speedway
+          </textarea>
+        </li>
+      </ul>
+      <label>
+        Answer 
+        <input
+          type="text"
+          value="Utah"
+        />
+         
+      </label>
+    </div>
+    <div>
+      <h3>
+        Question 
+        7
+      </h3>
+      <ul>
+        <li>
+            
+          <textarea
+            data-index="0"
+            rows="3"
+          >
+            The Very Large Array radiotelescope, outside of Socorro.
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="1"
+            rows="3"
+          >
+            Smokey Bear's Grave
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="2"
+            rows="3"
+          >
+            Carlsbad Caverns
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="3"
+            rows="3"
+          >
+            The International UFO Museum and Research Center
+          </textarea>
+        </li>
+      </ul>
+      <label>
+        Answer 
+        <input
+          type="text"
+          value="New Mexico"
+        />
+         
+      </label>
+    </div>
+    <div>
+      <h3>
+        Question 
+        8
+      </h3>
+      <ul>
+        <li>
+            
+          <textarea
+            data-index="0"
+            rows="3"
+          >
+            Vacuum Cleaner Museum
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="1"
+            rows="3"
+          >
+            Vista House at Crown Point
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="2"
+            rows="3"
+          >
+            Evergreen Aviation Museum, home of the Spruce Goose
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="3"
+            rows="3"
+          >
+            International Rose Test Garden, in the City of Roses
+          </textarea>
+        </li>
+      </ul>
+      <label>
+        Answer 
+        <input
+          type="text"
+          value="Oregon"
+        />
+         
+      </label>
+    </div>
+    <div>
+      <h3>
+        Question 
+        9
+      </h3>
+      <ul>
+        <li>
+            
+          <textarea
+            data-index="0"
+            rows="3"
+          >
+            Rhea County Courthouse, site of the Scopes monkey trial
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="1"
+            rows="3"
+          >
+            Concrete Parthenon, built for the 1897 Centennial Exposition
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="2"
+            rows="3"
+          >
+            National Civil Rights Museum, established in the hotel where Dr Martin Luther King Jr was assassinated
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="3"
+            rows="3"
+          >
+            Jack Daniels Distillery
+          </textarea>
+        </li>
+      </ul>
+      <label>
+        Answer 
+        <input
+          type="text"
+          value="Tennessee"
+        />
+         
+      </label>
+    </div>
+    <div>
+      <h3>
+        Question 
+        10
+      </h3>
+      <ul>
+        <li>
+            
+          <textarea
+            data-index="0"
+            rows="3"
+          >
+            Dr. Seuss House aka The Goose Creek Tower, a 185 foot tall log cabin
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="1"
+            rows="3"
+          >
+            The giant metal chicken statue, outside the town of Chicken
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="2"
+            rows="3"
+          >
+            St Michael's Cathedral, first Russian Orthodox Church in North America
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="3"
+            rows="3"
+          >
+            Santa Claus House, in the town of North Pole
+          </textarea>
+        </li>
+      </ul>
+      <label>
+        Answer 
+        <input
+          type="text"
+          value="Alaska"
+        />
+         
+      </label>
+    </div>
+    <div>
+      <h3>
+        Question 
+        11
+      </h3>
+      <ul>
+        <li>
+            
+          <textarea
+            data-index="0"
+            rows="3"
+          >
+            Ape Cave, longest continuous lava tube in the continental US
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="1"
+            rows="3"
+          >
+            Maryhill Museum and Stonehenge
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="2"
+            rows="3"
+          >
+            Brown and Haley factory store, manufacturers of Almond Roca
+          </textarea>
+        </li>
+        <li>
+            
+          <textarea
+            data-index="3"
+            rows="3"
+          >
+            Beacon Rock, one of the largest monoliths in the world
+          </textarea>
+        </li>
+      </ul>
+      <label>
+        Answer 
+        <input
+          type="text"
+          value="Washington"
+        />
+         
+      </label>
+    </div>
+    <button>
+      Submit Guess
+    </button>
+  </form>
+</div>
+`;
