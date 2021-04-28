@@ -32,6 +32,14 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         Question 
         1
       </h3>
+<<<<<<< HEAD
+=======
+       
+      <button>
+        X
+      </button>
+       
+>>>>>>> WIP form
       <ul>
         <li>
             
@@ -84,6 +92,14 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         Question 
         2
       </h3>
+<<<<<<< HEAD
+=======
+       
+      <button>
+        X
+      </button>
+       
+>>>>>>> WIP form
       <ul>
         <li>
             
@@ -136,6 +152,14 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         Question 
         3
       </h3>
+<<<<<<< HEAD
+=======
+       
+      <button>
+        X
+      </button>
+       
+>>>>>>> WIP form
       <ul>
         <li>
             
@@ -188,6 +212,14 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         Question 
         4
       </h3>
+<<<<<<< HEAD
+=======
+       
+      <button>
+        X
+      </button>
+       
+>>>>>>> WIP form
       <ul>
         <li>
             
@@ -240,6 +272,14 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         Question 
         5
       </h3>
+<<<<<<< HEAD
+=======
+       
+      <button>
+        X
+      </button>
+       
+>>>>>>> WIP form
       <ul>
         <li>
             
@@ -292,6 +332,14 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         Question 
         6
       </h3>
+<<<<<<< HEAD
+=======
+       
+      <button>
+        X
+      </button>
+       
+>>>>>>> WIP form
       <ul>
         <li>
             
@@ -344,6 +392,14 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         Question 
         7
       </h3>
+<<<<<<< HEAD
+=======
+       
+      <button>
+        X
+      </button>
+       
+>>>>>>> WIP form
       <ul>
         <li>
             
@@ -396,6 +452,14 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         Question 
         8
       </h3>
+<<<<<<< HEAD
+=======
+       
+      <button>
+        X
+      </button>
+       
+>>>>>>> WIP form
       <ul>
         <li>
             
@@ -448,6 +512,14 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         Question 
         9
       </h3>
+<<<<<<< HEAD
+=======
+       
+      <button>
+        X
+      </button>
+       
+>>>>>>> WIP form
       <ul>
         <li>
             
@@ -500,6 +572,14 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         Question 
         10
       </h3>
+<<<<<<< HEAD
+=======
+       
+      <button>
+        X
+      </button>
+       
+>>>>>>> WIP form
       <ul>
         <li>
             
@@ -552,6 +632,14 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         Question 
         11
       </h3>
+<<<<<<< HEAD
+=======
+       
+      <button>
+        X
+      </button>
+       
+>>>>>>> WIP form
       <ul>
         <li>
             
@@ -600,7 +688,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
       </label>
     </div>
     <button>
-      Submit Guess
+      Submit New Quiz
     </button>
   </form>
 </div>
