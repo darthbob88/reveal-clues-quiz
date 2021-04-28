@@ -14,6 +14,11 @@ exports[`renders the app properly 1`] = `
       >
         Home
       </a>
+      <a
+        href="/newquiz"
+      >
+        New Quiz
+      </a>
       <details
         class="description"
       >

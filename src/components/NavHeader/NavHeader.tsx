@@ -8,6 +8,7 @@ export const NavHeader = () => {
     <header>
       <h1>Raymond's Quiz App</h1>
       <Link to={ROUTES.HOME}>Home</Link>
+      <Link to={ROUTES.NEW_QUIZ}>New Quiz</Link>
       <details className="description">
         <summary>How to Play</summary>
         Each question in this quiz will involve a series of increasingly-obvious
