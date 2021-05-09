@@ -182,7 +182,9 @@ export const testQuizzes: Quiz[] = [
     },
 ];
 
-// Used for testing
+/**
+ *  Used for testing
+ */
 export const defaultQuiz: Quiz = testQuizzes[0];
 
 // Actual empty default. 
@@ -192,6 +194,13 @@ export const emptyQuiz: Quiz = {
     prompt: "",
     time: 0,
     questions: []
+};
+
+// Actual empty default. 
+export const emptyQuestion: Question = {
+    clues: ["", "", "", ""],
+    answer: "",
+    revealOnAnswer: ""
 };
 
 export enum QuizEnum {
