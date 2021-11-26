@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Question } from "../../model/Question";
 import { defaultQuiz, emptyQuestion, emptyQuiz } from "../../model/Quiz";
+import { QuestionComp } from "../Question/Question";
 import styles from "./NewQuizForm.module.css";
 
 export const NewQuizForm: React.FunctionComponent = () => {
@@ -16,6 +18,15 @@ export const NewQuizForm: React.FunctionComponent = () => {
     tempQs.push(emptyQuestion);
     setNewQuiz({ ...newQuiz, questions: tempQs });
   };
+
+  const updateQuestion = (QIdx: number, updatedQuestion: Question) => {
+    let tempQs = newQuiz.questions;
+    tempQs[QIdx] = updatedQuestion;
+    setNewQuiz({ ...newQuiz, questions: tempQs });
+
+    // console.log(`Updating question ${JSON.stringify(updatedQuestion)}`);
+  }
+
   const submitQuiz = () => {
     console.log(`New quiz is ${JSON.stringify(newQuiz)}`);
   };
@@ -54,30 +65,9 @@ export const NewQuizForm: React.FunctionComponent = () => {
       >
         Add Question
       </button>
-      {newQuiz.questions.map((question, idx) => {
+      {newQuiz.questions.map((question, QIdx) => {
         return (
-          <div key={question.answer}>
-            <h3>Question {idx + 1}</h3>
-            <button
-              onClick={(event) => {
-                event.preventDefault();
-                removeQuestion(idx);
-              }}
-            >
-              X
-            </button>
-            <ul>
-              {question.clues.map((clue, idx) => (
-                <li key={clue}>
-                  <textarea data-index={idx} rows={3} value={clue} />
-                </li>
-              ))}
-            </ul>
-            <label>
-              Answer <input type="text" value={question.answer} />
-            </label>
-          </div>
-        );
+          <SingleQuestion key={QIdx} question={question} QIdx={QIdx} removeQuestion={removeQuestion} updateQuestion={updateQuestion} />);
       })}
       <button
         onClick={(event) => {
@@ -90,3 +80,50 @@ export const NewQuizForm: React.FunctionComponent = () => {
     </form>
   );
 };
+
+type SingleQuestionProps = {
+  question: Question;
+  QIdx: number;
+  updateQuestion: Function;
+  removeQuestion: Function
+}
+
+const SingleQuestion: React.FunctionComponent<SingleQuestionProps> = ({ question, QIdx, updateQuestion, removeQuestion }) => {
+
+  const updateClue = (event: React.ChangeEvent<HTMLInputElement>, clueIdx: number) => {
+    const newClue = event.target.value;
+    const updatedQuestion = question;
+    updatedQuestion.clues[clueIdx] = newClue;
+    updateQuestion(QIdx, updatedQuestion);
+  }
+
+  const updateAnswer = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newAnswer = event.target.value;
+    const updatedQuestion = question;
+    updatedQuestion.answer = newAnswer;
+    updateQuestion(QIdx, updatedQuestion);
+  }
+
+  return (<div >
+    <h3>Question {QIdx + 1}</h3>
+    <button
+      onClick={(event) => {
+        event.preventDefault();
+        removeQuestion(QIdx);
+      }}
+    >
+      X
+    </button>
+    <ol>
+      {question.clues.map((clue, clueIdx) => (
+        <li key={clueIdx}>
+          <input type="text" data-index={clueIdx} value={clue} onChange={(event) => updateClue(event, clueIdx)} />
+        </li>
+      ))}
+    </ol>
+    <label>
+      Answer <input type="text" onChange={(event) => updateAnswer(event)} value={question.answer} />
+    </label>
+  </div>)
+
+}

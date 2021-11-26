@@ -6,20 +6,17 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
     class="question"
   >
     <p>
-            
       <label>
-        Quiz Title 
+        Quiz Title
         <input
           type="text"
           value="States by Attraction"
         />
-         
       </label>
     </p>
     <p>
-            
       <label>
-        Quiz Prompt 
+        Quiz Prompt
         <input
           type="text"
           value="in what state will you find..."
@@ -27,11 +24,15 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
          
       </label>
     </p>
+    <button>
+      Add Question
+    </button>
     <div>
       <h3>
         Question 
         1
       </h3>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
        
@@ -41,50 +42,47 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
        
 >>>>>>> WIP form
       <ul>
+=======
+      <button>
+        X
+      </button>
+      <ol>
+>>>>>>> Added capability to update questions
         <li>
-            
-          <textarea
+          <input
             data-index="0"
-            rows="3"
-          >
-            Ernest Hemingway's Grave
-          </textarea>
+            type="text"
+            value="Ernest Hemingway's Grave"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="1"
-            rows="3"
-          >
-            The Smurf Turf
-          </textarea>
+            type="text"
+            value="The Smurf Turf"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="2"
-            rows="3"
-          >
-            The Yellowstone Zone of Death
-          </textarea>
+            type="text"
+            value="The Yellowstone Zone of Death"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="3"
-            rows="3"
-          >
-            The &lt;State&gt; Potato Museum
-          </textarea>
+            type="text"
+            value="The <State> Potato Museum"
+          />
         </li>
-      </ul>
+      </ol>
       <label>
         Answer 
         <input
           type="text"
           value="Idaho"
         />
-         
       </label>
     </div>
     <div>
@@ -93,6 +91,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         2
       </h3>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
        
       <button>
@@ -101,50 +100,47 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
        
 >>>>>>> WIP form
       <ul>
+=======
+      <button>
+        X
+      </button>
+      <ol>
+>>>>>>> Added capability to update questions
         <li>
-            
-          <textarea
+          <input
             data-index="0"
-            rows="3"
-          >
-            Weeki Wachee, the city of mermaids
-          </textarea>
+            type="text"
+            value="Weeki Wachee, the city of mermaids"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="1"
-            rows="3"
-          >
-            The Ernest Hemingway Home and Museum
-          </textarea>
+            type="text"
+            value="The Ernest Hemingway Home and Museum"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="2"
-            rows="3"
-          >
-            NASA Vehicle Assembly Building, a building so large it has its own weather
-          </textarea>
+            type="text"
+            value="NASA Vehicle Assembly Building, a building so large it has its own weather"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="3"
-            rows="3"
-          >
-            The Southernmost Point in the Continental US
-          </textarea>
+            type="text"
+            value="The Southernmost Point in the Continental US"
+          />
         </li>
-      </ul>
+      </ol>
       <label>
         Answer 
         <input
           type="text"
           value="Florida"
         />
-         
       </label>
     </div>
     <div>
@@ -153,6 +149,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         3
       </h3>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
        
       <button>
@@ -161,50 +158,47 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
        
 >>>>>>> WIP form
       <ul>
+=======
+      <button>
+        X
+      </button>
+      <ol>
+>>>>>>> Added capability to update questions
         <li>
-            
-          <textarea
+          <input
             data-index="0"
-            rows="3"
-          >
-            World's Largest Collection of Smallest Versions of Largest Things
-          </textarea>
+            type="text"
+            value="World's Largest Collection of Smallest Versions of Largest Things"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="1"
-            rows="3"
-          >
-            Monument Rocks
-          </textarea>
+            type="text"
+            value="Monument Rocks"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="2"
-            rows="3"
-          >
-            The Equality House, across the street from Westboro
-          </textarea>
+            type="text"
+            value="The Equality House, across the street from Westboro"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="3"
-            rows="3"
-          >
-            Geographic Center of the Contiguous United States
-          </textarea>
+            type="text"
+            value="Geographic Center of the Contiguous United States"
+          />
         </li>
-      </ul>
+      </ol>
       <label>
         Answer 
         <input
           type="text"
           value="Kansas"
         />
-         
       </label>
     </div>
     <div>
@@ -213,6 +207,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         4
       </h3>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
        
       <button>
@@ -221,50 +216,47 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
        
 >>>>>>> WIP form
       <ul>
+=======
+      <button>
+        X
+      </button>
+      <ol>
+>>>>>>> Added capability to update questions
         <li>
-            
-          <textarea
+          <input
             data-index="0"
-            rows="3"
-          >
-            Mutter Museum of medical oddities
-          </textarea>
+            type="text"
+            value="Mutter Museum of medical oddities"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="1"
-            rows="3"
-          >
-            Fallingwater, designed by Frank Lloyd Wright
-          </textarea>
+            type="text"
+            value="Fallingwater, designed by Frank Lloyd Wright"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="2"
-            rows="3"
-          >
-            Gobbler's Knob, home of Punxsutawney Phil
-          </textarea>
+            type="text"
+            value="Gobbler's Knob, home of Punxsutawney Phil"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="3"
-            rows="3"
-          >
-            The grave of Fred McFeely Rogers
-          </textarea>
+            type="text"
+            value="The grave of Fred McFeely Rogers"
+          />
         </li>
-      </ul>
+      </ol>
       <label>
         Answer 
         <input
           type="text"
           value="Pennsylvania"
         />
-         
       </label>
     </div>
     <div>
@@ -273,6 +265,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         5
       </h3>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
        
       <button>
@@ -281,50 +274,47 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
        
 >>>>>>> WIP form
       <ul>
+=======
+      <button>
+        X
+      </button>
+      <ol>
+>>>>>>> Added capability to update questions
         <li>
-            
-          <textarea
+          <input
             data-index="0"
-            rows="3"
-          >
-            Slocum Mechanical Puzzle Collection
-          </textarea>
+            type="text"
+            value="Slocum Mechanical Puzzle Collection"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="1"
-            rows="3"
-          >
-            Mentone Egg, A giant concrete egg marks this town as the "Egg Basket of the Midwest."
-          </textarea>
+            type="text"
+            value="Mentone Egg, A giant concrete egg marks this town as the \\"Egg Basket of the Midwest.\\""
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="2"
-            rows="3"
-          >
-            Kokomantis
-          </textarea>
+            type="text"
+            value="Kokomantis"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="3"
-            rows="3"
-          >
-            Hoosier Hill
-          </textarea>
+            type="text"
+            value="Hoosier Hill"
+          />
         </li>
-      </ul>
+      </ol>
       <label>
         Answer 
         <input
           type="text"
           value="Indiana"
         />
-         
       </label>
     </div>
     <div>
@@ -333,6 +323,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         6
       </h3>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
        
       <button>
@@ -341,50 +332,47 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
        
 >>>>>>> WIP form
       <ul>
+=======
+      <button>
+        X
+      </button>
+      <ol>
+>>>>>>> Added capability to update questions
         <li>
-            
-          <textarea
+          <input
             data-index="0"
-            rows="3"
-          >
-            USPS Remote Encoding Facility
-          </textarea>
+            type="text"
+            value="USPS Remote Encoding Facility"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="1"
-            rows="3"
-          >
-            Pando, 'The Trembling Giant', a massive grove of quaking aspen
-          </textarea>
+            type="text"
+            value="Pando, 'The Trembling Giant', a massive grove of quaking aspen"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="2"
-            rows="3"
-          >
-            The Spiral Jetty, a sculpture built onto a lake which is only visible during droughts
-          </textarea>
+            type="text"
+            value="The Spiral Jetty, a sculpture built onto a lake which is only visible during droughts"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="3"
-            rows="3"
-          >
-            Bonneville Salt Flats/Speedway
-          </textarea>
+            type="text"
+            value="Bonneville Salt Flats/Speedway"
+          />
         </li>
-      </ul>
+      </ol>
       <label>
         Answer 
         <input
           type="text"
           value="Utah"
         />
-         
       </label>
     </div>
     <div>
@@ -393,6 +381,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         7
       </h3>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
        
       <button>
@@ -401,50 +390,47 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
        
 >>>>>>> WIP form
       <ul>
+=======
+      <button>
+        X
+      </button>
+      <ol>
+>>>>>>> Added capability to update questions
         <li>
-            
-          <textarea
+          <input
             data-index="0"
-            rows="3"
-          >
-            The Very Large Array radiotelescope, outside of Socorro.
-          </textarea>
+            type="text"
+            value="The Very Large Array radiotelescope, outside of Socorro."
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="1"
-            rows="3"
-          >
-            Smokey Bear's Grave
-          </textarea>
+            type="text"
+            value="Smokey Bear's Grave"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="2"
-            rows="3"
-          >
-            Carlsbad Caverns
-          </textarea>
+            type="text"
+            value="Carlsbad Caverns"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="3"
-            rows="3"
-          >
-            The International UFO Museum and Research Center
-          </textarea>
+            type="text"
+            value="The International UFO Museum and Research Center"
+          />
         </li>
-      </ul>
+      </ol>
       <label>
         Answer 
         <input
           type="text"
           value="New Mexico"
         />
-         
       </label>
     </div>
     <div>
@@ -453,6 +439,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         8
       </h3>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
        
       <button>
@@ -461,50 +448,47 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
        
 >>>>>>> WIP form
       <ul>
+=======
+      <button>
+        X
+      </button>
+      <ol>
+>>>>>>> Added capability to update questions
         <li>
-            
-          <textarea
+          <input
             data-index="0"
-            rows="3"
-          >
-            Vacuum Cleaner Museum
-          </textarea>
+            type="text"
+            value="Vacuum Cleaner Museum"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="1"
-            rows="3"
-          >
-            Vista House at Crown Point
-          </textarea>
+            type="text"
+            value="Vista House at Crown Point"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="2"
-            rows="3"
-          >
-            Evergreen Aviation Museum, home of the Spruce Goose
-          </textarea>
+            type="text"
+            value="Evergreen Aviation Museum, home of the Spruce Goose"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="3"
-            rows="3"
-          >
-            International Rose Test Garden, in the City of Roses
-          </textarea>
+            type="text"
+            value="International Rose Test Garden, in the City of Roses"
+          />
         </li>
-      </ul>
+      </ol>
       <label>
         Answer 
         <input
           type="text"
           value="Oregon"
         />
-         
       </label>
     </div>
     <div>
@@ -513,6 +497,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         9
       </h3>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
        
       <button>
@@ -521,50 +506,47 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
        
 >>>>>>> WIP form
       <ul>
+=======
+      <button>
+        X
+      </button>
+      <ol>
+>>>>>>> Added capability to update questions
         <li>
-            
-          <textarea
+          <input
             data-index="0"
-            rows="3"
-          >
-            Rhea County Courthouse, site of the Scopes monkey trial
-          </textarea>
+            type="text"
+            value="Rhea County Courthouse, site of the Scopes monkey trial"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="1"
-            rows="3"
-          >
-            Concrete Parthenon, built for the 1897 Centennial Exposition
-          </textarea>
+            type="text"
+            value="Concrete Parthenon, built for the 1897 Centennial Exposition"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="2"
-            rows="3"
-          >
-            National Civil Rights Museum, established in the hotel where Dr Martin Luther King Jr was assassinated
-          </textarea>
+            type="text"
+            value="National Civil Rights Museum, established in the hotel where Dr Martin Luther King Jr was assassinated"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="3"
-            rows="3"
-          >
-            Jack Daniels Distillery
-          </textarea>
+            type="text"
+            value="Jack Daniels Distillery"
+          />
         </li>
-      </ul>
+      </ol>
       <label>
         Answer 
         <input
           type="text"
           value="Tennessee"
         />
-         
       </label>
     </div>
     <div>
@@ -573,65 +555,6 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         10
       </h3>
 <<<<<<< HEAD
-=======
-       
-      <button>
-        X
-      </button>
-       
->>>>>>> WIP form
-      <ul>
-        <li>
-            
-          <textarea
-            data-index="0"
-            rows="3"
-          >
-            Dr. Seuss House aka The Goose Creek Tower, a 185 foot tall log cabin
-          </textarea>
-        </li>
-        <li>
-            
-          <textarea
-            data-index="1"
-            rows="3"
-          >
-            The giant metal chicken statue, outside the town of Chicken
-          </textarea>
-        </li>
-        <li>
-            
-          <textarea
-            data-index="2"
-            rows="3"
-          >
-            St Michael's Cathedral, first Russian Orthodox Church in North America
-          </textarea>
-        </li>
-        <li>
-            
-          <textarea
-            data-index="3"
-            rows="3"
-          >
-            Santa Claus House, in the town of North Pole
-          </textarea>
-        </li>
-      </ul>
-      <label>
-        Answer 
-        <input
-          type="text"
-          value="Alaska"
-        />
-         
-      </label>
-    </div>
-    <div>
-      <h3>
-        Question 
-        11
-      </h3>
 <<<<<<< HEAD
 =======
        
@@ -641,50 +564,105 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
        
 >>>>>>> WIP form
       <ul>
+=======
+      <button>
+        X
+      </button>
+      <ol>
+>>>>>>> Added capability to update questions
         <li>
-            
-          <textarea
+          <input
             data-index="0"
-            rows="3"
-          >
-            Ape Cave, longest continuous lava tube in the continental US
-          </textarea>
+            type="text"
+            value="Dr. Seuss House aka The Goose Creek Tower, a 185 foot tall log cabin"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="1"
-            rows="3"
-          >
-            Maryhill Museum and Stonehenge
-          </textarea>
+            type="text"
+            value="The giant metal chicken statue, outside the town of Chicken"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="2"
-            rows="3"
-          >
-            Brown and Haley factory store, manufacturers of Almond Roca
-          </textarea>
+            type="text"
+            value="St Michael's Cathedral, first Russian Orthodox Church in North America"
+          />
         </li>
         <li>
-            
-          <textarea
+          <input
             data-index="3"
-            rows="3"
-          >
-            Beacon Rock, one of the largest monoliths in the world
-          </textarea>
+            type="text"
+            value="Santa Claus House, in the town of North Pole"
+          />
         </li>
-      </ul>
+      </ol>
+      <label>
+        Answer 
+        <input
+          type="text"
+          value="Alaska"
+        />
+      </label>
+    </div>
+    <div>
+      <h3>
+        Question 
+        11
+      </h3>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+       
+      <button>
+        X
+      </button>
+       
+>>>>>>> WIP form
+      <ul>
+=======
+      <button>
+        X
+      </button>
+      <ol>
+>>>>>>> Added capability to update questions
+        <li>
+          <input
+            data-index="0"
+            type="text"
+            value="Ape Cave, longest continuous lava tube in the continental US"
+          />
+        </li>
+        <li>
+          <input
+            data-index="1"
+            type="text"
+            value="Maryhill Museum and Stonehenge"
+          />
+        </li>
+        <li>
+          <input
+            data-index="2"
+            type="text"
+            value="Brown and Haley factory store, manufacturers of Almond Roca"
+          />
+        </li>
+        <li>
+          <input
+            data-index="3"
+            type="text"
+            value="Beacon Rock, one of the largest monoliths in the world"
+          />
+        </li>
+      </ol>
       <label>
         Answer 
         <input
           type="text"
           value="Washington"
         />
-         
       </label>
     </div>
     <button>
