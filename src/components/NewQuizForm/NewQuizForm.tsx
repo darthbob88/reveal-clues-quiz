@@ -9,6 +9,8 @@ export const NewQuizForm: React.FunctionComponent = () => {
 
   const removeQuestion = (index: number) => {
     let tempQs = newQuiz.questions;
+    if (newQuiz.questions.length <= 1)
+      return;
     tempQs.splice(index, 1);
     setNewQuiz({ ...newQuiz, questions: tempQs });
   };
@@ -23,12 +25,10 @@ export const NewQuizForm: React.FunctionComponent = () => {
     let tempQs = newQuiz.questions;
     tempQs[QIdx] = updatedQuestion;
     setNewQuiz({ ...newQuiz, questions: tempQs });
-
-    // console.log(`Updating question ${JSON.stringify(updatedQuestion)}`);
   }
 
   const submitQuiz = () => {
-    console.log(`New quiz is ${JSON.stringify(newQuiz)}`);
+    console.log(newQuiz);
   };
 
   return (
@@ -104,6 +104,18 @@ const SingleQuestion: React.FunctionComponent<SingleQuestionProps> = ({ question
     updateQuestion(QIdx, updatedQuestion);
   }
 
+  const addClue = () => {
+    const updatedQuestion = question;
+    updatedQuestion.clues.push("");
+    updateQuestion(QIdx, updatedQuestion);
+  }
+  const removeClue = (clueIdx: number) => {
+    let tempClues = question.clues;
+    tempClues.splice(clueIdx, 1);
+
+    updateQuestion(QIdx, { ...question, clues: tempClues });
+  }
+
   return (<div >
     <h3>Question {QIdx + 1}</h3>
     <button
@@ -114,10 +126,26 @@ const SingleQuestion: React.FunctionComponent<SingleQuestionProps> = ({ question
     >
       X
     </button>
+    <button
+      onClick={(event) => {
+        event.preventDefault();
+        addClue();
+      }}
+    >
+      Add Clue
+    </button>
     <ol>
       {question.clues.map((clue, clueIdx) => (
         <li key={clueIdx}>
           <input type="text" data-index={clueIdx} value={clue} onChange={(event) => updateClue(event, clueIdx)} />
+          <button disabled={question.clues.length <= 1}
+            onClick={(event) => {
+              event.preventDefault();
+              removeClue(clueIdx);
+            }}
+          >
+            X
+          </button>
         </li>
       ))}
     </ol>
