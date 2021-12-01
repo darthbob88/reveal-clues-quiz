@@ -7,6 +7,7 @@ import styles from "./NewQuizForm.module.css";
 export const NewQuizForm: React.FunctionComponent = () => {
   const [newQuiz, setNewQuiz] = useState(defaultQuiz);
 
+  const canRemoveQuestion = newQuiz.questions.length > 1;
   const removeQuestion = (index: number) => {
     let tempQs = newQuiz.questions;
     if (newQuiz.questions.length <= 1)
@@ -67,7 +68,7 @@ export const NewQuizForm: React.FunctionComponent = () => {
       </button>
       {newQuiz.questions.map((question, QIdx) => {
         return (
-          <SingleQuestion key={QIdx} question={question} QIdx={QIdx} removeQuestion={removeQuestion} updateQuestion={updateQuestion} />);
+          <SingleQuestion key={QIdx} question={question} QIdx={QIdx} removeQuestion={removeQuestion} canRemoveQuestion={canRemoveQuestion} updateQuestion={updateQuestion} />);
       })}
       <button
         onClick={(event) => {
@@ -85,10 +86,11 @@ type SingleQuestionProps = {
   question: Question;
   QIdx: number;
   updateQuestion: Function;
-  removeQuestion: Function
+  removeQuestion: Function;
+  canRemoveQuestion: boolean
 }
 
-const SingleQuestion: React.FunctionComponent<SingleQuestionProps> = ({ question, QIdx, updateQuestion, removeQuestion }) => {
+const SingleQuestion: React.FunctionComponent<SingleQuestionProps> = ({ question, QIdx, updateQuestion, removeQuestion, canRemoveQuestion }) => {
 
   const updateClue = (event: React.ChangeEvent<HTMLInputElement>, clueIdx: number) => {
     const newClue = event.target.value;
@@ -119,6 +121,7 @@ const SingleQuestion: React.FunctionComponent<SingleQuestionProps> = ({ question
   return (<div >
     <h3>Question {QIdx + 1}</h3>
     <button
+      disabled={!canRemoveQuestion}
       onClick={(event) => {
         event.preventDefault();
         removeQuestion(QIdx);

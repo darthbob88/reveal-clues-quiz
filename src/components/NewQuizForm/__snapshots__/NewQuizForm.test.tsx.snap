@@ -46,6 +46,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
       <button>
         X
       </button>
+      <button>
+        Add Clue
+      </button>
       <ol>
 >>>>>>> Added capability to update questions
         <li>
@@ -54,6 +57,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Ernest Hemingway's Grave"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -61,6 +67,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="The Smurf Turf"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -68,6 +77,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="The Yellowstone Zone of Death"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -75,6 +87,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="The <State> Potato Museum"
           />
+          <button>
+            X
+          </button>
         </li>
       </ol>
       <label>
@@ -104,6 +119,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
       <button>
         X
       </button>
+      <button>
+        Add Clue
+      </button>
       <ol>
 >>>>>>> Added capability to update questions
         <li>
@@ -112,6 +130,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Weeki Wachee, the city of mermaids"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -119,6 +140,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="The Ernest Hemingway Home and Museum"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -126,6 +150,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="NASA Vehicle Assembly Building, a building so large it has its own weather"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -133,6 +160,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="The Southernmost Point in the Continental US"
           />
+          <button>
+            X
+          </button>
         </li>
       </ol>
       <label>
@@ -162,6 +192,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
       <button>
         X
       </button>
+      <button>
+        Add Clue
+      </button>
       <ol>
 >>>>>>> Added capability to update questions
         <li>
@@ -170,6 +203,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="World's Largest Collection of Smallest Versions of Largest Things"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -177,6 +213,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Monument Rocks"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -184,6 +223,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="The Equality House, across the street from Westboro"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -191,6 +233,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Geographic Center of the Contiguous United States"
           />
+          <button>
+            X
+          </button>
         </li>
       </ol>
       <label>
@@ -220,6 +265,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
       <button>
         X
       </button>
+      <button>
+        Add Clue
+      </button>
       <ol>
 >>>>>>> Added capability to update questions
         <li>
@@ -228,6 +276,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Mutter Museum of medical oddities"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -235,6 +286,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Fallingwater, designed by Frank Lloyd Wright"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -242,6 +296,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Gobbler's Knob, home of Punxsutawney Phil"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -249,6 +306,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="The grave of Fred McFeely Rogers"
           />
+          <button>
+            X
+          </button>
         </li>
       </ol>
       <label>
@@ -278,6 +338,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
       <button>
         X
       </button>
+      <button>
+        Add Clue
+      </button>
       <ol>
 >>>>>>> Added capability to update questions
         <li>
@@ -286,6 +349,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Slocum Mechanical Puzzle Collection"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -293,6 +359,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Mentone Egg, A giant concrete egg marks this town as the \\"Egg Basket of the Midwest.\\""
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -300,6 +369,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Kokomantis"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -307,6 +379,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Hoosier Hill"
           />
+          <button>
+            X
+          </button>
         </li>
       </ol>
       <label>
@@ -336,6 +411,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
       <button>
         X
       </button>
+      <button>
+        Add Clue
+      </button>
       <ol>
 >>>>>>> Added capability to update questions
         <li>
@@ -344,6 +422,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="USPS Remote Encoding Facility"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -351,6 +432,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Pando, 'The Trembling Giant', a massive grove of quaking aspen"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -358,6 +442,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="The Spiral Jetty, a sculpture built onto a lake which is only visible during droughts"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -365,6 +452,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Bonneville Salt Flats/Speedway"
           />
+          <button>
+            X
+          </button>
         </li>
       </ol>
       <label>
@@ -394,6 +484,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
       <button>
         X
       </button>
+      <button>
+        Add Clue
+      </button>
       <ol>
 >>>>>>> Added capability to update questions
         <li>
@@ -402,6 +495,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="The Very Large Array radiotelescope, outside of Socorro."
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -409,6 +505,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Smokey Bear's Grave"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -416,6 +515,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Carlsbad Caverns"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -423,6 +525,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="The International UFO Museum and Research Center"
           />
+          <button>
+            X
+          </button>
         </li>
       </ol>
       <label>
@@ -452,6 +557,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
       <button>
         X
       </button>
+      <button>
+        Add Clue
+      </button>
       <ol>
 >>>>>>> Added capability to update questions
         <li>
@@ -460,6 +568,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Vacuum Cleaner Museum"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -467,6 +578,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Vista House at Crown Point"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -474,6 +588,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Evergreen Aviation Museum, home of the Spruce Goose"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -481,6 +598,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="International Rose Test Garden, in the City of Roses"
           />
+          <button>
+            X
+          </button>
         </li>
       </ol>
       <label>
@@ -510,6 +630,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
       <button>
         X
       </button>
+      <button>
+        Add Clue
+      </button>
       <ol>
 >>>>>>> Added capability to update questions
         <li>
@@ -518,6 +641,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Rhea County Courthouse, site of the Scopes monkey trial"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -525,6 +651,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Concrete Parthenon, built for the 1897 Centennial Exposition"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -532,6 +661,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="National Civil Rights Museum, established in the hotel where Dr Martin Luther King Jr was assassinated"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -539,6 +671,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Jack Daniels Distillery"
           />
+          <button>
+            X
+          </button>
         </li>
       </ol>
       <label>
@@ -568,6 +703,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
       <button>
         X
       </button>
+      <button>
+        Add Clue
+      </button>
       <ol>
 >>>>>>> Added capability to update questions
         <li>
@@ -576,6 +714,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Dr. Seuss House aka The Goose Creek Tower, a 185 foot tall log cabin"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -583,6 +724,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="The giant metal chicken statue, outside the town of Chicken"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -590,6 +734,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="St Michael's Cathedral, first Russian Orthodox Church in North America"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -597,6 +744,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Santa Claus House, in the town of North Pole"
           />
+          <button>
+            X
+          </button>
         </li>
       </ol>
       <label>
@@ -626,6 +776,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
       <button>
         X
       </button>
+      <button>
+        Add Clue
+      </button>
       <ol>
 >>>>>>> Added capability to update questions
         <li>
@@ -634,6 +787,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Ape Cave, longest continuous lava tube in the continental US"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -641,6 +797,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Maryhill Museum and Stonehenge"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -648,6 +807,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Brown and Haley factory store, manufacturers of Almond Roca"
           />
+          <button>
+            X
+          </button>
         </li>
         <li>
           <input
@@ -655,6 +817,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value="Beacon Rock, one of the largest monoliths in the world"
           />
+          <button>
+            X
+          </button>
         </li>
       </ol>
       <label>
