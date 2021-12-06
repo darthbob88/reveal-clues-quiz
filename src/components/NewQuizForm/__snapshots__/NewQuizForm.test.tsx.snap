@@ -10,7 +10,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         Quiz Title
         <input
           type="text"
-          value="States by Attraction"
+          value=""
         />
       </label>
     </p>
@@ -19,7 +19,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         Quiz Prompt
         <input
           type="text"
-          value="in what state will you find..."
+          value=""
         />
          
       </label>
@@ -32,6 +32,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         Question 
         1
       </h3>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -774,6 +775,11 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
       <ul>
 =======
       <button>
+=======
+      <button
+        disabled=""
+      >
+>>>>>>> Updating snapshot
         X
       </button>
       <button>
@@ -785,7 +791,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
           <input
             data-index="0"
             type="text"
-            value="Ape Cave, longest continuous lava tube in the continental US"
+            value=""
           />
           <button>
             X
@@ -795,7 +801,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
           <input
             data-index="1"
             type="text"
-            value="Maryhill Museum and Stonehenge"
+            value=""
           />
           <button>
             X
@@ -805,7 +811,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
           <input
             data-index="2"
             type="text"
-            value="Brown and Haley factory store, manufacturers of Almond Roca"
+            value=""
           />
           <button>
             X
@@ -815,7 +821,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
           <input
             data-index="3"
             type="text"
-            value="Beacon Rock, one of the largest monoliths in the world"
+            value=""
           />
           <button>
             X
@@ -826,7 +832,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         Answer 
         <input
           type="text"
-          value="Washington"
+          value=""
         />
       </label>
     </div>
