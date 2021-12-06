@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Question } from "../../model/Question";
-import { defaultQuiz, emptyQuestion, emptyQuiz } from "../../model/Quiz";
-import { QuestionComp } from "../Question/Question";
+import { emptyQuestion, emptyQuiz, Quiz } from "../../model/Quiz";
 import styles from "./NewQuizForm.module.css";
 
 export const NewQuizForm: React.FunctionComponent = () => {
-  const [newQuiz, setNewQuiz] = useState(defaultQuiz);
+  const blankQuiz: Quiz = { ...emptyQuiz, questions: [emptyQuestion] }
+  const [newQuiz, setNewQuiz] = useState(blankQuiz);
 
   const canRemoveQuestion = newQuiz.questions.length > 1;
   const removeQuestion = (index: number) => {
