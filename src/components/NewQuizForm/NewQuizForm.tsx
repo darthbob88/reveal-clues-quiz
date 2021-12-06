@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Question } from "../../model/Question";
 import { emptyQuestion, emptyQuiz, Quiz } from "../../model/Quiz";
+import { saveNewQuiz } from "../../model/QuizService";
 import styles from "./NewQuizForm.module.css";
 
 export const NewQuizForm: React.FunctionComponent = () => {
@@ -29,7 +30,9 @@ export const NewQuizForm: React.FunctionComponent = () => {
   }
 
   const submitQuiz = () => {
-    console.log(newQuiz);
+    // TODO Fix this slugification
+    newQuiz.slug = newQuiz.title.toLocaleLowerCase().replace(" ", "-");
+    saveNewQuiz(newQuiz);
   };
 
   return (
