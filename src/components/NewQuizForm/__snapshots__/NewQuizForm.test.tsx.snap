@@ -27,7 +27,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
     <button>
       Add Question
     </button>
-    <div>
+    <div
+      data-testid="question1"
+    >
       <h3>
         Question 
         1
@@ -777,6 +779,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
       <button>
 =======
       <button
+        data-testid="remove-question"
         disabled=""
       >
 >>>>>>> Updating snapshot
@@ -793,7 +796,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value=""
           />
-          <button>
+          <button
+            data-testid="remove-clue"
+          >
             X
           </button>
         </li>
@@ -803,7 +808,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value=""
           />
-          <button>
+          <button
+            data-testid="remove-clue"
+          >
             X
           </button>
         </li>
@@ -813,7 +820,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value=""
           />
-          <button>
+          <button
+            data-testid="remove-clue"
+          >
             X
           </button>
         </li>
@@ -823,7 +832,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
             type="text"
             value=""
           />
-          <button>
+          <button
+            data-testid="remove-clue"
+          >
             X
           </button>
         </li>

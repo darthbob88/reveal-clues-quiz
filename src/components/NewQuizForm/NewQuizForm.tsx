@@ -121,9 +121,9 @@ const SingleQuestion: React.FunctionComponent<SingleQuestionProps> = ({ question
     updateQuestion(QIdx, { ...question, clues: tempClues });
   }
 
-  return (<div >
+  return (<div data-testid={"question" + (QIdx + 1)}>
     <h3>Question {QIdx + 1}</h3>
-    <button
+    <button data-testid="remove-question"
       disabled={!canRemoveQuestion}
       onClick={(event) => {
         event.preventDefault();
@@ -144,7 +144,7 @@ const SingleQuestion: React.FunctionComponent<SingleQuestionProps> = ({ question
       {question.clues.map((clue, clueIdx) => (
         <li key={clueIdx}>
           <input type="text" data-index={clueIdx} value={clue} onChange={(event) => updateClue(event, clueIdx)} />
-          <button disabled={question.clues.length <= 1}
+          <button data-testid="remove-clue" disabled={question.clues.length <= 1}
             onClick={(event) => {
               event.preventDefault();
               removeClue(clueIdx);
