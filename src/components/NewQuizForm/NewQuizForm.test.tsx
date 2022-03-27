@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, getByTestId, queryByTestId, render, within } from "@testing-library/react";
+import { fireEvent, render, within } from "@testing-library/react";
 import { NewQuizForm } from "./NewQuizForm";
 
 describe("New Quiz component", () => {
