@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { NewQuizForm } from "./NewQuizForm";
 
 describe("New Quiz component", () => {
@@ -11,5 +11,19 @@ describe("New Quiz component", () => {
     expect(container).toMatchSnapshot();
   });
 
+  test("adds a new question when the button is clicked", () => {
+    const { getByText, queryByText } = render(
+      <NewQuizForm />
+    );
+
+    let result = queryByText(/Question 2/i);
+    expect(result).not.toBeInTheDocument();
+
+    const addQBtn = getByText(/Add Question/i);
+    fireEvent.click(addQBtn);
+
+    result = queryByText(/Question 2/i);
+    expect(result).toBeInTheDocument();
+  });
 
 })
