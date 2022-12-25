@@ -97,7 +97,7 @@ exports[`renders the app properly 1`] = `
       class="NavFooter"
     >
       © 
-      2021
+      2022
        Copyright: Raymond Price
       <a
         href="/https://github.com/darthbob88/"
