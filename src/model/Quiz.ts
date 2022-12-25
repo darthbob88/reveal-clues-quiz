@@ -3,6 +3,7 @@ import { createContext } from "react";
 import { defaultQuestionState, Question, QuestionEnum, QuestionState } from "./Question";
 /**
  * Overarching type for a quiz.
+ * @field author: The user who created the quiz.
  * @field prompt: A prompt for each question.
  * @field questions: An array of questions for each quiz.
  * @field title: An overarching title for the quiz. 
