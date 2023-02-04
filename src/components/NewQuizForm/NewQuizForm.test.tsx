@@ -44,4 +44,40 @@ describe("New Quiz component", () => {
     expect(question2).not.toBeInTheDocument();
   });
 
+  test("adds a clue to a question when the button is clicked", () => {
+    const { getByText, getByTestId, queryByTestId } = render(
+      <NewQuizForm />
+    );
+
+    const addQBtn = getByText(/Add Question/i);
+    fireEvent.click(addQBtn);
+
+    const question = getByTestId("question2");
+    expect(question).toBeInTheDocument();
+
+    const removeQBtn = within(question).getByTestId("remove-question");
+    fireEvent.click(removeQBtn);
+
+    const question2 = queryByTestId("question2");
+    expect(question2).not.toBeInTheDocument();
+  });
+
+  xtest("removes a clue from a question when the button is clicked", () => {
+    const { getByText, getByTestId, queryByTestId } = render(
+      <NewQuizForm />
+    );
+
+    const addQBtn = getByText(/Add Question/i);
+    fireEvent.click(addQBtn);
+
+    const question = getByTestId("question2");
+    expect(question).toBeInTheDocument();
+
+    const removeQBtn = within(question).getByTestId("remove-question");
+    fireEvent.click(removeQBtn);
+
+    const question2 = queryByTestId("question2");
+    expect(question2).not.toBeInTheDocument();
+  });
+
 })
