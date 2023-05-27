@@ -45,9 +45,6 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy react app to github pages
 #        if: ${{ github.ref == 'refs/heads/main' }}
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
+        uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
