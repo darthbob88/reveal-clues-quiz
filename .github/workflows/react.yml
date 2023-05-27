@@ -28,7 +28,7 @@ jobs:
       - run: npm run build --if-present
       - run: npm test
   deploy:
-#    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-22.04
     permissions:
       contents: write
@@ -36,15 +36,5 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v3
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-
-      - run: npm ci
-      - run: npm run build
-
       - name: Deploy react app to github pages
-#        if: ${{ github.ref == 'refs/heads/main' }}
         uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
