@@ -49,35 +49,43 @@ describe("New Quiz component", () => {
       <NewQuizForm />
     );
 
-    const addQBtn = getByText(/Add Question/i);
-    fireEvent.click(addQBtn);
-
-    const question = getByTestId("question2");
+    const question = getByTestId("question1");
     expect(question).toBeInTheDocument();
 
-    const removeQBtn = within(question).getByTestId("remove-question");
-    fireEvent.click(removeQBtn);
+    const clue1 = within(question).queryByTestId("clue1");
+    expect(clue1).toBeInTheDocument();
 
-    const question2 = queryByTestId("question2");
-    expect(question2).not.toBeInTheDocument();
+    let clue5 = within(question).queryByTestId("clue5");
+    expect(clue5).not.toBeInTheDocument();
+
+    const addClueQBtn = within(question).getByTestId("add-clue");
+    fireEvent.click(addClueQBtn);
+
+    clue5 = within(question).queryByTestId("clue5");
+    expect(clue5).toBeInTheDocument();
   });
 
-  xtest("removes a clue from a question when the button is clicked", () => {
-    const { getByText, getByTestId, queryByTestId } = render(
+  test("removes a clue from a question when the button is clicked", () => {
+    const { container, getByText, getByTestId, queryByTestId } = render(
       <NewQuizForm />
     );
 
-    const addQBtn = getByText(/Add Question/i);
-    fireEvent.click(addQBtn);
-
-    const question = getByTestId("question2");
+    const question = getByTestId("question1");
     expect(question).toBeInTheDocument();
 
-    const removeQBtn = within(question).getByTestId("remove-question");
-    fireEvent.click(removeQBtn);
+    const clue1 = within(question).queryByTestId("clue1");
+    expect(clue1).toBeInTheDocument();
 
-    const question2 = queryByTestId("question2");
-    expect(question2).not.toBeInTheDocument();
+    let clue4 = within(question).queryByTestId("clue4");
+    expect(clue4).toBeInTheDocument();
+
+    const removeClueQBtn = within(question).getAllByTestId("remove-clue")[0];
+    fireEvent.click(removeClueQBtn);
+
+    expect(container).toMatchSnapshot();
+
+    clue4 = within(question).queryByTestId("clue4");
+    expect(clue4).not.toBeInTheDocument();
   });
 
 })
