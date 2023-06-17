@@ -77,7 +77,22 @@ exports[`renders the app properly 1`] = `
     </header>
     <div
       class="content"
-    />
+    >
+      <div
+        class="question"
+      >
+        <h2>
+          List of Quizzes
+        </h2>
+        <ul
+          class="clues"
+        >
+          <p>
+            Loading...
+          </p>
+        </ul>
+      </div>
+    </div>
     <footer
       class="NavFooter"
     >

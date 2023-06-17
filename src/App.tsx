@@ -13,9 +13,9 @@ function App() {
       <NavHeader />
       <div className="content">
         <Routes>
-          <Route path={ROUTES.HOME} element={HomePage} />
-          <Route path={ROUTES.LANDING} element={HomePage} />
-          <Route path={ROUTES.QUIZ} element={QuizPage} />
+          <Route path={ROUTES.HOME} element={<HomePage />} />
+          <Route path={ROUTES.LANDING} element={<HomePage />} />
+          <Route path={ROUTES.QUIZ} element={<QuizPage />} />
         </Routes></div>
       <NavFooter />
     </div>
