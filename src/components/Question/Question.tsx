@@ -54,7 +54,7 @@ export const QuestionComp: React.FunctionComponent<QuestionProps> = ({
       } else {
         result = `Incorrect! You get 0 points. The correct answer is ${question.answer}.`;
       }
-      return <span>{result} {question.revealOnAnswer != null && <ReactMarkdown source={question.revealOnAnswer} />} </span>;
+      return <span>{result} {question.revealOnAnswer != null && <ReactMarkdown>{question.revealOnAnswer}</ReactMarkdown>} </span>;
     }
   };
   const revealAnotherClue = () => {
