@@ -1734,9 +1734,9 @@
   dependencies:
     "@types/unist" "*"
 
-"@types/history@*":
-  version "4.7.8"
-  resolved "https://registry.npmjs.org/@types/history/-/history-4.7.8.tgz"
+"@types/history@*", "@types/history@^4.7.11":
+  version "4.7.11"
+  resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.11.tgz#56588b17ae8f50c53983a524fc3cc47437969d64"
 
 "@types/html-minifier-terser@^6.0.0":
   version "6.1.0"
@@ -1833,11 +1833,11 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-router-dom@^5.1.7":
-  version "5.1.7"
-  resolved "https://registry.npmjs.org/@types/react-router-dom/-/react-router-dom-5.1.7.tgz"
+"@types/react-router-dom@^5.3.3":
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.3.3.tgz#e9d6b4a66fcdbd651a5f106c2656a30088cc1e83"
   dependencies:
-    "@types/history" "*"
+    "@types/history" "^4.7.11"
     "@types/react" "*"
     "@types/react-router" "*"
 
@@ -1848,19 +1848,19 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.9.0":
-  version "16.9.49"
-  resolved "https://registry.npmjs.org/@types/react/-/react-16.9.49.tgz"
-  dependencies:
-    "@types/prop-types" "*"
-    csstype "^3.0.2"
-
-"@types/react@^17":
+"@types/react@*", "@types/react@^17":
   version "17.0.60"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.60.tgz#a4a97dcdbebad76612c188fc06440e4995fd8ad2"
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@^16.9.0":
+  version "16.9.49"
+  resolved "https://registry.npmjs.org/@types/react/-/react-16.9.49.tgz"
+  dependencies:
+    "@types/prop-types" "*"
     csstype "^3.0.2"
 
 "@types/resolve@1.17.1":
