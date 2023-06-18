@@ -40,13 +40,16 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
       >
         X
       </button>
-      <button>
+      <button
+        data-testid="add-clue"
+      >
         Add Clue
       </button>
       <ol>
         <li>
           <input
             data-index="0"
+            data-testid="clue1"
             type="text"
             value=""
           />
@@ -59,6 +62,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         <li>
           <input
             data-index="1"
+            data-testid="clue2"
             type="text"
             value=""
           />
@@ -71,6 +75,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         <li>
           <input
             data-index="2"
+            data-testid="clue3"
             type="text"
             value=""
           />
@@ -83,6 +88,7 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         <li>
           <input
             data-index="3"
+            data-testid="clue4"
             type="text"
             value=""
           />

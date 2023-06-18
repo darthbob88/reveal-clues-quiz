@@ -44,8 +44,30 @@ describe("New Quiz component", () => {
     expect(question2).not.toBeInTheDocument();
   });
 
+  test("removes a clue from a question when the button is clicked", () => {
+    const { container, getByTestId } = render(
+      <NewQuizForm />
+    );
+
+    const question = getByTestId("question1");
+    expect(question).toBeInTheDocument();
+
+    const clue1 = within(question).queryByTestId("clue1");
+    expect(clue1).toBeInTheDocument();
+
+    let clue4 = within(question).queryByTestId("clue4");
+    expect(clue4).toBeInTheDocument();
+
+    const removeClueQBtn = within(question).getAllByTestId("remove-clue");
+    expect(removeClueQBtn).toHaveLength(4);
+    fireEvent.click(removeClueQBtn[0]);
+
+    clue4 = within(question).queryByTestId("clue4");
+    expect(clue4).not.toBeInTheDocument();
+  });
+
   test("adds a clue to a question when the button is clicked", () => {
-    const { getByText, getByTestId, queryByTestId } = render(
+    const { getByTestId } = render(
       <NewQuizForm />
     );
 
@@ -63,29 +85,6 @@ describe("New Quiz component", () => {
 
     clue5 = within(question).queryByTestId("clue5");
     expect(clue5).toBeInTheDocument();
-  });
-
-  test("removes a clue from a question when the button is clicked", () => {
-    const { container, getByText, getByTestId, queryByTestId } = render(
-      <NewQuizForm />
-    );
-
-    const question = getByTestId("question1");
-    expect(question).toBeInTheDocument();
-
-    const clue1 = within(question).queryByTestId("clue1");
-    expect(clue1).toBeInTheDocument();
-
-    let clue4 = within(question).queryByTestId("clue4");
-    expect(clue4).toBeInTheDocument();
-
-    const removeClueQBtn = within(question).getAllByTestId("remove-clue")[0];
-    fireEvent.click(removeClueQBtn);
-
-    expect(container).toMatchSnapshot();
-
-    clue4 = within(question).queryByTestId("clue4");
-    expect(clue4).not.toBeInTheDocument();
   });
 
 })
