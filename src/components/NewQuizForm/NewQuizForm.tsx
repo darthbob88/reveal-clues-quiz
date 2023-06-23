@@ -5,7 +5,7 @@ import { saveNewQuiz } from "../../model/QuizService";
 import styles from "./NewQuizForm.module.css";
 
 export const NewQuizForm: React.FunctionComponent = () => {
-  const blankQuiz: Quiz = { ...emptyQuiz, questions: [emptyQuestion] }
+  const blankQuiz: Quiz = { ...emptyQuiz, questions: [{ clues: ["", "", "", ""], answer: "", revealOnAnswer: "" }] }
   const [newQuiz, setNewQuiz] = useState(blankQuiz);
 
   const canRemoveQuestion = newQuiz.questions.length > 1;
