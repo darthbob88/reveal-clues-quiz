@@ -118,15 +118,18 @@ describe("New Quiz component", () => {
     test("Can handle inputting clues for a question", async () => {
       const user = userEvent.setup();
       const testQuiz = testQuizzes[0];
-      const clue = testQuiz.questions[0].clues[0];
-      const { getByTestId } = render(
+      const clues = testQuiz.questions[0].clues;
+      const { getAllByTestId } = render(
         <NewQuizForm />
       );
 
-      const cluePrompt = getByTestId("clue1");
-      await user.type(cluePrompt, clue);
-      expect(cluePrompt).toHaveValue(clue);
-
+      const cluePrompts = getAllByTestId(/clue\d/);
+      for (let ii = 0; ii < cluePrompts.length; ii++) {
+        const cluePrompt = cluePrompts[ii];
+        const clue = clues[ii];
+        await user.type(cluePrompt, clue);
+        expect(cluePrompt).toHaveValue(clue);
+      }
     });
 
     test("Can handle inputting answer for a question", async () => {
