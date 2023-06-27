@@ -4,6 +4,12 @@ import { emptyQuestion, emptyQuiz, Quiz } from "../../model/Quiz";
 import { saveNewQuiz } from "../../model/QuizService";
 import styles from "./NewQuizForm.module.css";
 
+/* TODO: Remaining tasks
+Add an authorship field; this may require integrating with Firebase to get user ID.
+Add a field for time. Either a dropdown in 30s intervals, or a number input for number of minutes.
+Add some upper limits; no more than 10 questions and 10 clues each, or whatever.
+Validation; require all fields, at least one non-blank clue and answer for each question, etc.
+*/
 export const NewQuizForm: React.FunctionComponent = () => {
   const blankQuiz: Quiz = { ...emptyQuiz, questions: [{ clues: ["", "", "", ""], answer: "", revealOnAnswer: "" }] };
   const [newQuiz, setNewQuiz] = useState(blankQuiz);
