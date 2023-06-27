@@ -37,7 +37,7 @@ export const NewQuizForm: React.FunctionComponent = () => {
 
   const submitQuiz = () => {
     // TODO Fix this slugification
-    newQuiz.slug = newQuiz.title.toLocaleLowerCase().replace(" ", "-");
+    newQuiz.slug = newQuiz.title.toLocaleLowerCase().replace(/\s/g, "-");
     saveNewQuiz(newQuiz);
   };
 
