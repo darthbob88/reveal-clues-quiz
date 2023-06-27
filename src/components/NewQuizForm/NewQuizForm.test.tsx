@@ -1,6 +1,8 @@
 import React from "react";
 import { fireEvent, render, within } from "@testing-library/react";
 import { NewQuizForm } from "./NewQuizForm";
+import { testQuizzes } from "../../model/Quiz";
+import userEvent from "@testing-library/user-event/";
 
 describe("New Quiz component", () => {
   test("renders the new quiz form properly", () => {
@@ -88,13 +90,22 @@ describe("New Quiz component", () => {
     });
   });
 
-  describe.skip("Properly handles submitting a quiz", () => {
-
+  describe("Properly handles submitting a quiz", () => {
     // Input a test quiz and make sure it gets submitted correctly.
-    test("Can handle submitting a good quiz", () => {
-      const { getByText, queryByText } = render(
+    test("Can handle submitting a good quiz", async () => {
+      const user = userEvent.setup();
+      const testQuiz = testQuizzes[0];
+      const { getByLabelText } = render(
         <NewQuizForm />
       );
+
+      const quizTitle = getByLabelText("Quiz Title");
+      await user.type(quizTitle, testQuiz.title);
+      expect(quizTitle).toHaveValue(testQuiz.title);
+
+      const quizPrompt = getByLabelText("Quiz Prompt");
+      await userEvent.type(quizPrompt, testQuiz.prompt);
+      expect(quizPrompt).toHaveValue(testQuiz.prompt);
     });
   });
 });
