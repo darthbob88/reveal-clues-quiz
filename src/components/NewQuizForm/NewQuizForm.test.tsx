@@ -3,6 +3,7 @@ import { fireEvent, render, within } from "@testing-library/react";
 import { NewQuizForm } from "./NewQuizForm";
 import { testQuizzes } from "../../model/Quiz";
 import userEvent from "@testing-library/user-event/";
+import * as QuizService from "../../model/QuizService";
 
 describe("New Quiz component", () => {
   test("renders the new quiz form properly", () => {
@@ -149,9 +150,11 @@ describe("New Quiz component", () => {
   describe("Properly handles submitting a quiz", () => {
     // Input a test quiz and make sure it gets submitted correctly.
     test("Can handle submitting a good quiz", async () => {
+const saveNewQuizSpy = jest.spyOn(QuizService, "saveNewQuiz");
+
       const user = userEvent.setup();
       const testQuiz = testQuizzes[0];
-      const { getByLabelText, getAllByTestId } = render(
+      const { getByLabelText, getAllByTestId, getByText } = render(
         <NewQuizForm />
       );
 
@@ -175,6 +178,12 @@ describe("New Quiz component", () => {
       const answerInput = getByLabelText("Answer");
       await userEvent.type(answerInput, testAnswer);
       expect(answerInput).toHaveValue(testAnswer);
+
+      const submitBtn = getByText("Submit New Quiz");
+      fireEvent.click(submitBtn);
+
+      expect(saveNewQuizSpy).toBeCalledTimes(1);
+      expect(saveNewQuizSpy).toBeCalledWith(testQuiz);
 
     });
   });
