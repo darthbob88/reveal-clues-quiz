@@ -151,7 +151,7 @@ describe("New Quiz component", () => {
     test("Can handle submitting a good quiz", async () => {
       const user = userEvent.setup();
       const testQuiz = testQuizzes[0];
-      const { getByLabelText } = render(
+      const { getByLabelText, getAllByTestId } = render(
         <NewQuizForm />
       );
 
@@ -162,6 +162,20 @@ describe("New Quiz component", () => {
       const quizPrompt = getByLabelText("Quiz Prompt");
       await userEvent.type(quizPrompt, testQuiz.prompt);
       expect(quizPrompt).toHaveValue(testQuiz.prompt);
+
+      const cluePrompts = getAllByTestId(/clue\d/);
+      for (let ii = 0; ii < cluePrompts.length; ii++) {
+        const cluePrompt = cluePrompts[ii];
+        const clue = testQuiz.questions[0].clues[ii];
+        await user.type(cluePrompt, clue);
+        expect(cluePrompt).toHaveValue(clue);
+      }
+
+      const testAnswer = testQuiz.questions[0].answer;
+      const answerInput = getByLabelText("Answer");
+      await userEvent.type(answerInput, testAnswer);
+      expect(answerInput).toHaveValue(testAnswer);
+
     });
   });
 });
