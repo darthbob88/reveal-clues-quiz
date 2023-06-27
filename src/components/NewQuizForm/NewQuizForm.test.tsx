@@ -90,6 +90,59 @@ describe("New Quiz component", () => {
     });
   });
 
+  describe("Properly handles input", () => {
+    test("Can handle inputting the title", async () => {
+      const user = userEvent.setup();
+      const testQuiz = testQuizzes[0];
+      const { getByLabelText } = render(
+        <NewQuizForm />
+      );
+
+      const quizTitle = getByLabelText("Quiz Title");
+      await user.type(quizTitle, testQuiz.title);
+      expect(quizTitle).toHaveValue(testQuiz.title);
+    });
+
+    test("Can handle inputting a prompt", async () => {
+      const user = userEvent.setup();
+      const testQuiz = testQuizzes[0];
+      const { getByLabelText } = render(
+        <NewQuizForm />
+      );
+
+      const quizPrompt = getByLabelText("Quiz Prompt");
+      await user.type(quizPrompt, testQuiz.prompt);
+      expect(quizPrompt).toHaveValue(testQuiz.prompt);
+    });
+
+    test("Can handle inputting clues for a question", async () => {
+      const user = userEvent.setup();
+      const testQuiz = testQuizzes[0];
+      const clue = testQuiz.questions[0].clues[0];
+      const { getByTestId } = render(
+        <NewQuizForm />
+      );
+
+      const cluePrompt = getByTestId("clue1");
+      await user.type(cluePrompt, clue);
+      expect(cluePrompt).toHaveValue(clue);
+
+    });
+
+    test("Can handle inputting answer for a question", async () => {
+      const testQuiz = testQuizzes[0];
+      const testAnswer = testQuiz.questions[0].answer;
+      const { getByLabelText } = render(
+        <NewQuizForm />
+      );
+
+      const answerInput = getByLabelText("Answer");
+      await userEvent.type(answerInput, testAnswer);
+      expect(answerInput).toHaveValue(testAnswer);
+
+    });
+  })
+
   describe("Properly handles submitting a quiz", () => {
     // Input a test quiz and make sure it gets submitted correctly.
     test("Can handle submitting a good quiz", async () => {
