@@ -145,6 +145,18 @@ describe("New Quiz component", () => {
       expect(answerInput).toHaveValue(testAnswer);
 
     });
+
+    test("Can handle inputting additional text for a question", async () => {
+      const testReveal = "butts";
+      const { getByLabelText } = render(
+        <NewQuizForm />
+      );
+
+      const answerInput = getByLabelText("Additional text");
+      await userEvent.type(answerInput, testReveal);
+      expect(answerInput).toHaveValue(testReveal);
+
+    });
   })
 
   describe("Properly handles submitting a quiz", () => {
