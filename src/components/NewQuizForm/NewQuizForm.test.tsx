@@ -167,6 +167,11 @@ describe("New Quiz component", () => {
       await userEvent.type(quizPrompt, testQuiz.prompt);
       expect(quizPrompt).toHaveValue(testQuiz.prompt);
 
+      const timePrompt = getByLabelText("Time Limit (in minutes)");
+      const timeInMinutes = testQuiz.time/60;
+      await userEvent.type(timePrompt, `${timeInMinutes}`);
+      expect(timePrompt).toHaveValue(timeInMinutes);
+
       const cluePrompts = getAllByTestId(/clue\d/);
       for (let ii = 0; ii < cluePrompts.length; ii++) {
         const cluePrompt = cluePrompts[ii];

@@ -35,6 +35,12 @@ export const NewQuizForm: React.FunctionComponent = () => {
     setNewQuiz({ ...newQuiz, questions: tempQs });
   }
 
+  const handleTimeChange = (evt: any) => {
+    console.log(evt.target.value);
+    const newTime = evt.target.value as number;
+    setNewQuiz(newQuiz => ({ ...newQuiz, time: newTime * 60 }));
+  }
+
   const submitQuiz = () => {
     // TODO Fix this slugification
     newQuiz.slug = newQuiz.title.toLocaleLowerCase().replace(/\s/g, "-");
@@ -66,6 +72,11 @@ export const NewQuizForm: React.FunctionComponent = () => {
             value={newQuiz.prompt}
           />{" "}
         </label>
+      </p>
+      <p>
+        <label>Time Limit (in minutes)
+          <input type="number" id="timer" name="timer"
+            min="1" max="20" onChange={handleTimeChange} value={newQuiz.time / 60} /></label>
       </p>
       <button
         onClick={(event) => {

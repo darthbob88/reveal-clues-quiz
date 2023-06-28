@@ -24,6 +24,19 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
          
       </label>
     </p>
+    <p>
+      <label>
+        Time Limit (in minutes)
+        <input
+          id="timer"
+          max="20"
+          min="1"
+          name="timer"
+          type="number"
+          value="0"
+        />
+      </label>
+    </p>
     <button>
       Add Question
     </button>
