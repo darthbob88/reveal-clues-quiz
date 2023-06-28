@@ -29,26 +29,17 @@ describe("New Quiz component", () => {
       expect(result).toBeInTheDocument();
     });
 
-    test("removes a clue from a question when the button is clicked", () => {
-      const { getByTestId } = render(
+    test("Can only add up to 10 questions", () => {
+      const { getByText, getByTestId } = render(
         <NewQuizForm />
       );
 
-      const question = getByTestId("question1");
-      expect(question).toBeInTheDocument();
-
-      const clue1 = within(question).queryByTestId("clue1");
-      expect(clue1).toBeInTheDocument();
-
-      let clue4 = within(question).queryByTestId("clue4");
-      expect(clue4).toBeInTheDocument();
-
-      const removeClueQBtn = within(question).getAllByTestId("remove-clue");
-      expect(removeClueQBtn).toHaveLength(4);
-      fireEvent.click(removeClueQBtn[0]);
-
-      clue4 = within(question).queryByTestId("clue4");
-      expect(clue4).not.toBeInTheDocument();
+      const addQBtn = getByText(/Add Question/i);
+      for (let ii = 0; ii < 10; ii++) {
+        fireEvent.click(addQBtn);
+        expect(getByTestId(`question${ii + 1}`)).toBeInTheDocument();
+      }
+      expect(addQBtn).toBeDisabled();
     });
 
     test("removes a question when the button is clicked", () => {
@@ -89,6 +80,29 @@ describe("New Quiz component", () => {
       clue5 = within(question).queryByTestId("clue5");
       expect(clue5).toBeInTheDocument();
     });
+
+    test("removes a clue from a question when the button is clicked", () => {
+      const { getByTestId } = render(
+        <NewQuizForm />
+      );
+
+      const question = getByTestId("question1");
+      expect(question).toBeInTheDocument();
+
+      const clue1 = within(question).queryByTestId("clue1");
+      expect(clue1).toBeInTheDocument();
+
+      let clue4 = within(question).queryByTestId("clue4");
+      expect(clue4).toBeInTheDocument();
+
+      const removeClueQBtn = within(question).getAllByTestId("remove-clue");
+      expect(removeClueQBtn).toHaveLength(4);
+      fireEvent.click(removeClueQBtn[0]);
+
+      clue4 = within(question).queryByTestId("clue4");
+      expect(clue4).not.toBeInTheDocument();
+    });
+
   });
 
   describe("Properly handles input", () => {
@@ -237,7 +251,7 @@ describe("New Quiz component", () => {
 
       const addQBtn = getByText(/Add Question/i);
       await userEvent.click(addQBtn);
-     
+
       for (let jj = 0; jj < testQuiz.questions.length; jj++) {
         const questionDiv = getByTestId(`question${jj + 1}`);
         const questionText = testQuiz.questions[jj];
