@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { Question } from "../../model/Question";
 import { emptyQuestion, emptyQuiz, Quiz } from "../../model/Quiz";
 import { saveNewQuiz } from "../../model/QuizService";
@@ -35,11 +35,10 @@ export const NewQuizForm: React.FunctionComponent = () => {
     setNewQuiz({ ...newQuiz, questions: tempQs });
   }
 
-  const handleTimeChange = (evt: any) => {
-    console.log(evt.target.value);
-    const newTime = evt.target.value as number;
+  const handleTimeChange = (evt: ChangeEvent<HTMLInputElement>) => {
+    const newTime = Number(evt.target.value);
     setNewQuiz(newQuiz => ({ ...newQuiz, time: newTime * 60 }));
-  }
+  };
 
   const submitQuiz = () => {
     // TODO Fix this slugification
