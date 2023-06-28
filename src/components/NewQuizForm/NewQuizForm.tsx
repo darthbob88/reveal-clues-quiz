@@ -6,7 +6,6 @@ import styles from "./NewQuizForm.module.css";
 
 /* TODO: Remaining tasks
 Add an authorship field; this may require integrating with Firebase to get user ID.
-Add some upper limits; no more than 10 questions and 10 clues each, or whatever.
 Validation; require all fields, at least one non-blank clue and answer for each question, etc.
 */
 export const NewQuizForm: React.FunctionComponent = () => {
