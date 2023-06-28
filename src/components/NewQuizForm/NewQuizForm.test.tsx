@@ -60,6 +60,18 @@ describe("New Quiz component", () => {
       expect(question2).not.toBeInTheDocument();
     });
 
+    test("Cannot remove question if only 1 left", () => {
+      const { getByTestId } = render(
+        <NewQuizForm />
+      );
+
+      const question = getByTestId("question1");
+      expect(question).toBeInTheDocument();
+
+      const removeQBtn = within(question).getByTestId("remove-question");
+      expect(removeQBtn).toBeDisabled();
+    });
+
     test("adds a clue to a question when the button is clicked", () => {
       const { getByTestId } = render(
         <NewQuizForm />
@@ -79,6 +91,23 @@ describe("New Quiz component", () => {
 
       clue5 = within(question).queryByTestId("clue5");
       expect(clue5).toBeInTheDocument();
+    });
+
+    test("Can only add up to 10 clues", () => {
+      const { getByTestId } = render(
+        <NewQuizForm />
+      );
+
+      const question = getByTestId("question1");
+      expect(question).toBeInTheDocument();
+
+      const addClueQBtn = within(question).getByTestId("add-clue");
+
+      for (let ii = 4; ii < 10; ii++) {
+        fireEvent.click(addClueQBtn);
+        expect(getByTestId(`clue${ii + 1}`)).toBeInTheDocument();
+      }
+      expect(addClueQBtn).toBeDisabled();
     });
 
     test("removes a clue from a question when the button is clicked", () => {
@@ -101,6 +130,25 @@ describe("New Quiz component", () => {
 
       clue4 = within(question).queryByTestId("clue4");
       expect(clue4).not.toBeInTheDocument();
+    });
+
+
+    test("Cannot remove clue if only 1 left", () => {
+      const { getByTestId } = render(
+        <NewQuizForm />
+      );
+
+      const question = getByTestId("question1");
+      expect(question).toBeInTheDocument();
+
+      let removeClueQBtns = within(question).getAllByTestId("remove-clue");
+      for (let ii = removeClueQBtns.length -1; ii > 0; ii--) {
+        fireEvent.click(removeClueQBtns[ii]);
+      }
+
+      removeClueQBtns = within(question).getAllByTestId("remove-clue");
+      expect(removeClueQBtns).toHaveLength(1);
+      expect(removeClueQBtns[0]).toBeDisabled();
     });
 
   });

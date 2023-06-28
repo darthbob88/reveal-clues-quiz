@@ -132,11 +132,13 @@ const SingleQuestion: React.FunctionComponent<SingleQuestionProps> = ({ question
     updateQuestion(QIdx, updatedQuestion);
   }
 
+  const canAddClue = question.clues.length < 10;
   const addClue = () => {
     const updatedQuestion = question;
     updatedQuestion.clues.push("");
     updateQuestion(QIdx, updatedQuestion);
   }
+  const canRemoveClue = question.clues.length > 1;
   const removeClue = (clueIdx: number) => {
     let tempClues = question.clues;
     tempClues.splice(clueIdx, 1);
@@ -160,6 +162,7 @@ const SingleQuestion: React.FunctionComponent<SingleQuestionProps> = ({ question
         event.preventDefault();
         addClue();
       }}
+      disabled={!canAddClue}
     >
       Add Clue
     </button>
@@ -167,11 +170,12 @@ const SingleQuestion: React.FunctionComponent<SingleQuestionProps> = ({ question
       {question.clues.map((clue, clueIdx) => (
         <li key={clueIdx} >
           <input type="text" data-index={clueIdx} data-testid={"clue" + (clueIdx + 1)} value={clue} onChange={(event) => updateClue(event, clueIdx)} />
-          <button data-testid="remove-clue" disabled={question.clues.length <= 1}
+          <button data-testid="remove-clue"
             onClick={(event) => {
               event.preventDefault();
               removeClue(clueIdx);
             }}
+            disabled={!canRemoveClue}
           >
             X
           </button>
