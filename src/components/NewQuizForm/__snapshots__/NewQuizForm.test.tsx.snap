@@ -106,6 +106,13 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
           value=""
         />
       </label>
+      <label>
+        Additional text 
+        <input
+          type="text"
+          value=""
+        />
+      </label>
     </div>
     <button>
       Submit New Quiz

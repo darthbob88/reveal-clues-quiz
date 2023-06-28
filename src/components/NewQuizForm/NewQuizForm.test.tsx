@@ -150,10 +150,11 @@ describe("New Quiz component", () => {
   describe("Properly handles submitting a quiz", () => {
     // Input a test quiz and make sure it gets submitted correctly.
     test("Can handle submitting a good quiz", async () => {
-const saveNewQuizSpy = jest.spyOn(QuizService, "saveNewQuiz");
+      const saveNewQuizSpy = jest.spyOn(QuizService, "saveNewQuiz");
 
       const user = userEvent.setup();
       const testQuiz = testQuizzes[0];
+      testQuiz.questions = [{ ...testQuiz.questions[0], revealOnAnswer: "butts" }];
       const { getByLabelText, getAllByTestId, getByText } = render(
         <NewQuizForm />
       );
@@ -173,6 +174,11 @@ const saveNewQuizSpy = jest.spyOn(QuizService, "saveNewQuiz");
         await user.type(cluePrompt, clue);
         expect(cluePrompt).toHaveValue(clue);
       }
+
+      const testReveal = "butts";
+      const revealInput = getByLabelText("Additional text");
+      await userEvent.type(revealInput, testReveal);
+      expect(revealInput).toHaveValue(testReveal);
 
       const testAnswer = testQuiz.questions[0].answer;
       const answerInput = getByLabelText("Answer");

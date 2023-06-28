@@ -114,6 +114,12 @@ const SingleQuestion: React.FunctionComponent<SingleQuestionProps> = ({ question
     updatedQuestion.answer = newAnswer;
     updateQuestion(QIdx, updatedQuestion);
   }
+  const updateAddedText = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newAnswer = event.target.value;
+    const updatedQuestion = question;
+    updatedQuestion.revealOnAnswer = newAnswer;
+    updateQuestion(QIdx, updatedQuestion);
+  }
 
   const addClue = () => {
     const updatedQuestion = question;
@@ -163,6 +169,9 @@ const SingleQuestion: React.FunctionComponent<SingleQuestionProps> = ({ question
     </ol>
     <label>
       Answer <input type="text" onChange={(event) => updateAnswer(event)} value={question.answer} />
+    </label>
+    <label>
+      Additional text <input type="text" onChange={(event) => updateAddedText(event)} value={question.revealOnAnswer} />
     </label>
   </div>)
 
