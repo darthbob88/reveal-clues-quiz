@@ -127,7 +127,9 @@ exports[`New Quiz component renders the new quiz form properly 1`] = `
         />
       </label>
     </div>
-    <button>
+    <button
+      disabled=""
+    >
       Submit New Quiz
     </button>
   </form>

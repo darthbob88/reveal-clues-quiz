@@ -45,6 +45,12 @@ export const NewQuizForm: React.FunctionComponent = () => {
     saveNewQuiz(newQuiz);
   };
 
+  const validFrontmatter = (newQuiz.title !== "") && (newQuiz.prompt !== "") && (newQuiz.time >= 60);
+  // Should this be every or some? 
+  const validQuestions = newQuiz.questions.every(question => (question.answer !== "") && (question.clues.some(clue => clue !== "")))
+  const validQuiz = validFrontmatter && validQuestions;
+
+
   return (
     <form className={styles.question}>
       <p>
@@ -90,6 +96,7 @@ export const NewQuizForm: React.FunctionComponent = () => {
           <SingleQuestion key={QIdx} question={question} QIdx={QIdx} removeQuestion={removeQuestion} canRemoveQuestion={canRemoveQuestion} updateQuestion={updateQuestion} />);
       })}
       <button
+        disabled={!validQuiz}
         onClick={(event) => {
           event.preventDefault();
           submitQuiz();

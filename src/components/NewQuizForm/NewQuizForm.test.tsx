@@ -132,7 +132,6 @@ describe("New Quiz component", () => {
       expect(clue4).not.toBeInTheDocument();
     });
 
-
     test("Cannot remove clue if only 1 left", () => {
       const { getByTestId } = render(
         <NewQuizForm />
@@ -222,6 +221,16 @@ describe("New Quiz component", () => {
   })
 
   describe("Properly handles submitting a quiz", () => {
+
+    test("Submission button should initially be disabled", () => {
+      const { getByText } = render(
+        <NewQuizForm />
+      );
+
+      const submissionButton = getByText("Submit New Quiz");
+      expect(submissionButton).toBeDisabled();
+    });
+
     // Input a test quiz and make sure it gets submitted correctly.
     test("Can handle submitting a good quiz with one question", async () => {
       const saveNewQuizSpy = jest.spyOn(QuizService, "saveNewQuiz");
@@ -264,14 +273,14 @@ describe("New Quiz component", () => {
       await userEvent.type(answerInput, testAnswer);
       expect(answerInput).toHaveValue(testAnswer);
 
-      const submitBtn = getByText("Submit New Quiz");
-      fireEvent.click(submitBtn);
+      const submissionButton = getByText("Submit New Quiz");
+      expect(submissionButton).toBeEnabled();
+      fireEvent.click(submissionButton);
 
       expect(saveNewQuizSpy).toBeCalledTimes(1);
       expect(saveNewQuizSpy).toBeCalledWith(testQuiz);
 
     });
-
     jest.setTimeout(10_000);
     test("Can handle submitting a good quiz with multiple questions", async () => {
       const saveNewQuizSpy = jest.spyOn(QuizService, "saveNewQuiz");
