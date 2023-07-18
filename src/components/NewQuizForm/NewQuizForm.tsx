@@ -3,6 +3,8 @@ import { Question } from "../../model/Question";
 import { emptyQuestion, emptyQuiz, Quiz } from "../../model/Quiz";
 import { saveNewQuiz } from "../../model/QuizService";
 import styles from "./NewQuizForm.module.css";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../routes";
 
 /* TODO: Remaining tasks
 Add an authorship field; this may require integrating with Firebase to get user ID.
@@ -11,6 +13,7 @@ Validation; require all fields, at least one non-blank clue and answer for each 
 export const NewQuizForm: React.FunctionComponent = () => {
   const blankQuiz: Quiz = { ...emptyQuiz, questions: [{ clues: ["", "", "", ""], answer: "", revealOnAnswer: "" }] };
   const [newQuiz, setNewQuiz] = useState(blankQuiz);
+  const navigate = useNavigate();
 
   const canRemoveQuestion = newQuiz.questions.length > 1;
   const removeQuestion = (index: number) => {
@@ -43,6 +46,7 @@ export const NewQuizForm: React.FunctionComponent = () => {
     // TODO Fix this slugification
     newQuiz.slug = newQuiz.title.toLocaleLowerCase().replace(/\s/g, "-");
     saveNewQuiz(newQuiz);
+    navigate(ROUTES.HOME);
   };
 
   const validFrontmatter = (newQuiz.title !== "") && (newQuiz.prompt !== "") && (newQuiz.time >= 60);
