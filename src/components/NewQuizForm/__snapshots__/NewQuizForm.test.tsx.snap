@@ -2,6 +2,7 @@
 
 exports[`New Quiz component renders the new quiz form properly 1`] = `
 <div>
+     
   <form
     class="question"
   >

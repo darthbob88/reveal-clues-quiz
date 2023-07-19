@@ -4,20 +4,22 @@ import { NewQuizForm } from "./NewQuizForm";
 import { testQuizzes } from "../../model/Quiz";
 import userEvent from "@testing-library/user-event/";
 import * as QuizService from "../../model/QuizService";
+import { MemoryRouter } from "react-router-dom";
 
 describe("New Quiz component", () => {
   test("renders the new quiz form properly", () => {
     const { container } = render(
-      <NewQuizForm />
-    );
+      <MemoryRouter>   <NewQuizForm />
+      </MemoryRouter>);
 
     expect(container).toMatchSnapshot();
   });
   describe("Properly handles adding/removing clues/questions", () => {
     test("adds a new question when the button is clicked", () => {
       const { getByText, queryByText } = render(
-        <NewQuizForm />
-      );
+        <MemoryRouter>
+          <NewQuizForm />
+        </MemoryRouter>);
 
       let result = queryByText(/Question 2/i);
       expect(result).not.toBeInTheDocument();
@@ -31,8 +33,8 @@ describe("New Quiz component", () => {
 
     test("Can only add up to 10 questions", () => {
       const { getByText, getByTestId } = render(
-        <NewQuizForm />
-      );
+        <MemoryRouter>
+          <NewQuizForm /></MemoryRouter>);
 
       const addQBtn = getByText(/Add Question/i);
       for (let ii = 0; ii < 10; ii++) {
@@ -44,7 +46,7 @@ describe("New Quiz component", () => {
 
     test("removes a question when the button is clicked", () => {
       const { getByText, getByTestId, queryByTestId } = render(
-        <NewQuizForm />
+        <MemoryRouter>   <NewQuizForm /></MemoryRouter>
       );
 
       const addQBtn = getByText(/Add Question/i);
@@ -61,8 +63,7 @@ describe("New Quiz component", () => {
     });
 
     test("Cannot remove question if only 1 left", () => {
-      const { getByTestId } = render(
-        <NewQuizForm />
+      const { getByTestId } = render(<MemoryRouter>   <NewQuizForm /></MemoryRouter>
       );
 
       const question = getByTestId("question1");
@@ -73,8 +74,7 @@ describe("New Quiz component", () => {
     });
 
     test("adds a clue to a question when the button is clicked", () => {
-      const { getByTestId } = render(
-        <NewQuizForm />
+      const { getByTestId } = render(<MemoryRouter>   <NewQuizForm /></MemoryRouter>
       );
 
       const question = getByTestId("question1");
@@ -95,8 +95,7 @@ describe("New Quiz component", () => {
 
     test("Can only add up to 10 clues", () => {
       const { getByTestId } = render(
-        <NewQuizForm />
-      );
+        <MemoryRouter>   <NewQuizForm /></MemoryRouter>);
 
       const question = getByTestId("question1");
       expect(question).toBeInTheDocument();
@@ -112,8 +111,7 @@ describe("New Quiz component", () => {
 
     test("removes a clue from a question when the button is clicked", () => {
       const { getByTestId } = render(
-        <NewQuizForm />
-      );
+        <MemoryRouter>   <NewQuizForm /></MemoryRouter>);
 
       const question = getByTestId("question1");
       expect(question).toBeInTheDocument();
@@ -134,14 +132,13 @@ describe("New Quiz component", () => {
 
     test("Cannot remove clue if only 1 left", () => {
       const { getByTestId } = render(
-        <NewQuizForm />
-      );
+        <MemoryRouter>   <NewQuizForm /></MemoryRouter>);
 
       const question = getByTestId("question1");
       expect(question).toBeInTheDocument();
 
       let removeClueQBtns = within(question).getAllByTestId("remove-clue");
-      for (let ii = removeClueQBtns.length -1; ii > 0; ii--) {
+      for (let ii = removeClueQBtns.length - 1; ii > 0; ii--) {
         fireEvent.click(removeClueQBtns[ii]);
       }
 
@@ -157,8 +154,7 @@ describe("New Quiz component", () => {
       const user = userEvent.setup();
       const testQuiz = testQuizzes[0];
       const { getByLabelText } = render(
-        <NewQuizForm />
-      );
+        <MemoryRouter>   <NewQuizForm /></MemoryRouter>);
 
       const quizTitle = getByLabelText("Quiz Title");
       await user.type(quizTitle, testQuiz.title);
@@ -169,8 +165,7 @@ describe("New Quiz component", () => {
       const user = userEvent.setup();
       const testQuiz = testQuizzes[0];
       const { getByLabelText } = render(
-        <NewQuizForm />
-      );
+        <MemoryRouter>   <NewQuizForm /></MemoryRouter>);
 
       const quizPrompt = getByLabelText("Quiz Prompt");
       await user.type(quizPrompt, testQuiz.prompt);
@@ -182,7 +177,7 @@ describe("New Quiz component", () => {
       const testQuiz = testQuizzes[0];
       const clues = testQuiz.questions[0].clues;
       const { getAllByTestId } = render(
-        <NewQuizForm />
+        <MemoryRouter>   <NewQuizForm /></MemoryRouter>
       );
 
       const cluePrompts = getAllByTestId(/clue\d/);
@@ -198,7 +193,7 @@ describe("New Quiz component", () => {
       const testQuiz = testQuizzes[0];
       const testAnswer = testQuiz.questions[0].answer;
       const { getByLabelText } = render(
-        <NewQuizForm />
+        <MemoryRouter>   <NewQuizForm /></MemoryRouter>
       );
 
       const answerInput = getByLabelText("Answer");
@@ -210,7 +205,7 @@ describe("New Quiz component", () => {
     test("Can handle inputting additional text for a question", async () => {
       const testReveal = "butts";
       const { getByLabelText } = render(
-        <NewQuizForm />
+        <MemoryRouter>   <NewQuizForm /></MemoryRouter>
       );
 
       const answerInput = getByLabelText("Additional text");
@@ -224,7 +219,7 @@ describe("New Quiz component", () => {
 
     test("Submission button should initially be disabled", () => {
       const { getByText } = render(
-        <NewQuizForm />
+        <MemoryRouter>   <NewQuizForm /></MemoryRouter>
       );
 
       const submissionButton = getByText("Submit New Quiz");
@@ -239,7 +234,7 @@ describe("New Quiz component", () => {
       const testQuiz = { ...testQuizzes[0] };
       testQuiz.questions = [{ ...testQuiz.questions[0], revealOnAnswer: "butts" }];
       const { getByLabelText, getAllByTestId, getByText } = render(
-        <NewQuizForm />
+        <MemoryRouter>   <NewQuizForm /></MemoryRouter>
       );
 
       const quizTitle = getByLabelText("Quiz Title");
@@ -290,7 +285,7 @@ describe("New Quiz component", () => {
       testQuiz.questions = [{ ...testQuiz.questions[0], revealOnAnswer: "butts" }, { ...testQuiz.questions[1], revealOnAnswer: "foo" }];
 
       const { getByLabelText, getByTestId, getByText } = render(
-        <NewQuizForm />
+        <MemoryRouter>   <NewQuizForm /></MemoryRouter>
       );
 
       const quizTitle = getByLabelText("Quiz Title");
