@@ -1,3 +1,5 @@
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { databaseRef } from "../firebase";
 import { Quiz, defaultQuiz, testQuizzes } from "./Quiz"
 /**
  * Service for loading quizzes from whatever DB I decide to use.
@@ -6,12 +8,21 @@ import { Quiz, defaultQuiz, testQuizzes } from "./Quiz"
  */
 
 export const loadAllQuizzes = async (): Promise<Quiz[]> => {
-    return Promise.resolve(testQuizzes);
+    const quizCollection = collection(databaseRef, 'quizzes');
+    const quizSnapshot = await getDocs(quizCollection);
+    const quizList = quizSnapshot.docs.map(quiz => quiz.data() as Quiz);
+    return quizList;
 }
 
 export const loadQuiz = (slug: string) => {
     const selectedQuiz = testQuizzes.find(item => item.slug === slug) || defaultQuiz;
     return Promise.resolve(selectedQuiz);
+}
+
+export const saveQuiz = async (newQuiz: Quiz) => {
+    const quizDocRef = doc(databaseRef, `quizzes/${newQuiz.slug}`);
+    const document = await setDoc(quizDocRef, newQuiz);
+    console.log(document);
 }
 
 export const saveScore = (user: string, score: number) => {
