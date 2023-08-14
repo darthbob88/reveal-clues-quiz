@@ -1,4 +1,4 @@
-import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
 import { databaseRef } from "../firebase";
 import { Quiz } from "./Quiz"
 /**
@@ -14,11 +14,12 @@ export const loadAllQuizzes = async (): Promise<Quiz[]> => {
     return quizList;
 }
 
+/** Loading single quiz by their slug.
+ * TODO: Should this take the title, and convert it to a slug inside the function?
+ */
 export const loadQuiz = async (slug: string) => {
-    const quizCollection = collection(databaseRef, 'quizzes');
-    const quizSnapshot = await getDocs(quizCollection);
-    const selectedQuiz = quizSnapshot.docs.find(item => item.data().slug === slug);
-
+    const quizDocRef = doc(databaseRef, `quizzes/${slug}`);
+    const selectedQuiz = await getDoc(quizDocRef);
     if (selectedQuiz != null) {
         return Promise.resolve(selectedQuiz?.data() as Quiz);
     } else {
