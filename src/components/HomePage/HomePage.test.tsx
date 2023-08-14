@@ -1,9 +1,8 @@
 import React from "react";
-import { act, render, waitFor, waitForElementToBeRemoved } from "@testing-library/react";
+import { render, waitFor, waitForElementToBeRemoved } from "@testing-library/react";
 import { HomePage } from "./HomePage";
 import { MemoryRouter } from "react-router-dom";
 import { testQuizzes } from "../../model/Quiz";
-import { loadAllQuizzes } from "../../model/QuizService";
 
 jest.createMockFromModule("../../model/QuizService");
 
