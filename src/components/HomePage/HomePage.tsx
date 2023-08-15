@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Quiz } from "../../model/Quiz";
-import { loadAllQuizzes } from "../../model/QuizService";
+import * as QuizService from "../../model/QuizService";
 import { ROUTES } from "../../routes";
 import styles from "./HomePage.module.css";
 
-export const HomePage: React.FunctionComponent = () => {
+type HomePageProps = {
+  loadAllQuizzes?: () => Promise<Quiz[]>
+}
+
+export const HomePage: React.FunctionComponent<HomePageProps> = ({ loadAllQuizzes = QuizService.loadAllQuizzes }) => {
   const [quizList, setQuizList] = useState<Quiz[]>([]);
   useEffect(() => {
     let isSubscribed = true;
