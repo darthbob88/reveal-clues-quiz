@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, waitFor, waitForElementToBeRemoved } from "@testing-library/react";
+import { render, fireEvent, waitForElementToBeRemoved } from "@testing-library/react";
 import { QuizComponent } from "./QuizComponent";
 import { defaultQuiz, QuizEnum, QuizState, QuizStateContext } from "../../model/Quiz";
 import { QuestionEnum } from "../../model/Question";

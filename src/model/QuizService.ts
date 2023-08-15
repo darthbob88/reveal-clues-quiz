@@ -1,4 +1,6 @@
-import { Quiz, defaultQuiz, testQuizzes } from "./Quiz"
+import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
+import { databaseRef } from "../firebase";
+import { Quiz } from "./Quiz"
 /**
  * Service for loading quizzes from whatever DB I decide to use.
  */
@@ -6,12 +8,28 @@ import { Quiz, defaultQuiz, testQuizzes } from "./Quiz"
 // TODO: Replace this with actual async loading from Firebase or wherever
 
 export const loadAllQuizzes = async (): Promise<Quiz[]> => {
-    return Promise.resolve(testQuizzes);
+    const quizCollection = collection(databaseRef, 'quizzes');
+    const quizSnapshot = await getDocs(quizCollection);
+    const quizList = quizSnapshot.docs.map(quiz => quiz.data() as Quiz);
+    return quizList;
 }
 
-export const loadQuiz = (slug: string) => {
-    const selectedQuiz = testQuizzes.find(item => item.slug === slug) || defaultQuiz;
-    return Promise.resolve(selectedQuiz);
+/** Loading single quiz by their slug.
+ * TODO: Should this take the title, and convert it to a slug inside the function?
+ */
+export const loadQuiz = async (slug: string) => {
+    const quizDocRef = doc(databaseRef, `quizzes/${slug}`);
+    const selectedQuiz = await getDoc(quizDocRef);
+    if (selectedQuiz != null) {
+        return Promise.resolve(selectedQuiz?.data() as Quiz);
+    } else {
+        throw new Error(`Failed to load quiz ${slug}`);
+    }
+}
+
+export const saveQuiz = async (newQuiz: Quiz) => {
+    const quizDocRef = doc(databaseRef, `quizzes/${newQuiz.slug}`);
+    await setDoc(quizDocRef, newQuiz);
 }
 
 //TODO: Actually use this for a leaderboard, and with whatever storage system we use
