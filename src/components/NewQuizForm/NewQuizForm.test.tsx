@@ -228,7 +228,7 @@ describe("New Quiz component", () => {
 
     // Input a test quiz and make sure it gets submitted correctly.
     test("Can handle submitting a good quiz with one question", async () => {
-      const saveNewQuizSpy = jest.spyOn(QuizService, "saveNewQuiz");
+      const saveQuizSpy = jest.spyOn(QuizService, "saveQuiz");
 
       const user = userEvent.setup();
       const testQuiz = { ...testQuizzes[0] };
@@ -272,13 +272,13 @@ describe("New Quiz component", () => {
       expect(submissionButton).toBeEnabled();
       fireEvent.click(submissionButton);
 
-      expect(saveNewQuizSpy).toBeCalledTimes(1);
-      expect(saveNewQuizSpy).toBeCalledWith(testQuiz);
+      expect(saveQuizSpy).toBeCalledTimes(1);
+      expect(saveQuizSpy).toBeCalledWith(testQuiz);
 
     });
     jest.setTimeout(10_000);
     test("Can handle submitting a good quiz with multiple questions", async () => {
-      const saveNewQuizSpy = jest.spyOn(QuizService, "saveNewQuiz");
+      const saveQuizSpy = jest.spyOn(QuizService, "saveQuiz");
 
       const user = userEvent.setup();
       const testQuiz = { ...testQuizzes[0] };
@@ -330,8 +330,8 @@ describe("New Quiz component", () => {
       const submitBtn = getByText("Submit New Quiz");
       fireEvent.click(submitBtn);
 
-      expect(saveNewQuizSpy).toBeCalledTimes(1);
-      expect(saveNewQuizSpy).toBeCalledWith(testQuiz);
+      expect(saveQuizSpy).toBeCalledTimes(1);
+      expect(saveQuizSpy).toBeCalledWith(testQuiz);
 
     });
   });

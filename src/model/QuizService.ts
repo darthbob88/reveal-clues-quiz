@@ -36,7 +36,3 @@ export const saveQuiz = async (newQuiz: Quiz) => {
 export const saveScore = (user: string, score: number) => {
     localStorage.setItem(user, score.toString());
 }
-
-export const saveNewQuiz = (newQuiz: Quiz) => {
-    testQuizzes.push(newQuiz);
-}

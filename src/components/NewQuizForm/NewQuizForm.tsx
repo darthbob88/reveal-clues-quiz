@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 import { Question } from "../../model/Question";
 import { emptyQuestion, emptyQuiz, Quiz } from "../../model/Quiz";
-import { saveNewQuiz } from "../../model/QuizService";
+import { saveQuiz } from "../../model/QuizService";
 import styles from "./NewQuizForm.module.css";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../routes";
@@ -45,7 +45,7 @@ export const NewQuizForm: React.FunctionComponent = () => {
   const submitQuiz = () => {
     // TODO Fix this slugification
     newQuiz.slug = newQuiz.title.toLocaleLowerCase().replace(/\s/g, "-");
-    saveNewQuiz(newQuiz);
+    saveQuiz(newQuiz);
     navigate(ROUTES.HOME);
   };
 
