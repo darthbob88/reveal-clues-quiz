@@ -288,13 +288,13 @@ describe("New Quiz component", () => {
         <MemoryRouter>   <NewQuizForm /></MemoryRouter>
       );
 
-      const quizTitle = getByLabelText("Quiz Title");
-      await user.type(quizTitle, testQuiz.title);
-      expect(quizTitle).toHaveValue(testQuiz.title);
-
       const quizPrompt = getByLabelText("Quiz Prompt");
       await userEvent.type(quizPrompt, testQuiz.prompt);
       expect(quizPrompt).toHaveValue(testQuiz.prompt);
+
+      const quizTitle = getByLabelText("Quiz Title");
+      await user.type(quizTitle, testQuiz.title);
+      expect(quizTitle).toHaveValue(testQuiz.title);
 
       const timePrompt = getByLabelText("Time Limit (in minutes)");
       const timeInMinutes = testQuiz.time / 60;
