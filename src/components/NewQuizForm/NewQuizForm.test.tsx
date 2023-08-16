@@ -14,6 +14,7 @@ describe("New Quiz component", () => {
 
     expect(container).toMatchSnapshot();
   });
+
   describe("Properly handles adding/removing clues/questions", () => {
     test("adds a new question when the button is clicked", () => {
       const { getByText, queryByText } = render(
@@ -216,7 +217,6 @@ describe("New Quiz component", () => {
   })
 
   describe("Properly handles submitting a quiz", () => {
-
     test("Submission button should initially be disabled", () => {
       const { getByText } = render(
         <MemoryRouter>   <NewQuizForm /></MemoryRouter>
@@ -226,7 +226,6 @@ describe("New Quiz component", () => {
       expect(submissionButton).toBeDisabled();
     });
 
-    // Input a test quiz and make sure it gets submitted correctly.
     test("Can handle submitting a good quiz with one question", async () => {
       const saveQuizSpy = jest.spyOn(QuizService, "saveQuiz").mockImplementation((): Promise<void> => { return Promise.resolve() });
 
@@ -276,6 +275,7 @@ describe("New Quiz component", () => {
       expect(saveQuizSpy).toBeCalledWith(testQuiz);
 
     });
+
     jest.setTimeout(10_000);
     test("Can handle submitting a good quiz with multiple questions", async () => {
       const saveQuizSpy = jest.spyOn(QuizService, "saveQuiz").mockImplementation((): Promise<void> => { return Promise.resolve() });
@@ -313,18 +313,70 @@ describe("New Quiz component", () => {
           const cluePrompt = cluePrompts[ii];
           const clue = questionText.clues[ii];
           await user.type(cluePrompt, clue);
-          // expect(cluePrompt).toHaveValue(clue);
         }
 
         const testReveal = questionText.revealOnAnswer as string;
         const revealInput = within(questionDiv).getByLabelText("Additional text");
         await userEvent.type(revealInput, testReveal);
-        // expect(revealInput).toHaveValue(testReveal);
 
         const testAnswer = questionText.answer;
         const answerInput = within(questionDiv).getByLabelText("Answer");
         await userEvent.type(answerInput, testAnswer);
-        // expect(answerInput).toHaveValue(testAnswer);
+      }
+
+      const submitBtn = getByText("Submit New Quiz");
+      fireEvent.click(submitBtn);
+
+      expect(saveQuizSpy).toBeCalledTimes(1);
+      expect(saveQuizSpy).toBeCalledWith(testQuiz);
+
+    });
+
+    test.skip("Properly handles submitting quiz with same name as existing quiz", async () => {
+      const saveQuizSpy = jest.spyOn(QuizService, "saveQuiz").mockImplementation((): Promise<void> => { return Promise.resolve() });
+
+      const user = userEvent.setup();
+      const testQuiz = { ...testQuizzes[0] };
+      testQuiz.questions = [{ ...testQuiz.questions[0], revealOnAnswer: "butts" }, { ...testQuiz.questions[1], revealOnAnswer: "foo" }];
+
+      const { getByLabelText, getByTestId, getByText } = render(
+        <MemoryRouter>   <NewQuizForm /></MemoryRouter>
+      );
+
+      const quizTitle = getByLabelText("Quiz Title");
+      await user.type(quizTitle, testQuiz.title);
+      expect(quizTitle).toHaveValue(testQuiz.title);
+
+      const quizPrompt = getByLabelText("Quiz Prompt");
+      await userEvent.type(quizPrompt, testQuiz.prompt);
+      expect(quizPrompt).toHaveValue(testQuiz.prompt);
+
+      const timePrompt = getByLabelText("Time Limit (in minutes)");
+      const timeInMinutes = testQuiz.time / 60;
+      await userEvent.type(timePrompt, `${timeInMinutes}`);
+      expect(timePrompt).toHaveValue(timeInMinutes);
+
+      const addQBtn = getByText(/Add Question/i);
+      await userEvent.click(addQBtn);
+
+      for (let jj = 0; jj < testQuiz.questions.length; jj++) {
+        const questionDiv = getByTestId(`question${jj + 1}`);
+        const questionText = testQuiz.questions[jj];
+
+        const cluePrompts = within(questionDiv).getAllByTestId(/clue\d/);
+        for (let ii = 0; ii < cluePrompts.length; ii++) {
+          const cluePrompt = cluePrompts[ii];
+          const clue = questionText.clues[ii];
+          await user.type(cluePrompt, clue);
+        }
+
+        const testReveal = questionText.revealOnAnswer as string;
+        const revealInput = within(questionDiv).getByLabelText("Additional text");
+        await userEvent.type(revealInput, testReveal);
+
+        const testAnswer = questionText.answer;
+        const answerInput = within(questionDiv).getByLabelText("Answer");
+        await userEvent.type(answerInput, testAnswer);
       }
 
       const submitBtn = getByText("Submit New Quiz");
