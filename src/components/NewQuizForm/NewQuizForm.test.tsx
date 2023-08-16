@@ -228,7 +228,7 @@ describe("New Quiz component", () => {
 
     // Input a test quiz and make sure it gets submitted correctly.
     test("Can handle submitting a good quiz with one question", async () => {
-      const saveQuizSpy = jest.spyOn(QuizService, "saveQuiz");
+      const saveQuizSpy = jest.spyOn(QuizService, "saveQuiz").mockImplementation((): Promise<void> => { return Promise.resolve() });
 
       const user = userEvent.setup();
       const testQuiz = { ...testQuizzes[0] };
@@ -278,7 +278,7 @@ describe("New Quiz component", () => {
     });
     jest.setTimeout(10_000);
     test("Can handle submitting a good quiz with multiple questions", async () => {
-      const saveQuizSpy = jest.spyOn(QuizService, "saveQuiz");
+      const saveQuizSpy = jest.spyOn(QuizService, "saveQuiz").mockImplementation((): Promise<void> => { return Promise.resolve() });
 
       const user = userEvent.setup();
       const testQuiz = { ...testQuizzes[0] };
