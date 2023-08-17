@@ -1,10 +1,12 @@
 import React from "react";
-import { fireEvent, render, within } from "@testing-library/react";
+import { Matcher, SelectorMatcherOptions, fireEvent, render, within } from "@testing-library/react";
 import { NewQuizForm } from "./NewQuizForm";
 import { testQuizzes } from "../../model/Quiz";
 import userEvent from "@testing-library/user-event/";
 import * as QuizService from "../../model/QuizService";
 import { MemoryRouter } from "react-router-dom";
+import { UserEvent } from "@testing-library/user-event/dist/types/setup/setup";
+import { Question } from "../../model/Question";
 
 describe("New Quiz component", () => {
   test("renders the new quiz form properly", () => {
@@ -236,18 +238,7 @@ describe("New Quiz component", () => {
         <MemoryRouter>   <NewQuizForm /></MemoryRouter>
       );
 
-      const quizTitle = getByLabelText("Quiz Title");
-      await user.type(quizTitle, testQuiz.title);
-      expect(quizTitle).toHaveValue(testQuiz.title);
-
-      const quizPrompt = getByLabelText("Quiz Prompt");
-      await userEvent.type(quizPrompt, testQuiz.prompt);
-      expect(quizPrompt).toHaveValue(testQuiz.prompt);
-
-      const timePrompt = getByLabelText("Time Limit (in minutes)");
-      const timeInMinutes = testQuiz.time / 60;
-      await userEvent.type(timePrompt, `${timeInMinutes}`);
-      expect(timePrompt).toHaveValue(timeInMinutes);
+      await EnterQuiz(getByLabelText, testQuiz, user);
 
       const cluePrompts = getAllByTestId(/clue\d/);
       for (let ii = 0; ii < cluePrompts.length; ii++) {
@@ -288,18 +279,7 @@ describe("New Quiz component", () => {
         <MemoryRouter>   <NewQuizForm /></MemoryRouter>
       );
 
-      const quizPrompt = getByLabelText("Quiz Prompt");
-      await userEvent.type(quizPrompt, testQuiz.prompt);
-      expect(quizPrompt).toHaveValue(testQuiz.prompt);
-
-      const quizTitle = getByLabelText("Quiz Title");
-      await user.type(quizTitle, testQuiz.title);
-      expect(quizTitle).toHaveValue(testQuiz.title);
-
-      const timePrompt = getByLabelText("Time Limit (in minutes)");
-      const timeInMinutes = testQuiz.time / 60;
-      await userEvent.type(timePrompt, `${timeInMinutes}`);
-      expect(timePrompt).toHaveValue(timeInMinutes);
+      await EnterQuiz(getByLabelText, testQuiz, user);
 
       const addQBtn = getByText(/Add Question/i);
       await userEvent.click(addQBtn);
@@ -343,18 +323,7 @@ describe("New Quiz component", () => {
         <MemoryRouter>   <NewQuizForm /></MemoryRouter>
       );
 
-      const quizTitle = getByLabelText("Quiz Title");
-      await user.type(quizTitle, testQuiz.title);
-      expect(quizTitle).toHaveValue(testQuiz.title);
-
-      const quizPrompt = getByLabelText("Quiz Prompt");
-      await userEvent.type(quizPrompt, testQuiz.prompt);
-      expect(quizPrompt).toHaveValue(testQuiz.prompt);
-
-      const timePrompt = getByLabelText("Time Limit (in minutes)");
-      const timeInMinutes = testQuiz.time / 60;
-      await userEvent.type(timePrompt, `${timeInMinutes}`);
-      expect(timePrompt).toHaveValue(timeInMinutes);
+      await EnterQuiz(getByLabelText, testQuiz, user);
 
       const addQBtn = getByText(/Add Question/i);
       await userEvent.click(addQBtn);
@@ -388,3 +357,18 @@ describe("New Quiz component", () => {
     });
   });
 });
+
+async function EnterQuiz(getByLabelText: { (id: Matcher, options?: SelectorMatcherOptions | undefined): HTMLElement; (arg0: string): any; }, testQuiz: { questions: Question[]; title: string; prompt: string; slug: string; time: number; }, user: UserEvent) {
+  const quizPrompt = getByLabelText("Quiz Prompt");
+  await userEvent.type(quizPrompt, testQuiz.prompt);
+  expect(quizPrompt).toHaveValue(testQuiz.prompt);
+
+  const quizTitle = getByLabelText("Quiz Title");
+  await user.type(quizTitle, testQuiz.title);
+  expect(quizTitle).toHaveValue(testQuiz.title);
+
+  const timePrompt = getByLabelText("Time Limit (in minutes)");
+  const timeInMinutes = testQuiz.time / 60;
+  await userEvent.type(timePrompt, `${timeInMinutes}`);
+  expect(timePrompt).toHaveValue(timeInMinutes);
+}
