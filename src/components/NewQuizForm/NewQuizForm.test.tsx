@@ -312,49 +312,8 @@ describe("New Quiz component", () => {
 
     });
 
-    test.skip("Properly handles submitting quiz with same name as existing quiz", async () => {
-      const saveQuizSpy = jest.spyOn(QuizService, "saveQuiz").mockImplementation((): Promise<void> => { return Promise.resolve() });
-
-      const user = userEvent.setup();
-      const testQuiz = { ...testQuizzes[0] };
-      testQuiz.questions = [{ ...testQuiz.questions[0], revealOnAnswer: "butts" }, { ...testQuiz.questions[1], revealOnAnswer: "foo" }];
-
-      const { getByLabelText, getByTestId, getByText } = render(
-        <MemoryRouter>   <NewQuizForm /></MemoryRouter>
-      );
-
-      await EnterQuiz(getByLabelText, testQuiz, user);
-
-      const addQBtn = getByText(/Add Question/i);
-      await userEvent.click(addQBtn);
-
-      for (let jj = 0; jj < testQuiz.questions.length; jj++) {
-        const questionDiv = getByTestId(`question${jj + 1}`);
-        const questionText = testQuiz.questions[jj];
-
-        const cluePrompts = within(questionDiv).getAllByTestId(/clue\d/);
-        for (let ii = 0; ii < cluePrompts.length; ii++) {
-          const cluePrompt = cluePrompts[ii];
-          const clue = questionText.clues[ii];
-          await user.type(cluePrompt, clue);
-        }
-
-        const testReveal = questionText.revealOnAnswer as string;
-        const revealInput = within(questionDiv).getByLabelText("Additional text");
-        await userEvent.type(revealInput, testReveal);
-
-        const testAnswer = questionText.answer;
-        const answerInput = within(questionDiv).getByLabelText("Answer");
-        await userEvent.type(answerInput, testAnswer);
-      }
-
-      const submitBtn = getByText("Submit New Quiz");
-      fireEvent.click(submitBtn);
-
-      expect(saveQuizSpy).toBeCalledTimes(1);
-      expect(saveQuizSpy).toBeCalledWith(testQuiz);
-
-    });
+    // This should probably get handled just in the service.
+    test.skip("Properly handles submitting quiz with same name as existing quiz", async () => { });
   });
 });
 
