@@ -7,6 +7,7 @@ import { QuizPage } from "./components/Quiz/QuizPage";
 import { NavHeader } from "./components/NavHeader/NavHeader";
 import { NavFooter } from "./components/NavFooter/NavFooter";
 import { Routes } from "react-router";
+import { NewQuizForm } from "./components/NewQuizForm/NewQuizForm";
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,8 @@ function App() {
           <Route path={ROUTES.HOME} element={<HomePage />} />
           <Route path={ROUTES.LANDING} element={<HomePage />} />
           <Route path={ROUTES.QUIZ} element={<QuizPage />} />
+          {/* TODO: Add a link to this in the header */}
+          <Route path={ROUTES.NEW_QUIZ} element={<NewQuizForm />} />
         </Routes></div>
       <NavFooter />
     </div>

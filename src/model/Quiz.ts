@@ -3,6 +3,7 @@ import { createContext } from "react";
 import { defaultQuestionState, Question, QuestionEnum, QuestionState } from "./Question";
 /**
  * Overarching type for a quiz.
+ * @field author: The user who created the quiz.
  * @field prompt: A prompt for each question.
  * @field questions: An array of questions for each quiz.
  * @field title: An overarching title for the quiz. 
@@ -182,7 +183,9 @@ export const testQuizzes: Quiz[] = [
     },
 ];
 
-// Used for testing
+/**
+ *  Used for testing
+ */
 export const defaultQuiz: Quiz = testQuizzes[0];
 
 // Actual empty default. 
@@ -192,6 +195,13 @@ export const emptyQuiz: Quiz = {
     prompt: "",
     time: 0,
     questions: []
+};
+
+// Actual empty default. 
+export const emptyQuestion: Question = {
+    clues: ["", "", "", ""],
+    answer: "",
+    revealOnAnswer: ""
 };
 
 export enum QuizEnum {
