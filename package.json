@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^14.4.3",
     "@types/firebase": "^3.2.1",
     "@types/jest": "^29.5.3",
-    "@types/node": "^20.5.0",
+    "@types/node": "^20.5.7",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "firebase": "^10.2.0",
