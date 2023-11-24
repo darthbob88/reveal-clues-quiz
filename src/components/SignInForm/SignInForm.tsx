@@ -1,13 +1,14 @@
 import React, { useState, useContext } from "react";
-import { AuthContext } from "../models/AuthService";
-import { useHistory } from "react-router-dom";
-import { ROUTES } from "../routes";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../model/AuthService";
+import { ROUTES } from "../../routes";
 
-export const SignInForm = () => {
+
+export const SignInForm: React.FunctionComponent = () => {
   const AuthService = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const onSignInGoogle = () => {
     AuthService.doSignInWithGoogleOauth();
@@ -18,9 +19,9 @@ export const SignInForm = () => {
       .then(authUser => {
         if (authUser.user != null)
           console.log(`Successfully logged in as ${authUser.user.email}`);
-        history.push(ROUTES.HOME);
+        navigate(ROUTES.HOME);
       })
-      .catch((error: any) => {});
+      .catch((error: any) => { });
 
     event.preventDefault();
   };

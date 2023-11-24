@@ -23,7 +23,7 @@ const INITIAL_STATE: NewUserState = {
 
 //TODO: Turn this into a functional component, using hooks.
 //TODO: Fix this prop typing
-class SignUpFormBase extends Component<any, NewUserState> {
+class SignUpForm extends Component<any, NewUserState> {
   constructor(props: any) {
     super(props);
 
@@ -140,6 +140,5 @@ const SignUpLink = () => (
   </p>
 );
 
-const SignUpForm = withRouter(SignUpFormBase);
 
 export { SignUpForm, SignUpLink };

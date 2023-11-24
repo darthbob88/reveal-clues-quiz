@@ -19,6 +19,11 @@ exports[`renders the app properly 1`] = `
       >
         New Quiz
       </a>
+      <a
+        href="/signin"
+      >
+        Sign in
+      </a>
       <details
         class="description"
       >

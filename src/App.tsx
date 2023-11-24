@@ -20,8 +20,8 @@ function App() {
           <Route path={ROUTES.HOME} element={<HomePage />} />
           <Route path={ROUTES.LANDING} element={<HomePage />} />
           <Route path={ROUTES.QUIZ} element={<QuizPage />} />
-          <Route path={ROUTES.SIGN_IN} element={SignInForm} />
-          <Route path={ROUTES.SIGN_UP} element={SignUpForm} />
+          <Route path={ROUTES.SIGN_IN} element={<SignInForm />} />
+          <Route path={ROUTES.SIGN_UP} element={<SignUpForm />} />
           <Route path={ROUTES.NEW_QUIZ} element={<NewQuizForm />} />
         </Routes></div>
       <NavFooter />

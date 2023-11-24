@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { AuthContext} from "../models/AuthService";
+import { AuthContext } from "../../model/AuthService";
 export const SignOutButton = () => {
-  
+
   const AuthService = useContext(AuthContext);
   const signOut = () => {
     AuthService.doSignOut().then(() => {
-        console.log(`Successfully signed out`)
+      console.log(`Successfully signed out`)
     });
   };
   return (
