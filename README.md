@@ -36,10 +36,10 @@ TH: Next question...
 Anyway, since I can't do that in real life until after the Deathlung is over, I'm making an app to do it instead. 
 
 ## Plans:
-* v1.0: One hard-coded quiz, with automatic scoring, though no recording.
-* v1.05: *Two* hard-coded quizzes, to make sure that we can dynamically load quizzes properly.
-* v1.1: Add ability for user-generated quizzes
-* v1.2: Add ability to save user scores and generate leaderboard for quizzes
+~~* v1.0: One hard-coded quiz, with automatic scoring, though no recording.~~ Done
+~~* v1.05: *Two* hard-coded quizzes, to make sure that we can dynamically load quizzes properly.~~ Done
+~~* v1.1: Add ability for user-generated quizzes~~ Mostly done, though I gave up on authentication because I'm burnt out.
+~~* v1.2: Add ability to save user scores and generate leaderboard for quizzes~~ Cancelled, because I'm kinda burnt out.
 
 ## Contributing to This Project
 
@@ -55,4 +55,4 @@ Alternatively see the GitHub documentation on [creating a pull request](https://
 
 ## Contact
 
-If you want to contact me you can reach me at <darthbob88@gmail.com>.
+If you want to contact me you can file an issue on this repo.
