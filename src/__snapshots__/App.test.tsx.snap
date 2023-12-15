@@ -9,16 +9,18 @@ exports[`renders the app properly 1`] = `
       <h1>
         Raymond's Quiz App
       </h1>
-      <a
-        href="/reveal-clues-quiz"
-      >
-        Home
-      </a>
-      <a
-        href="/newquiz"
-      >
-        New Quiz
-      </a>
+      <nav>
+        <a
+          href="/reveal-clues-quiz"
+        >
+          Home
+        </a>
+        <a
+          href="/newquiz"
+        >
+          New Quiz
+        </a>
+      </nav>
       <details
         class="description"
       >
