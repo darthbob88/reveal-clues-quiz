@@ -10,13 +10,14 @@ div.content {
   flex: 1;
 }
 
-header a {
+header nav a {
   margin: 0 0.5rem;
 }
 details.description {
   margin: 0.5rem auto;
   text-align: justify;
 }
+
 .description summary {
   text-align: center;
   margin-bottom: 0.5rem;
