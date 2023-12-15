@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/reveal-clues-quiz/static/css/main.5c95e5a5.css",
+    "main.js": "/reveal-clues-quiz/static/js/main.38d53ae1.js",
+    "index.html": "/reveal-clues-quiz/index.html",
+    "main.5c95e5a5.css.map": "/reveal-clues-quiz/static/css/main.5c95e5a5.css.map",
+    "main.38d53ae1.js.map": "/reveal-clues-quiz/static/js/main.38d53ae1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5c95e5a5.css",
+    "static/js/main.38d53ae1.js"
+  ]
+}
