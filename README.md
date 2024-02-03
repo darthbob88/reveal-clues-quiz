@@ -4,6 +4,8 @@
 ![GitHub repo size](https://img.shields.io/github/languages/code-size/darthbob88/reveal-clues-quiz)
 ![Node.js CI](https://github.com/darthbob88/reveal-clues-quiz/workflows/Node.js%20CI/badge.svg)
 
+## ~~Cancelled due to burnout~~
+
 There's this format for trivia that I really like, but which doesn't work well in a socially-distant or online scenario. I give you a series of 4ish clues relating to a certain thing, and when you think you know the answer, you run down and tell me,  I mark it correct or incorrect, and award you some points depending on how many clues you needed. If you only need 1 clue out of 4 to know that, eg, the USPS Remote Encoding Center is in the state of Utah, you get 4 points. If you need all 4 clues, you only get 1 point. The catch is, you only get one chance to answer each question, and if you get an answer wrong, you get 0 points for that question. So it's often better to wait for another clue than risk getting 0.
 
 <details><summary>Example of play</summary>
@@ -33,7 +35,7 @@ TH: Correct, 1 point.
 TH: Next question...
 </details>
 
-Anyway, since I can't do that in real life until after the Deathlung is over, I'm making an app to do it instead. 
+Anyway, since I can't do that in real life until after the Deathlung is over, I made an app to do it instead. 
 
 ## Plans:
 * ~~v1.0: One hard-coded quiz, with automatic scoring, though no recording.~~ Done
